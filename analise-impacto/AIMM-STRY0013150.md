@@ -1,4 +1,4 @@
-<!-- docqui: 8.3.1 | prompt: PROMPT_AIMM | atualizado: 2026-10-31 -->
+<!-- docqui: 9.1.0 | prompt: MIGRA_AIMM_ESTADO | atualizado: 2026-10-31 -->
 ---
 tipo: ticket
 ticket: STRY0013150
@@ -6,6 +6,8 @@ ferramenta: ServiceNow fictício
 link: ../mentoria/backlog.md#stry0013150--cadastro-de-produtos
 titulo: Cadastro de produtos
 estado: em-análise
+estado-por: "Andro Márcio Correa Louredo"
+estado-em: 2026-10-31 16:09 -03:00
 aberta-na-entrega: false
 sprint: ""
 avalizado-por: ""
@@ -162,6 +164,7 @@ Perfil `requisitos`: a alteração é descrita no modelo de entidades de negóci
 
 | Data | Autor | Tipo | Descrição |
 |---|---|---|---|
+| 2026-10-31 | Docqui Caixa | Ajuste | Front-matter ganha `estado-por` e `estado-em` (9.1.0), preenchidos pelo histórico do git com quem levou a AIMM ao estado atual e quando. |
 | 2026-10-31 | Claude | Em análise | Changeset derivado e completado depois do N2 e do primeiro N3, por isso sem aval prévio; acrescenta VIT-DST-02 — Cadastrar Destaque, chegando a 10 funcionalidades; sem aval da PO. |
 | 2026-10-31 | Andro Márcio (Docqui Caixa) | AIMM aberta | Ticket fictício `STRY0013150` registrado a partir do backlog da demonstração; 9 funcionalidades mapeadas: 5 criadas em Produtos e 4 alteradas em Navegação e Carrinho. |
 | 2026-10-20 | Docqui Caixa | Terminologia | Adoção de AIMM; histórico anterior preservado. |
