@@ -25,7 +25,7 @@
 | Preço | valor | sim | → ver FIELD-DICTIONARY: Valor monetário |
 | Quantidade em estoque | número | sim | Inteiro maior ou igual a zero; com zero, o produto aparece como esgotado |
 | Categoria | seleção → Categoria | sim | Todo produto pertence a uma única categoria |
-| Unidade | texto | sim | Unidade de venda do produto, como unidade, caixa ou quilo |
+| Unidade de venda | texto | sim | Como o produto é vendido: unidade, caixa ou quilo |
 
 
 ## Relacionamentos
