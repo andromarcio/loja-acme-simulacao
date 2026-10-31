@@ -1,4 +1,4 @@
-<!-- docqui: 7.0.0 | prompt: MIGRA_NIVEIS | atualizado: 2026-10-23 -->
+<!-- docqui: 8.3.1 | prompt: PROMPT_DATA_MODEL_negocio | atualizado: 2026-10-31 -->
 # Data Model: Catálogo
 > **Modelo de entidades (negocial)** — entidades, atributos e relacionamentos de negócio, sem camada física.
 
@@ -25,6 +25,7 @@
 | Preço | valor | sim | → ver FIELD-DICTIONARY: Valor monetário |
 | Quantidade em estoque | número | sim | Inteiro maior ou igual a zero; com zero, o produto aparece como esgotado |
 | Categoria | seleção → Categoria | sim | Todo produto pertence a uma única categoria |
+| Situação | lista (Ativo, Inativo) | sim | Nasce Ativo; produto inativo está fora de venda, não aparece na loja e continua nos pedidos antigos |
 
 ## Relacionamentos
 
