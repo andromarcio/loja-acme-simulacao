@@ -1,4 +1,4 @@
-<!-- docqui: 7.1.0 | prompt: MIGRA_NIVEIS | atualizado: 2026-10-21 -->
+<!-- docqui: 9.1.0 | prompt: MIGRA_AIMM_ESTADO | atualizado: 2026-10-31 -->
 ---
 tipo: ticket
 ticket: STRY0013180
@@ -6,6 +6,8 @@ ferramenta: ServiceNow fictício
 link: ../mentoria/backlog.md#stry0013180--destaques-da-página-inicial
 titulo: Destaques da página inicial
 estado: em-análise
+estado-por: "Claude"
+estado-em: 2026-10-31 00:16 +00:00
 aberta-na-entrega: false
 sprint: ""
 avalizado-por: ""
@@ -98,6 +100,7 @@ Não encerrada. Esta AIMM está em análise e não declara entrega, aprovação 
 
 | Data | Autor | Tipo | Descrição |
 |---|---|---|---|
+| 2026-10-31 | Docqui Caixa | Ajuste | Front-matter ganha `estado-por` e `estado-em` (9.1.0), preenchidos pelo histórico do git com quem levou a AIMM ao estado atual e quando. |
 | 2026-10-21 | Docqui Caixa | Ajuste | Layout da AIMM do ticket: sem Contexto, alterações por Agrupamento Funcional, Decisões pendentes, nome abaixo do ID, entidades sem PF. |
 | 2026-10-20 | Docqui Caixa | Ajuste | Layout da AIMM do ticket: nome abaixo do ID, entidades sem PF. |
 | 2026-10-18 | Claude | Demonstração | Ticket fictício e Feature Set Destaques preenchidos, com 5 features em rascunho, sem aval e com a contagem pendente. |

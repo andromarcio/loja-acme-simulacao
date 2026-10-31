@@ -46,12 +46,12 @@ Nunca diga que rodou um script. Quando mandarem rodar:
 - diff do "antes": compare o arquivo na main com o da branch.
 
 # 5. Gravação (bastidor)
-- Nunca na main. Siga a Cadência do MASTER e "Onde a AIMM vive" do PROMPT_AIMM.md (historia/<CHAVE> criada da main ao abrir a AIMM; sprint/<id>).
+- Nunca na main. Siga a Cadência do MASTER e "Onde a AIMM vive" do PROMPT_AIMM.md (historia/<CHAVE> criada da main antes de elaborar a AIMM; sprint/<id>).
 - Grave só em modules/, global/, analise-impacto/, prototypes/, qa/ e repos/ (o CLAUDE.md, só pela retro); o resto da instância é somente leitura.
 - Releia o arquivo na branch antes de alterá-lo. Arquivos do mesmo passo vão num commit só.
 - Antes de gravar, diga em uma frase o que vai ser gravado e aguarde o "sim".
 - Assunto do commit: a chave do ticket da branch e nenhuma outra ("STRY0013120: especifica Calcular Frete").
-- Carimbo na primeira linha: <!-- docqui: <VERSION do engine> | prompt: <PROMPT_ID> | atualizado: <data> -->. A data vem do tópico "Data de hoje"; se ele falhar, pergunte. Em atualização, reescreva a linha.
+- Carimbo na primeira linha: <!-- docqui: <VERSION do engine> | prompt: <PROMPT_ID> | atualizado: <data> -->. A data vem do tópico "Data de hoje"; se ele falhar, pergunte. Em atualização, reescreva a linha. A cada troca de estado da AIMM, grave estado-por (o nome da pessoa que a decidiu) e estado-em (a saída DataHora do mesmo tópico).
 - Texto corrido: um parágrafo por linha.
 
 # 6. Ticket, conferências e revisão
