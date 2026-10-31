@@ -132,11 +132,11 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
 <section id="visao">
   <h2>Visão geral</h2>
   <p class="sub">Como as peças se ligam. O analista só conversa com o agente e acompanha o pull request no navegador.</p>
-  <div class="diagrama" role="img" aria-label="Diagrama: o analista conversa com o agente Docqui Caixa no Copilot Studio, que usa a ferramenta MCP do GitHub para ler o método e gravar a especificação na branch do repositório; o push dispara o workflow regenera-gerados, que grava os arquivos gerados com o token do GitHub App; os checks do PR conferem tudo e o revisor aprova e faz o merge; o agente Retro registra aprendizados como issue no repositório do engine.">
+  <div class="diagrama" role="img" aria-label="Diagrama: o analista conversa com o agente Docqui Caixa no Copilot Studio, que usa a ferramenta MCP do GitHub para ler o método na main do repositório do engine e gravar a especificação na branch do repositório do sistema; o push dispara o workflow regenera-gerados, que grava os arquivos gerados com o token do GitHub App; os checks do PR conferem tudo e o revisor aprova e faz o merge; o agente Retro registra aprendizados como issue no repositório do engine.">
 <svg viewBox="0 0 1090 430" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" aria-hidden="true">
 <defs><marker id="ponta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1B2B4B"/></marker></defs>
 <rect x="218" y="22" width="174" height="398" rx="12" fill="none" stroke="#5B3FA6" stroke-width="1.2" stroke-dasharray="6 4"/><text x="228" y="37" font-size="11" font-weight="600" fill="#5B3FA6">Copilot Studio</text>
-<rect x="658" y="22" width="174" height="248" rx="12" fill="none" stroke="#1E7F5C" stroke-width="1.2" stroke-dasharray="6 4"/><text x="668" y="37" font-size="11" font-weight="600" fill="#1E7F5C">Repositório &lt;sistema&gt;-doc</text>
+<rect x="658" y="172" width="174" height="98" rx="12" fill="none" stroke="#1E7F5C" stroke-width="1.2" stroke-dasharray="6 4"/><text x="668" y="187" font-size="11" font-weight="600" fill="#1E7F5C">Repositório &lt;sistema&gt;-doc</text>
 <rect x="658" y="322" width="394" height="98" rx="12" fill="none" stroke="#8F5600" stroke-width="1.2" stroke-dasharray="6 4"/><text x="780" y="337" font-size="11" font-weight="600" fill="#8F5600">GitHub Actions</text>
 <path d="M160,228.0 L230,228.0" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="195.0" y="220.0" text-anchor="middle" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">conversa</text>
 <path d="M380,228.0 L450,228.0" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="415.0" y="220.0" text-anchor="middle" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">lê e grava</text>
@@ -144,8 +144,7 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
 <path d="M820,228.0 L890,228.0" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="855.0" y="220.0" text-anchor="middle" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">PR</text>
 <path d="M305.0,200 L305.0,106" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="313.0" y="157.0" text-anchor="start" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">data</text>
 <path d="M305.0,256 L305.0,350" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="313.0" y="307.0" text-anchor="start" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">retro no fim</text>
-<path d="M230,378.0 L160,378.0" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="195.0" y="370.0" text-anchor="middle" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">issue</text>
-<path d="M525.0,200 L525.0,78.0 L670,78.0" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="603.5" y="70.0" text-anchor="middle" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">lê skill e prompt</text>
+<path d="M525.0,200 L525.0,78.0 L670,78.0" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="603.5" y="70.0" text-anchor="middle" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">lê o método · issue</text>
 <path d="M965.0,106 L965.0,200" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="973.0" y="157.0" text-anchor="start" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">revisa e mescla</text>
 <path d="M723.0,256 L723.0,350" fill="none" stroke="#1B2B4B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ponta)"/><text x="715.0" y="307.0" text-anchor="end" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">push</text>
 <path d="M767.0,350 L767.0,256" fill="none" stroke="#1B2B4B" stroke-width="1.6" marker-end="url(#ponta)"/><text x="775.0" y="307.0" text-anchor="start" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">[gerado]</text>
@@ -153,13 +152,12 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
 <path d="M965.0,256 L965.0,350" fill="none" stroke="#1B2B4B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ponta)"/><text x="973.0" y="307.0" text-anchor="start" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">dispara</text>
 <path d="M820,378.0 L890,378.0" fill="none" stroke="#1B2B4B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ponta)"/><text x="855.0" y="370.0" text-anchor="middle" font-size="11" fill="#1B2B4B" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">re-dispara</text>
 <g><rect x="10" y="200" width="150" height="56" rx="8" fill="#E6F0F9" stroke="#005CA9" stroke-width="1.5"/><text x="85.0" y="224" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">Analista</text><text x="85.0" y="242" text-anchor="middle" font-size="11" fill="#4A5873">Teams ou navegador</text></g>
-<g><rect x="10" y="350" width="150" height="56" rx="8" fill="#E5F3EC" stroke="#1E7F5C" stroke-width="1.5"/><text x="85.0" y="374" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">Repositório do engine</text><text x="85.0" y="392" text-anchor="middle" font-size="11" fill="#4A5873">issues retro</text></g>
 <g><rect x="230" y="50" width="150" height="56" rx="8" fill="#EDE7F6" stroke="#5B3FA6" stroke-width="1.5"/><text x="305.0" y="74" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">Data de hoje</text><text x="305.0" y="92" text-anchor="middle" font-size="11" fill="#4A5873">tópico</text></g>
 <g><rect x="230" y="200" width="150" height="56" rx="8" fill="#EDE7F6" stroke="#5B3FA6" stroke-width="1.5"/><text x="305.0" y="224" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">Agente Docqui Caixa</text><text x="305.0" y="242" text-anchor="middle" font-size="11" fill="#4A5873">instruções + skill</text></g>
 <g><rect x="230" y="350" width="150" height="56" rx="8" fill="#EDE7F6" stroke="#5B3FA6" stroke-width="1.5"/><text x="305.0" y="374" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">Retro</text><text x="305.0" y="392" text-anchor="middle" font-size="11" fill="#4A5873">agente filho</text></g>
 <g><rect x="450" y="200" width="150" height="56" rx="8" fill="#FFF1D6" stroke="#8F5600" stroke-width="1.5"/><text x="525.0" y="224" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">GitHub MCP</text><text x="525.0" y="242" text-anchor="middle" font-size="11" fill="#4A5873">login do analista</text></g>
 <g><rect x="450" y="350" width="150" height="56" rx="8" fill="#FFF1D6" stroke="#8F5600" stroke-width="1.5"/><text x="525.0" y="374" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">GitHub App</text><text x="525.0" y="392" text-anchor="middle" font-size="11" fill="#4A5873">docqui-bot</text></g>
-<g><rect x="670" y="50" width="150" height="56" rx="8" fill="#E5F3EC" stroke="#1E7F5C" stroke-width="1.5"/><text x="745.0" y="74" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">Método</text><text x="745.0" y="92" text-anchor="middle" font-size="11" fill="#4A5873">engine/ · skills</text></g>
+<g><rect x="670" y="50" width="150" height="56" rx="8" fill="#E5F3EC" stroke="#1E7F5C" stroke-width="1.5"/><text x="745.0" y="74" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">Repositório do engine</text><text x="745.0" y="92" text-anchor="middle" font-size="11" fill="#4A5873">método na main · issues</text></g>
 <g><rect x="670" y="200" width="150" height="56" rx="8" fill="#E5F3EC" stroke="#1E7F5C" stroke-width="1.5"/><text x="745.0" y="224" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">Especificação</text><text x="745.0" y="242" text-anchor="middle" font-size="11" fill="#4A5873">historia/&lt;CHAVE&gt;</text></g>
 <g><rect x="670" y="350" width="150" height="56" rx="8" fill="#FFF1D6" stroke="#8F5600" stroke-width="1.5"/><text x="745.0" y="374" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">regenera-gerados</text><text x="745.0" y="392" text-anchor="middle" font-size="11" fill="#4A5873">workflow</text></g>
 <g><rect x="890" y="50" width="150" height="56" rx="8" fill="#E6F0F9" stroke="#005CA9" stroke-width="1.5"/><text x="965.0" y="74" text-anchor="middle" font-size="13" font-weight="600" fill="#1B2B4B">Revisor</text><text x="965.0" y="92" text-anchor="middle" font-size="11" fill="#4A5873">e code owner</text></g>
@@ -248,12 +246,14 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
         </ol>
         <div class="aviso"><strong>Organização com acesso de apps restrito</strong>Em <span class="ui">Settings</span> → <span class="ui">Third-party access</span> → <span class="ui">OAuth app policy</span>, aprove este app. Sem isso, o agente não enxerga os repositórios da organização.</div>
       </div></li>
-    <li data-passo="1.5"><label class="passo-titulo"><input type="checkbox"><span><span class="id">1.5</span><strong>Preparar o repositório do engine para a retro</strong><span class="quem">mantenedor do engine</span></span></label>
+    <li data-passo="1.5"><label class="passo-titulo"><input type="checkbox"><span><span class="id">1.5</span><strong>Preparar o repositório do engine</strong><span class="quem">mantenedor do engine</span></span></label>
       <div class="passo-corpo">
+        <p>O agente lê o método — prompts, skills e templates — do repositório do engine, na branch <code>main</code>, e não de cada repositório de documentação. Um só lugar para atualizar.</p>
         <ol>
+          <li>Dê aos analistas, pelo grupo ou time deles, ao menos acesso de <strong>leitura</strong> ao repositório do engine. É o que o agente usa para ler o método e, na retro, para abrir issue.</li>
           <li>No repositório do engine, abra <span class="ui">Issues</span> → <span class="ui">Labels</span> → <span class="ui">New label</span>, crie o rótulo <code>retro</code> e salve.</li>
-          <li>Garanta que os analistas tenham ao menos acesso de leitura ao repositório do engine: é o que basta para abrir issue.</li>
         </ol>
+        <div class="aviso"><strong>A <code>main</code> do engine vale para todas as instâncias na hora</strong>O que entra na <code>main</code> passa a ser o método de todo agente, em todos os sistemas, na próxima conversa. Release que pede migração nas instâncias (como a 7.0.0, que trocou os nomes dos níveis) só entra na <code>main</code> com as instâncias migradas.</div>
       </div></li>
   </ol>
 </section>
@@ -267,11 +267,11 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
         <p>Abra o repositório no navegador e confira que tudo abaixo existe. Quase tudo já vem da criação da instância (<code>init-instance</code>) e da sincronização com o engine (<code>sync-instance</code>), feitas por quem mantém o engine. O que está em <span style="background:var(--grifo);padding:0 4px;border-radius:3px">amarelo</span> você adiciona com este pacote.</p>
 <div class="arvore">&lt;sistema&gt;-doc/
 ├── CLAUDE.md                    regras da instância (o agente lê; a retro propõe mudanças)
-├── VERSION                      versão do engine
+├── VERSION                      versão dos scripts, gravada pelo sync-instance
 ├── index.html  assets/          site do Pages (precisa de assets/vendor/marked.min.js)
-├── <span class="so-leitura">engine/                      prompts e templates — o agente só lê</span>
-├── <span class="so-leitura">scripts/                     validadores e geradores — o agente só lê</span>
-├── <span class="so-leitura">.claude/skills/              analista-requisitos, analise-impacto… — o agente só lê</span>
+├── <span class="so-leitura">engine/                      não usado pelo agente (ele lê o método do engine); fica se a instância também usa o Claude Code</span>
+├── <span class="so-leitura">scripts/                     validadores e geradores da CI (sync-instance) — o agente só lê</span>
+├── <span class="so-leitura">.claude/skills/              como engine/: só para o Claude Code</span>
 ├── .github/
 │   ├── CODEOWNERS               com os times reais
 │   ├── pull_request_template.md
@@ -293,7 +293,7 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
 │   ├── _TEMPLATE_AIMM.md
 │   └── _TEMPLATE_AIMM_SPRINT.md
 └── prototypes/  qa/  repos/</div>
-        <div class="aviso info"><strong>Falta alguma coisa?</strong>Peça a quem mantém o engine. Faltando <code>engine/</code>, <code>scripts/</code>, <code>.claude/skills/</code> ou <code>VERSION</code>, a instância precisa do <code>sync-instance</code>. Faltando o site (<code>index.html</code> e <code>assets/</code>), o workflow para no passo do HTML da AIMM, e o Pages não publica. O site não vem do <code>init-instance</code>.</div>
+        <div class="aviso info"><strong>Falta alguma coisa?</strong>Peça a quem mantém o engine. Faltando <code>scripts/</code> ou <code>VERSION</code>, a instância precisa do <code>sync-instance</code>: os workflows da CI rodam os scripts dela. <code>engine/</code> e <code>.claude/skills/</code> só fazem falta para quem usa o Claude Code; o agente do Copilot Studio lê o método do repositório do engine. Faltando o site (<code>index.html</code> e <code>assets/</code>), o workflow para no passo do HTML da AIMM, e o Pages não publica. O site não vem do <code>init-instance</code>.</div>
       </div></li>
     <li data-passo="2.2"><label class="passo-titulo"><input type="checkbox"><span><span class="id">2.2</span><strong>Adicionar o workflow <code>regenera-gerados.yml</code></strong><span class="quem">admin do repositório</span></span></label>
       <div class="passo-corpo">
@@ -487,19 +487,20 @@ jobs:
         <ol>
           <li>Abra <span class="ui">Agentes</span> → <span class="ui">+ Criar</span> (ou <span class="ui">Novo agente</span>). Se aparecer a conversa para descrever o agente, escolha <span class="ui">Configurar</span> para preencher os campos direto.</li>
           <li>Idioma: <span class="ui">Português (Brasil)</span>.</li>
-          <li>Preencha <span class="ui">Nome</span>, <span class="ui">Descrição</span> e <span class="ui">Instruções</span> com os textos abaixo. Nas instruções, troque <code>&lt;ORG&gt;</code> pela organização do GitHub antes de salvar.</li>
+          <li>Preencha <span class="ui">Nome</span>, <span class="ui">Descrição</span> e <span class="ui">Instruções</span> com os textos abaixo. Nas instruções, troque <code>&lt;ORG&gt;</code> pela organização do GitHub e <code>&lt;REPO_ENGINE&gt;</code> pelo repositório do engine (por exemplo, <code>caixa-efrs/docqui-engine</code>) antes de salvar.</li>
           <li>Clique em <span class="ui">Criar</span>.</li>
         </ol>
         <div class="bloco"><div class="rotulo"><span>Nome</span><button class="copiar" type="button">Copiar</button></div><pre>Docqui Caixa</pre></div>
         <div class="bloco"><div class="rotulo"><span>Descrição</span><button class="copiar" type="button">Copiar</button></div><pre>Especifica requisitos de sistemas com o método Docqui Caixa, lendo e gravando no repositório de documentação do sistema no GitHub.</pre></div>
-        <div class="bloco"><div class="rotulo"><span>Instruções (7.279 caracteres; o limite é 8.000)</span><button class="copiar" type="button">Copiar</button></div><pre># Papel
-Você conduz sessões de especificação de requisitos com o método Docqui Caixa sobre o repositório de documentação de um sistema (a "instância") no GitHub. Você não guarda o método de memória: ele está nos arquivos da instância, e você os lê pela ferramenta do GitHub antes de agir.
+        <div class="bloco"><div class="rotulo"><span>Instruções (7.655 caracteres; o limite é 8.000)</span><button class="copiar" type="button">Copiar</button></div><pre># Papel
+Você conduz sessões de especificação de requisitos com o método Docqui Caixa sobre o repositório de documentação de um sistema (a "instância") no GitHub. Você não guarda o método de memória: ele está no repositório do engine, &lt;REPO_ENGINE&gt;, na branch main, e você o lê pela ferramenta do GitHub antes de agir.
+Dois repositórios: todo caminho do método (engine/..., .claude/skills/..., VERSION, e os arquivos do engine que as skills e os prompts citam) você lê do &lt;REPO_ENGINE&gt;, branch main; global/, modules/, analise-impacto/, prototypes/, qa/, repos/, CLAUDE.md e .github/ são da instância.
 
 # 1. Repositório da conversa (sempre o primeiro passo)
 1. Pergunte qual sistema a pessoa vai documentar. Se ela não souber o repositório, liste os repositórios da organização &lt;ORG&gt; cujo nome termina em "-doc" e peça que escolha um.
-2. Leia "global/MASTER.md" e "VERSION" desse repositório e responda: "Sistema: &lt;Sigla&gt; — &lt;Nome&gt; (&lt;owner&gt;/&lt;repo&gt;), Docqui &lt;VERSION&gt;, perfil &lt;Perfil&gt;, cadência &lt;Cadência&gt;. É este?". Aguarde a confirmação.
-3. Repositório sem "global/MASTER.md" ou sem "engine/prompts/" não é instância do Docqui: diga isso e peça outro.
-4. Confirmado, use esse owner/repo em TODA chamada da conversa. Nunca leia nem grave em outro repositório; a única exceção é a issue da retro no repositório do engine. Para trocar de sistema, a pessoa abre outra conversa.
+2. Leia o "global/MASTER.md" desse repositório e o "VERSION" do &lt;REPO_ENGINE&gt; e responda: "Sistema: &lt;Sigla&gt; — &lt;Nome&gt; (&lt;owner&gt;/&lt;repo&gt;), Docqui &lt;VERSION&gt;, perfil &lt;Perfil&gt;, cadência &lt;Cadência&gt;. É este?". Aguarde a confirmação.
+3. Repositório sem "global/MASTER.md" não é instância do Docqui: diga isso e peça outro.
+4. Confirmado, use esse owner/repo em TODA chamada da conversa. Nunca leia nem grave em outro repositório, exceto o &lt;REPO_ENGINE&gt;: dele você lê o método e, na retro, abre issue; nunca grava nele. Para trocar de sistema, a pessoa abre outra conversa.
 
 # 2. Contexto e método
 Após a confirmação, leia "global/N0_PRODUCT_VISION.md" e "modules/INDEX.md" e apresente os domínios e Agrupamentos Funcionais já documentados. Leia também a seção "Regras da instância" do CLAUDE.md da raiz e siga-a. Os demais arquivos você lê sob demanda; arquivo da instância se lê, não se pede para colar.
@@ -523,11 +524,11 @@ Nunca diga que rodou um script.
 
 # 5. Gravação no GitHub
 - Nunca grave na main. Siga a Cadência do MASTER e "Onde a AIMM vive" do PROMPT_AIMM.md: história, branch historia/&lt;CHAVE&gt; criada da main ao abrir a AIMM; sprint, branch sprint/&lt;id&gt;.
-- Grave só em modules/, global/, analise-impacto/, prototypes/, qa/ e repos/ (o CLAUDE.md da raiz, só pela retro). engine/, scripts/, .github/ e .claude/ são somente leitura.
+- Na instância, grave só em modules/, global/, analise-impacto/, prototypes/, qa/ e repos/ (o CLAUDE.md da raiz, só pela retro); scripts/, .github/ e, se existirem, engine/ e .claude/ são somente leitura.
 - Releia o arquivo na branch logo antes de alterá-lo: o workflow pode tê-lo mudado.
 - Antes de cada gravação, mostre repositório, branch, arquivos e mensagem do commit, e aguarde o "sim". Arquivos do mesmo passo vão num commit só.
 - O assunto do commit começa pela chave do ticket da branch e não cita outra: "STRY0013120: especifica Calcular Frete (N3)".
-- Carimbo: a primeira linha de todo artefato gerado ou atualizado é &lt;!-- docqui: &lt;VERSION&gt; | prompt: &lt;PROMPT_ID&gt; | atualizado: &lt;data&gt; --&gt;. A data vem do tópico "Data de hoje"; se ele falhar, pergunte a data; nunca invente. Em atualização, reescreva a linha.
+- Carimbo: a primeira linha de todo artefato gerado ou atualizado é &lt;!-- docqui: &lt;VERSION do engine&gt; | prompt: &lt;PROMPT_ID&gt; | atualizado: &lt;data&gt; --&gt;. A data vem do tópico "Data de hoje"; se ele falhar, pergunte a data; nunca invente. Em atualização, reescreva a linha.
 - Texto corrido: cada parágrafo numa linha só.
 
 # 6. PR e checks
@@ -608,7 +609,7 @@ Depois do primeiro push, abra o PR em rascunho (draft) da branch para a main, co
         </ol>
         <div class="bloco"><div class="rotulo"><span>Nome</span><button class="copiar" type="button">Copiar</button></div><pre>Retro</pre></div>
         <div class="bloco"><div class="rotulo"><span>Descrição</span><button class="copiar" type="button">Copiar</button></div><pre>Registra o aprendizado de uma conversa de especificação no lugar certo: uma regra no CLAUDE.md do repositório do sistema, por pull request, ou uma issue no repositório do engine Docqui Caixa. Acione quando a pessoa aceitar a retro proposta no fim da conversa ou falar de retro, retrospectiva, lição aprendida ou registrar aprendizado.</pre></div>
-        <div class="bloco"><div class="rotulo"><span>Instruções (3.344 caracteres)</span><button class="copiar" type="button">Copiar</button></div><pre># Papel
+        <div class="bloco"><div class="rotulo"><span>Instruções (3.386 caracteres)</span><button class="copiar" type="button">Copiar</button></div><pre># Papel
 Você registra, no fim de uma conversa de especificação, o que a sessão ensinou, no lugar certo. O agente não lembra de uma conversa para a outra: o que não vira arquivo versionado se perde.
 Use o owner/repo confirmado no começo da conversa. O único outro repositório que você toca é &lt;REPO_ENGINE&gt;, e só para issues.
 
@@ -624,7 +625,7 @@ Conteúdo do sistema (regra de negócio, campo, mensagem) não é retro: é espe
 # Passo 2 — Classificar o destino
 - Vale só para este sistema (convenção da instância): seção "Regras da instância" do CLAUDE.md da raiz.
 - Vale para todas as instâncias (skill, prompt, template, validador ou instruções do agente do Copilot Studio): issue no &lt;REPO_ENGINE&gt;.
-Nunca altere engine/, .claude/ nem scripts/ da instância: são cópias do engine, e a próxima sincronização apagaria a mudança.
+Nunca altere o método: ele fica no &lt;REPO_ENGINE&gt;, onde você só abre issue. Nem scripts/ da instância: são cópias do engine, que a próxima sincronização sobrescreveria.
 
 # Passo 3 — Propor e confirmar
 Mostre a lista "aprendizado → destino → texto proposto" e espere o "sim" antes de gravar qualquer coisa.
@@ -702,7 +703,7 @@ Não feche issue, não aprove PR, não faça merge.</pre></div>
     <tr><td>Check <span class="ui">estrutura</span> vermelho em "diagrama ER está fresco"</td><td>O workflow não rodou nessa branch</td><td>Em <span class="ui">Actions</span>, rode o <span class="ui">Regenera arquivos gerados</span> na branch (<span class="ui">Run workflow</span>)</td></tr>
     <tr><td>Check <span class="ui">entrega</span> vermelho em "um ticket por commit"</td><td>Um commit sem a chave do ticket no assunto</td><td>Mostre o erro ao agente. Se o commit já foi para o GitHub, corrigir exige reescrever o histórico da branch: peça ajuda a quem tem prática com Git</td></tr>
     <tr><td>O agente diz que não encontra o repositório</td><td>O analista não tem acesso ao repositório, ou o OAuth App não foi aprovado na organização</td><td>Dê acesso ao analista; confira o aviso do passo 1.4</td></tr>
-    <tr><td>O agente diz que não consegue ler a skill</td><td>A instância não tem <code>.claude/skills/</code></td><td>Peça o <code>sync-instance</code> a quem mantém o engine</td></tr>
+    <tr><td>O agente diz que não consegue ler a skill ou o prompt</td><td>O analista não tem leitura no repositório do engine, ou <code>&lt;REPO_ENGINE&gt;</code> ficou sem trocar nas instruções</td><td>Refaça o passo 1.5 (acesso de leitura) ou o 3.1 (o nome do repositório nas instruções)</td></tr>
     <tr><td>O agente responde sobre o método sem ler os arquivos</td><td>O conhecimento geral do modelo ficou ligado</td><td>Refaça o passo 3.2</td></tr>
     <tr><td>Carimbo com a data errada</td><td>O tópico "Data de hoje" não foi usado ou a fórmula está diferente</td><td>Refaça o passo 3.4 e o teste da data</td></tr>
   </table></div>
@@ -716,6 +717,7 @@ Não feche issue, não aprove PR, não faça merge.</pre></div>
     <p>A escolha foi guardá-lo, num commit por AIMM com a chave dela. Isso mantém o contrato atual do engine, que entrega o <code>.md</code> e o <code>.html</code> lado a lado, sem mudar nenhum script. O HTML aparece no PR e na prévia do site, e o link que a equipe de métricas usa não muda. Ele não pode ir no commit <code>[gerado]</code>: mora em <code>analise-impacto/</code>, que é especificação, e o check de commits reprovaria. Gerar só na publicação é mais limpo, porque não deixa arquivo derivado no repositório, mas exige mudar o engine; fica como evolução.</p></details>
   <details><summary>Um agente para todos os repositórios</summary><p>O agente pergunta, no começo de cada conversa, qual sistema documentar. Um agente por repositório seria um agente para publicar e atualizar por sistema, a cada versão do engine. O acesso fica com o GitHub: cada analista só alcança os repositórios a que já tem acesso.</p></details>
   <details><summary>A especificação num agente só, com o Retro à parte</summary><p>Um roteiro de especificação tem muitas mensagens, e trocar de agente no meio pode perder o estado da conversa. Por isso as duas skills ficam no mesmo agente, que lê a certa para cada pedido. O Retro é um agente filho porque acontece no fim, quando trocar de agente não interrompe nada, e porque as instruções do principal já estão perto do limite de caracteres. O desenho com dois agentes filhos de especificação está guardado em <code>agentes/alternativa-child-agents/</code>.</p></details>
+  <details><summary>O método vem da <code>main</code> do engine, não de cada repositório</summary><p>Os prompts, as skills e os templates ficam num lugar só: o agente os lê do repositório do engine, na <code>main</code>. Atualizar o método é uma release no engine, sem replicar nada nos repositórios dos sistemas. O preço é que toda instância anda junto com a <code>main</code>: uma release que exige migração só entra quando as instâncias estiverem migradas. Os scripts da CI continuam em cada repositório, levados pelo <code>sync-instance</code>, porque os workflows rodam a partir da instância; centralizá-los com workflows reutilizáveis fica para depois.</p></details>
   <details><summary>Os prompts não vão como "conhecimento"</summary><p>O conhecimento do Copilot Studio busca trechos. Os prompts do método são roteiros com estados, e o agente que recebe só um pedaço pula etapas. Por isso o agente abre o arquivo inteiro pela ferramenta do GitHub.</p></details>
   <details><summary>A retro não edita o engine</summary><p>No repositório do sistema, <code>engine/</code>, <code>scripts/</code> e <code>.claude/</code> são cópias do engine, que a próxima sincronização sobrescreve. O que vale para todos vira issue no engine, e quem o mantém aplica numa versão nova, com a <code>/retro</code> do Claude Code. O que vale só para um sistema vai para o <code>CLAUDE.md</code> dele, por PR, e o agente o lê no começo de toda conversa.</p></details>
 </section>

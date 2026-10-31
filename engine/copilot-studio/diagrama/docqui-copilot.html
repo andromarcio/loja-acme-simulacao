@@ -5252,7 +5252,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <!-- Boundaries (behind everything) -->
         <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="Microsoft Copilot Studio" x="240" y="10" width="200" height="494" rx="12" class="c-region" stroke-width="1"/>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="1" data-composition-frame-label="Repositório &lt;sistema&gt;-doc" x="700" y="10" width="200" height="294" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="1" data-composition-frame-label="Repositório &lt;sistema&gt;-doc" x="700" y="190" width="200" height="114" rx="12" class="c-region" stroke-width="1"/>
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="2" data-composition-frame-label="GitHub Actions" x="700" y="390" width="430" height="114" rx="12" class="c-region" stroke-width="1"/>
 
@@ -5270,48 +5270,44 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <path data-edge-from="agente" data-edge-to="retro" data-edge-label="retro no fim" data-edge-key="2" data-edge-id="fim" data-composition-points="340,284;340,420" data-composition-crossover="halo" data-composition-independent="true" d="M 340 284 L 340 420" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 270 452 L 180 452" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="retro" data-edge-to="engine" data-edge-label="issue" data-edge-key="3" data-edge-id="issue" data-composition-points="270,452;180,452" data-composition-crossover="halo" data-composition-independent="true" d="M 270 452 L 180 452" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 410 252 L 500 252" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="agente" data-edge-to="mcp" data-edge-label="lê e grava" data-edge-key="3" data-edge-id="ferramenta" data-composition-points="410,252;500,252" data-composition-crossover="halo" data-composition-independent="true" d="M 410 252 L 500 252" class="a-emphasis" data-animate="edge" style="--step:3" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 410 252 L 500 252" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="agente" data-edge-to="mcp" data-edge-label="lê e grava" data-edge-key="4" data-edge-id="ferramenta" data-composition-points="410,252;500,252" data-composition-crossover="halo" data-composition-independent="true" d="M 410 252 L 500 252" class="a-emphasis" data-animate="edge" style="--step:4" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 570 220 L 570 80 Q 570 72 578 72 L 730 72" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="mcp" data-edge-to="engine" data-edge-label="lê o método · issue" data-edge-key="4" data-edge-id="le-metodo" data-composition-points="570,220;570,72;730,72" data-composition-crossover="halo" data-composition-independent="true" d="M 570 220 L 570 80 Q 570 72 578 72 L 730 72" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 570 220 L 570 80 Q 570 72 578 72 L 730 72" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="mcp" data-edge-to="metodo" data-edge-label="lê skill e prompt" data-edge-key="5" data-edge-id="le-metodo" data-composition-points="570,220;570,72;730,72" data-composition-crossover="halo" data-composition-independent="true" d="M 570 220 L 570 80 Q 570 72 578 72 L 730 72" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 640 252 L 730 252" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="mcp" data-edge-to="spec" data-edge-label="commit" data-edge-key="5" data-edge-id="commit" data-composition-points="640,252;730,252" data-composition-crossover="halo" data-composition-independent="true" d="M 640 252 L 730 252" class="a-emphasis" data-animate="edge" style="--step:5" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 640 252 L 730 252" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="mcp" data-edge-to="spec" data-edge-label="commit" data-edge-key="6" data-edge-id="commit" data-composition-points="640,252;730,252" data-composition-crossover="halo" data-composition-independent="true" d="M 640 252 L 730 252" class="a-emphasis" data-animate="edge" style="--step:6" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 870 252 L 960 252" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="spec" data-edge-to="pr" data-edge-label="PR" data-edge-key="6" data-edge-id="abre-pr" data-composition-points="870,252;960,252" data-composition-crossover="halo" data-composition-independent="true" d="M 870 252 L 960 252" class="a-emphasis" data-animate="edge" style="--step:6" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 870 252 L 960 252" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="spec" data-edge-to="pr" data-edge-label="PR" data-edge-key="7" data-edge-id="abre-pr" data-composition-points="870,252;960,252" data-composition-crossover="halo" data-composition-independent="true" d="M 870 252 L 960 252" class="a-emphasis" data-animate="edge" style="--step:7" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 1030 104 L 1030 220" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="revisor" data-edge-to="pr" data-edge-label="revisa e mescla" data-edge-key="7" data-edge-id="revisao" data-composition-points="1030,104;1030,220" data-composition-crossover="halo" data-composition-independent="true" d="M 1030 104 L 1030 220" class="a-default" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:8">
-          <path data-graph-role="automatic-crossover-underlay" d="M 1030 104 L 1030 220" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="revisor" data-edge-to="pr" data-edge-label="revisa e mescla" data-edge-key="8" data-edge-id="revisao" data-composition-points="1030,104;1030,220" data-composition-crossover="halo" data-composition-independent="true" d="M 1030 104 L 1030 220" class="a-default" data-animate="edge" style="--step:8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 807 284 L 807 420" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="spec" data-edge-to="regen" data-edge-label="push dispara" data-edge-key="8" data-edge-id="push" data-composition-points="807,284;807,420" data-composition-crossover="halo" data-composition-independent="true" d="M 807 284 L 807 420" class="a-dashed" data-animate="edge" style="--step:8" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:9">
-          <path data-graph-role="automatic-crossover-underlay" d="M 807 284 L 807 420" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="spec" data-edge-to="regen" data-edge-label="push dispara" data-edge-key="9" data-edge-id="push" data-composition-points="807,284;807,420" data-composition-crossover="halo" data-composition-independent="true" d="M 807 284 L 807 420" class="a-dashed" data-animate="edge" style="--step:9" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 793 420 L 793 284" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="regen" data-edge-to="spec" data-edge-label="commit [gerado]" data-edge-key="9" data-edge-id="gerado" data-composition-points="793,420;793,284" data-composition-crossover="halo" data-composition-independent="true" d="M 793 420 L 793 284" class="a-default" data-animate="edge" style="--step:9" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:10">
-          <path data-graph-role="automatic-crossover-underlay" d="M 793 420 L 793 284" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="regen" data-edge-to="spec" data-edge-label="commit [gerado]" data-edge-key="10" data-edge-id="gerado" data-composition-points="793,420;793,284" data-composition-crossover="halo" data-composition-independent="true" d="M 793 420 L 793 284" class="a-default" data-animate="edge" style="--step:10" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 640 452 L 730 452" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="app" data-edge-to="regen" data-edge-label="token" data-edge-key="10" data-edge-id="token" data-composition-points="640,452;730,452" data-composition-crossover="halo" data-composition-independent="true" d="M 640 452 L 730 452" class="a-security" data-animate="edge" style="--step:10" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:11">
-          <path data-graph-role="automatic-crossover-underlay" d="M 640 452 L 730 452" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="app" data-edge-to="regen" data-edge-label="token" data-edge-key="11" data-edge-id="token" data-composition-points="640,452;730,452" data-composition-crossover="halo" data-composition-independent="true" d="M 640 452 L 730 452" class="a-security" data-animate="edge" style="--step:11" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 1030 284 L 1030 420" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="pr" data-edge-to="checks" data-edge-label="dispara" data-edge-key="11" data-edge-id="pr-checks" data-composition-points="1030,284;1030,420" data-composition-crossover="halo" data-composition-independent="true" d="M 1030 284 L 1030 420" class="a-dashed" data-animate="edge" style="--step:11" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:12">
-          <path data-graph-role="automatic-crossover-underlay" d="M 1030 284 L 1030 420" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="pr" data-edge-to="checks" data-edge-label="dispara" data-edge-key="12" data-edge-id="pr-checks" data-composition-points="1030,284;1030,420" data-composition-crossover="halo" data-composition-independent="true" d="M 1030 284 L 1030 420" class="a-dashed" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:13">
           <path data-graph-role="automatic-crossover-underlay" d="M 870 452 L 960 452" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="regen" data-edge-to="checks" data-edge-label="re-dispara" data-edge-key="13" data-edge-id="redispara" data-composition-points="870,452;960,452" data-composition-crossover="halo" data-composition-independent="true" d="M 870 452 L 960 452" class="a-dashed" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-edge-from="regen" data-edge-to="checks" data-edge-label="re-dispara" data-edge-key="12" data-edge-id="redispara" data-composition-points="870,452;960,452" data-composition-crossover="halo" data-composition-independent="true" d="M 870 452 L 960 452" class="a-dashed" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
         </g>
 
         <!-- Components -->
@@ -5359,22 +5355,22 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="340" y="466" class="t-muted" font-size="9" text-anchor="middle">agente filho</text>
         </g>
 
-        <g id="node-engine" data-node-id="engine" data-node-label="Repositório do engine" tabindex="0" role="button" aria-label="Focar Repositório do engine, issues retro, Componente" aria-pressed="false" data-node-kind="database" data-node-sublabel="issues retro" data-node-context="Componente">
-          <title>Repositório do engine · issues retro · Componente</title>
-          <rect x="40" y="420" width="140" height="64" rx="8" class="c-mask"/>
-          <rect x="40" y="420" width="140" height="64" rx="8" class="c-database" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(46 426) scale(0.6875)">
+        <g id="node-engine" data-node-id="engine" data-node-label="Repositório do engine" tabindex="0" role="button" aria-label="Focar Repositório do engine, método na main · issues, Componente" aria-pressed="false" data-node-kind="database" data-node-sublabel="método na main · issues" data-node-context="Componente">
+          <title>Repositório do engine · método na main · issues · Componente</title>
+          <rect x="730" y="40" width="140" height="64" rx="8" class="c-mask"/>
+          <rect x="730" y="40" width="140" height="64" rx="8" class="c-database" data-animate="node" style="--step:5" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(736 46) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="110" y="450" class="t-primary" font-size="10.4" font-weight="600" text-anchor="middle">Repositório do engine</text>
-        <text data-detail="context" x="110" y="466" class="t-muted" font-size="9" text-anchor="middle">issues retro</text>
+          <text data-node-label="" data-detail-anchor="" x="800" y="70" class="t-primary" font-size="10.4" font-weight="600" text-anchor="middle">Repositório do engine</text>
+        <text data-detail="context" x="800" y="86" class="t-muted" font-size="9" text-anchor="middle">método na main · issues</text>
         </g>
 
         <g id="node-mcp" data-node-id="mcp" data-node-label="GitHub MCP" tabindex="0" role="button" aria-label="Focar GitHub MCP, OAuth do analista, Componente" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="OAuth do analista" data-node-context="Componente">
           <title>GitHub MCP · OAuth do analista · Componente</title>
           <rect x="500" y="220" width="140" height="64" rx="8" class="c-mask"/>
-          <rect x="500" y="220" width="140" height="64" rx="8" class="c-cloud" data-animate="node" style="--step:5" stroke-width="1.5"/>
+          <rect x="500" y="220" width="140" height="64" rx="8" class="c-cloud" data-animate="node" style="--step:4" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(506 226) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
@@ -5382,22 +5378,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="570" y="266" class="t-muted" font-size="9" text-anchor="middle">OAuth do analista</text>
         </g>
 
-        <g id="node-metodo" data-node-id="metodo" data-node-label="Método" tabindex="0" role="button" aria-label="Focar Método, engine/ · .claude/skills, Repositório &lt;sistema&gt;-doc" aria-pressed="false" data-node-kind="database" data-node-sublabel="engine/ · .claude/skills" data-node-context="Repositório &lt;sistema&gt;-doc">
-          <title>Método · engine/ · .claude/skills · Repositório &lt;sistema&gt;-doc</title>
-          <rect x="730" y="40" width="140" height="64" rx="8" class="c-mask"/>
-          <rect x="730" y="40" width="140" height="64" rx="8" class="c-database" data-animate="node" style="--step:6" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(736 46) scale(0.6875)">
-            <ellipse cx="8" cy="4" rx="5" ry="2"/>
-            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="800" y="70" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Método</text>
-        <text data-detail="context" x="800" y="86" class="t-muted" font-size="9" text-anchor="middle">engine/ · .claude/skills</text>
-        </g>
-
         <g id="node-spec" data-node-id="spec" data-node-label="Especificação" tabindex="0" role="button" aria-label="Focar Especificação, branch historia/&lt;CHAVE&gt;, Repositório &lt;sistema&gt;-doc" aria-pressed="false" data-node-kind="database" data-node-sublabel="branch historia/&lt;CHAVE&gt;" data-node-context="Repositório &lt;sistema&gt;-doc">
           <title>Especificação · branch historia/&lt;CHAVE&gt; · Repositório &lt;sistema&gt;-doc</title>
           <rect x="730" y="220" width="140" height="64" rx="8" class="c-mask"/>
-          <rect x="730" y="220" width="140" height="64" rx="8" class="c-database" data-animate="node" style="--step:7" stroke-width="1.5"/>
+          <rect x="730" y="220" width="140" height="64" rx="8" class="c-database" data-animate="node" style="--step:6" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(736 226) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
@@ -5409,7 +5393,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <g id="node-revisor" data-node-id="revisor" data-node-label="Revisor" tabindex="0" role="button" aria-label="Focar Revisor, e code owner, Componente" aria-pressed="false" data-node-kind="external" data-node-sublabel="e code owner" data-node-context="Componente">
           <title>Revisor · e code owner · Componente</title>
           <rect x="960" y="40" width="140" height="64" rx="8" class="c-mask"/>
-          <rect x="960" y="40" width="140" height="64" rx="8" class="c-external" data-animate="node" style="--step:8" stroke-width="1.5"/>
+          <rect x="960" y="40" width="140" height="64" rx="8" class="c-external" data-animate="node" style="--step:7" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="person" class="semantic-sigil s-external" transform="translate(966 46) scale(0.6875)">
             <circle cx="8" cy="4.5" r="2.5"/><path d="M3 14v-2a5 5 0 0 1 10 0v2"/>
           </g>
@@ -5420,7 +5404,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <g id="node-pr" data-node-id="pr" data-node-label="Pull request" tabindex="0" role="button" aria-label="Focar Pull request, draft → revisão, Componente" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="draft → revisão" data-node-context="Componente">
           <title>Pull request · draft → revisão · Componente</title>
           <rect x="960" y="220" width="140" height="64" rx="8" class="c-mask"/>
-          <rect x="960" y="220" width="140" height="64" rx="8" class="c-frontend" data-animate="node" style="--step:8" stroke-width="1.5"/>
+          <rect x="960" y="220" width="140" height="64" rx="8" class="c-frontend" data-animate="node" style="--step:7" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(966 226) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
@@ -5434,7 +5418,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <g id="node-app" data-node-id="app" data-node-label="GitHub App" tabindex="0" role="button" aria-label="Focar GitHub App, docqui-bot · segredos, Componente" aria-pressed="false" data-node-kind="security" data-node-sublabel="docqui-bot · segredos" data-node-context="Componente">
           <title>GitHub App · docqui-bot · segredos · Componente</title>
           <rect x="500" y="420" width="140" height="64" rx="8" class="c-mask"/>
-          <rect x="500" y="420" width="140" height="64" rx="8" class="c-security" data-animate="node" style="--step:11" stroke-width="1.5"/>
+          <rect x="500" y="420" width="140" height="64" rx="8" class="c-security" data-animate="node" style="--step:10" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(506 426) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
@@ -5446,7 +5430,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <g id="node-regen" data-node-id="regen" data-node-label="regenera-gerados" tabindex="0" role="button" aria-label="Focar regenera-gerados, commit [gerado] + HTML, GitHub Actions" aria-pressed="false" data-node-kind="backend" data-node-sublabel="commit [gerado] + HTML" data-node-context="GitHub Actions">
           <title>regenera-gerados · commit [gerado] + HTML · GitHub Actions</title>
           <rect x="730" y="420" width="140" height="64" rx="8" class="c-mask"/>
-          <rect x="730" y="420" width="140" height="64" rx="8" class="c-backend" data-animate="node" style="--step:10" stroke-width="1.5"/>
+          <rect x="730" y="420" width="140" height="64" rx="8" class="c-backend" data-animate="node" style="--step:9" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(736 426) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
@@ -5479,47 +5463,43 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <rect x="266.4" y="345" width="67.6" height="14" rx="3" class="c-mask"/>
           <text x="300.2" y="355" class="t-edge-default" font-size="8" text-anchor="middle">retro no fim</text>
         </g>
-        <g data-detail="context" data-edge-from="retro" data-edge-to="engine" data-edge-label="issue" data-edge-key="3" data-edge-id="issue">
-          <rect x="208" y="432" width="34" height="14" rx="3" class="c-mask"/>
-          <text x="225" y="442" class="t-edge-default" font-size="8" text-anchor="middle">issue</text>
-        </g>
-        <g data-detail="context" data-edge-from="agente" data-edge-to="mcp" data-edge-label="lê e grava" data-edge-key="4" data-edge-id="ferramenta">
+        <g data-detail="context" data-edge-from="agente" data-edge-to="mcp" data-edge-label="lê e grava" data-edge-key="3" data-edge-id="ferramenta">
           <rect x="426" y="232" width="58" height="14" rx="3" class="c-mask"/>
           <text x="455" y="242" class="t-edge-emphasis" font-size="8" text-anchor="middle">lê e grava</text>
         </g>
-        <g data-detail="context" data-edge-from="mcp" data-edge-to="metodo" data-edge-label="lê skill e prompt" data-edge-key="5" data-edge-id="le-metodo">
-          <rect x="604.2" y="52" width="91.6" height="14" rx="3" class="c-mask"/>
-          <text x="650" y="62" class="t-edge-default" font-size="8" text-anchor="middle">lê skill e prompt</text>
+        <g data-detail="context" data-edge-from="mcp" data-edge-to="engine" data-edge-label="lê o método · issue" data-edge-key="4" data-edge-id="le-metodo">
+          <rect x="599.4" y="52" width="101.2" height="14" rx="3" class="c-mask"/>
+          <text x="650" y="62" class="t-edge-default" font-size="8" text-anchor="middle">lê o método · issue</text>
         </g>
-        <g data-detail="context" data-edge-from="mcp" data-edge-to="spec" data-edge-label="commit" data-edge-key="6" data-edge-id="commit">
+        <g data-detail="context" data-edge-from="mcp" data-edge-to="spec" data-edge-label="commit" data-edge-key="5" data-edge-id="commit">
           <rect x="665.6" y="232" width="38.8" height="14" rx="3" class="c-mask"/>
           <text x="685" y="242" class="t-edge-emphasis" font-size="8" text-anchor="middle">commit</text>
         </g>
-        <g data-detail="context" data-edge-from="spec" data-edge-to="pr" data-edge-label="PR" data-edge-key="7" data-edge-id="abre-pr">
+        <g data-detail="context" data-edge-from="spec" data-edge-to="pr" data-edge-label="PR" data-edge-key="6" data-edge-id="abre-pr">
           <rect x="900" y="232" width="30" height="14" rx="3" class="c-mask"/>
           <text x="915" y="242" class="t-edge-emphasis" font-size="8" text-anchor="middle">PR</text>
         </g>
-        <g data-detail="context" data-edge-from="revisor" data-edge-to="pr" data-edge-label="revisa e mescla" data-edge-key="8" data-edge-id="revisao">
+        <g data-detail="context" data-edge-from="revisor" data-edge-to="pr" data-edge-label="revisa e mescla" data-edge-key="7" data-edge-id="revisao">
           <rect x="942" y="155" width="82" height="14" rx="3" class="c-mask"/>
           <text x="983" y="165" class="t-edge-default" font-size="8" text-anchor="middle">revisa e mescla</text>
         </g>
-        <g data-detail="context" data-edge-from="spec" data-edge-to="regen" data-edge-label="push dispara" data-edge-key="9" data-edge-id="push">
+        <g data-detail="context" data-edge-from="spec" data-edge-to="regen" data-edge-label="push dispara" data-edge-key="8" data-edge-id="push">
           <rect x="813" y="345" width="67.6" height="14" rx="3" class="c-mask"/>
           <text x="846.8" y="355" class="t-edge-dashed" font-size="8" text-anchor="middle">push dispara</text>
         </g>
-        <g data-detail="context" data-edge-from="regen" data-edge-to="spec" data-edge-label="commit [gerado]" data-edge-key="10" data-edge-id="gerado">
+        <g data-detail="context" data-edge-from="regen" data-edge-to="spec" data-edge-label="commit [gerado]" data-edge-key="9" data-edge-id="gerado">
           <rect x="705" y="345" width="82" height="14" rx="3" class="c-mask"/>
           <text x="746" y="355" class="t-edge-default" font-size="8" text-anchor="middle">commit [gerado]</text>
         </g>
-        <g data-detail="context" data-edge-from="app" data-edge-to="regen" data-edge-label="token" data-edge-key="11" data-edge-id="token">
+        <g data-detail="context" data-edge-from="app" data-edge-to="regen" data-edge-label="token" data-edge-key="10" data-edge-id="token">
           <rect x="668" y="432" width="34" height="14" rx="3" class="c-mask"/>
           <text x="685" y="442" class="t-edge-security" font-size="8" text-anchor="middle">token</text>
         </g>
-        <g data-detail="context" data-edge-from="pr" data-edge-to="checks" data-edge-label="dispara" data-edge-key="12" data-edge-id="pr-checks">
+        <g data-detail="context" data-edge-from="pr" data-edge-to="checks" data-edge-label="dispara" data-edge-key="11" data-edge-id="pr-checks">
           <rect x="980.4000000000001" y="345" width="43.6" height="14" rx="3" class="c-mask"/>
           <text x="1002.2" y="355" class="t-edge-dashed" font-size="8" text-anchor="middle">dispara</text>
         </g>
-        <g data-detail="context" data-edge-from="regen" data-edge-to="checks" data-edge-label="re-dispara" data-edge-key="13" data-edge-id="redispara">
+        <g data-detail="context" data-edge-from="regen" data-edge-to="checks" data-edge-label="re-dispara" data-edge-key="12" data-edge-id="redispara">
           <rect x="886" y="432" width="58" height="14" rx="3" class="c-mask"/>
           <text x="915" y="442" class="t-edge-dashed" font-size="8" text-anchor="middle">re-dispara</text>
         </g>
@@ -5531,8 +5511,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </g>
 
         <g data-graph-role="structural-frame-label" data-composition-frame-id="1" data-composition-frame-kind="region" data-composition-frame-label="Repositório &lt;sistema&gt;-doc">
-          <rect data-graph-role="structural-frame-label-mask" x="704" y="20" width="145" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="708" y="33" class="t-cloud" font-size="9" font-weight="600">Repositório &lt;sistema&gt;-doc</text>
+          <rect data-graph-role="structural-frame-label-mask" x="704" y="200" width="145" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="708" y="213" class="t-cloud" font-size="9" font-weight="600">Repositório &lt;sistema&gt;-doc</text>
         </g>
 
         <g data-graph-role="structural-frame-label" data-composition-frame-id="2" data-composition-frame-kind="region" data-composition-frame-label="GitHub Actions">

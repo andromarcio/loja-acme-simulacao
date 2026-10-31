@@ -12,7 +12,7 @@ Antes de montar qualquer coisa. Um "não" aqui muda a arquitetura, não só o pi
 | V2 | O tenant permite ferramenta MCP no Copilot Studio? | Admin do Power Platform (políticas de DLP) | Sem MCP, a alternativa é o conector do GitHub com fluxos do Power Automate, bem mais trabalhoso |
 | V3 | A organização do GitHub aceita o login OAuth do Copilot Studio e a criação do GitHub App docqui-bot? | Admin da organização do GitHub | Token pessoal só serve para o teste; em produção, o commit sairia no nome errado |
 | V4 | Quais modelos o tenant oferece ao agente? | Configurações do agente | Seguir com o padrão e anotar no resultado |
-| V5 | O agente lê um arquivo de 54 KB inteiro? | Pedir o último título do `engine/prompts/PROMPT_3A_N3_negocio.md` e uma frase da metade dele | Se ele truncar, ler o prompt inteiro pela ferramenta não se sustenta |
+| V5 | O agente lê um arquivo de 54 KB inteiro, do repositório do engine? | Pedir o último título do `engine/prompts/PROMPT_3A_N3_negocio.md` do engine e uma frase da metade dele | Se ele truncar, ler o prompt inteiro pela ferramenta não se sustenta |
 | V6 | O tópico "Data de hoje" devolve a data certa? | O teste do `agentes/2-topico-data-de-hoje.md` | Conferir a fórmula; sem ela, o agente pergunta a data |
 | V7 | O agente segura um roteiro de várias mensagens sem trocar de skill? | Começar um 3A e responder três estados seguidos | Ajustar a seção 2 das instruções |
 

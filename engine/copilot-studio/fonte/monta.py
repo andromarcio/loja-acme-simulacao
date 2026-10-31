@@ -33,13 +33,12 @@ CORES = {  # (fundo, borda)
 }
 NOS = {
     "analista": (0, 1, "Analista", "Teams ou navegador", "pessoa"),
-    "engine": (0, 2, "Repositório do engine", "issues retro", "arquivo"),
     "data": (1, 0, "Data de hoje", "tópico", "copilot"),
     "agente": (1, 1, "Agente Docqui Caixa", "instruções + skill", "copilot"),
     "retro": (1, 2, "Retro", "agente filho", "copilot"),
     "mcp": (2, 1, "GitHub MCP", "login do analista", "github"),
     "app": (2, 2, "GitHub App", "docqui-bot", "github"),
-    "metodo": (3, 0, "Método", "engine/ · skills", "arquivo"),
+    "engine": (3, 0, "Repositório do engine", "método na main · issues", "arquivo"),
     "spec": (3, 1, "Especificação", "historia/<CHAVE>", "arquivo"),
     "regen": (3, 2, "regenera-gerados", "workflow", "github"),
     "revisor": (4, 0, "Revisor", "e code owner", "pessoa"),
@@ -84,7 +83,7 @@ partes = [
     '<svg viewBox="0 0 1090 430" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" aria-hidden="true">',
     '<defs><marker id="ponta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1B2B4B"/></marker></defs>',
     regiao(218, 22, 174, 398, "Copilot Studio", "#5B3FA6"),
-    regiao(658, 22, 174, 248, "Repositório <sistema>-doc", "#1E7F5C"),
+    regiao(658, 172, 174, 98, "Repositório <sistema>-doc", "#1E7F5C"),
     regiao(658, 322, 394, 98, "GitHub Actions", "#8F5600", dx=122),
 ]
 partes += [
@@ -94,8 +93,7 @@ partes += [
     seta([(dir_x(3), meio_y(1)), (COL[4], meio_y(1))], "PR", (dir_x(3) + COL[4]) / 2, meio_y(1) - 8),
     seta([(cen_x(1), LIN[1]), (cen_x(1), LIN[0] + H)], "data", cen_x(1) + 8, (LIN[0] + H + LIN[1]) / 2 + 4, "start"),
     seta([(cen_x(1), LIN[1] + H), (cen_x(1), LIN[2])], "retro no fim", cen_x(1) + 8, (LIN[1] + H + LIN[2]) / 2 + 4, "start"),
-    seta([(COL[1], meio_y(2)), (dir_x(0), meio_y(2))], "issue", (dir_x(0) + COL[1]) / 2, meio_y(2) - 8),
-    seta([(cen_x(2), LIN[1]), (cen_x(2), meio_y(0)), (COL[3], meio_y(0))], "lê skill e prompt", (cen_x(2) + COL[3]) / 2 + 6, meio_y(0) - 8),
+    seta([(cen_x(2), LIN[1]), (cen_x(2), meio_y(0)), (COL[3], meio_y(0))], "lê o método · issue", (cen_x(2) + COL[3]) / 2 + 6, meio_y(0) - 8),
     seta([(cen_x(4), LIN[0] + H), (cen_x(4), LIN[1])], "revisa e mescla", cen_x(4) + 8, (LIN[0] + H + LIN[1]) / 2 + 4, "start"),
     seta([(cen_x(3) - 22, LIN[1] + H), (cen_x(3) - 22, LIN[2])], "push", cen_x(3) - 30, (LIN[1] + H + LIN[2]) / 2 + 4, "end", True),
     seta([(cen_x(3) + 22, LIN[2]), (cen_x(3) + 22, LIN[1] + H)], "[gerado]", cen_x(3) + 30, (LIN[1] + H + LIN[2]) / 2 + 4, "start"),
