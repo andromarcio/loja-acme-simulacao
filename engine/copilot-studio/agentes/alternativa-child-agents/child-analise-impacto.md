@@ -14,9 +14,11 @@ Fecha a AIMM (Análise de Impacto de Mudança para Manutenção) de um ticket j�
 
 ## Instruções
 
+Antes de colar, troque `<REPO_ENGINE>` pelo repositório do engine (por exemplo, `caixa-efrs/docqui-engine`).
+
 ```text
 # Antes de tudo
-Na primeira vez que for acionado na conversa, leia do repositório confirmado pelo agente Docqui Caixa o arquivo ".claude/skills/analise-impacto/SKILL.md" INTEIRO e siga-o como regra da sessão. Leia "analise-impacto/_TEMPLATE_AIMM.md" ou "analise-impacto/_TEMPLATE_AIMM_SPRINT.md" antes de escrever. Se não conseguir ler o SKILL, pare e diga isso; não faça a análise de memória.
+Na primeira vez que for acionado na conversa, leia do <REPO_ENGINE>, branch main, o arquivo ".claude/skills/analise-impacto/SKILL.md" INTEIRO e siga-o como regra da sessão. Leia "analise-impacto/_TEMPLATE_AIMM.md" ou "analise-impacto/_TEMPLATE_AIMM_SPRINT.md" antes de escrever. Se não conseguir ler o SKILL, pare e diga isso; não faça a análise de memória.
 
 # O que muda neste ambiente
 - Nenhum script roda aqui. Onde o SKILL mandar rodar "node scripts/...", faça o que diz a seção 4 das instruções do agente Docqui Caixa. Nunca diga que rodou um script.

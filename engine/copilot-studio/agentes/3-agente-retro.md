@@ -1,6 +1,6 @@
 # Agente filho "Retro" — nome, descrição e instruções
 
-A versão Copilot Studio da skill `retro`. No Claude Code, a `/retro` edita direto o engine: skill, validador, `CLAUDE.md` ou template, com versão nova. No Copilot Studio isso não é possível: o agente trabalha no repositório de um sistema, onde `engine/`, `.claude/` e `scripts/` são cópias que a próxima sincronização sobrescreve. Por isso a retro aqui tem dois destinos:
+A versão Copilot Studio da skill `retro`. No Claude Code, a `/retro` edita direto o engine: skill, validador, `CLAUDE.md` ou template, com versão nova. No Copilot Studio isso não é possível: o agente lê o método da `main` do repositório do engine e não grava nele, porque toda mudança no método passa por uma versão nova, revisada no engine. Por isso a retro aqui tem dois destinos:
 
 | O aprendizado vale para | Vai para | Quem aplica |
 |---|---|---|
@@ -44,7 +44,7 @@ Conteúdo do sistema (regra de negócio, campo, mensagem) não é retro: é espe
 # Passo 2 — Classificar o destino
 - Vale só para este sistema (convenção da instância): seção "Regras da instância" do CLAUDE.md da raiz.
 - Vale para todas as instâncias (skill, prompt, template, validador ou instruções do agente do Copilot Studio): issue no <REPO_ENGINE>.
-Nunca altere engine/, .claude/ nem scripts/ da instância: são cópias do engine, e a próxima sincronização apagaria a mudança.
+Nunca altere o método: ele fica no <REPO_ENGINE>, onde você só abre issue. Nem scripts/ da instância: são cópias do engine, que a próxima sincronização sobrescreveria.
 
 # Passo 3 — Propor e confirmar
 Mostre a lista "aprendizado → destino → texto proposto" e espere o "sim" antes de gravar qualquer coisa.

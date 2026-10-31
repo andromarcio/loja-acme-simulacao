@@ -2,7 +2,7 @@
 
 # Loja ACME — demonstração do Docqui Caixa
 
-> **Simulação.** Cópia da [`loja-acme-doc`](https://github.com/andromarcio/loja-acme-doc), sincronizada com o docqui-caixa-engine 8.1.0, para testar o agente do Copilot Studio ou do Copilot CLI e o workflow `regenera-gerados` sem mexer na instância dos exercícios. Só conteúdo fictício. O passo a passo está em `engine/copilot-studio/LEIA-ME.html`.
+> **Simulação.** Cópia da [`loja-acme-doc`](https://github.com/andromarcio/loja-acme-doc), sincronizada com o docqui-caixa-engine (a versão está no `VERSION`), para testar o agente do Copilot Studio ou do Copilot CLI e o workflow `regenera-gerados` sem mexer na instância dos exercícios. Só conteúdo fictício. O passo a passo está em `engine/copilot-studio/LEIA-ME.html`.
 
 Instância de demonstração de uma **loja virtual fictícia**, no perfil **requisitos** e cadência **história**. O exemplo preenchido cobre quatro domínios — Catálogo, Vitrine, Vendas e Administração —, com 31 funcionalidades — 25 especificadas e 6 em rascunho —, cada uma ligada ao ticket fictício, à AIMM, ao modelo de entidades e ao protótipo do seu Agrupamento Funcional; **VND-CHK-01 — Calcular Frete** continua sendo o fio do roteiro. Os dados, tickets e valores são didáticos; não representam sistemas ou atendimentos reais da CAIXA.
 

@@ -16,10 +16,12 @@ Conduz a especificação de requisitos no método Docqui Caixa: N0 (Visão de Pr
 
 ## Instruções
 
+Antes de colar, troque `<REPO_ENGINE>` pelo repositório do engine (por exemplo, `caixa-efrs/docqui-engine`).
+
 ```text
 # Antes de tudo
-Na primeira vez que for acionado na conversa, leia do repositório confirmado pelo agente Docqui Caixa o arquivo ".claude/skills/analista-requisitos/SKILL.md" INTEIRO e siga-o como regra da sessão. Leia os arquivos de ".claude/skills/analista-requisitos/references/" quando o SKILL mandar. Se não conseguir ler o SKILL, pare e diga isso; não especifique de memória.
-Em seguida, leia o prompt da opção escolhida em "engine/prompts/" (arquivo inteiro) e siga o roteiro dele. O SKILL dá as regras; o prompt dá o passo a passo.
+Na primeira vez que for acionado na conversa, leia do <REPO_ENGINE>, branch main, o arquivo ".claude/skills/analista-requisitos/SKILL.md" INTEIRO e siga-o como regra da sessão. Leia os arquivos de ".claude/skills/analista-requisitos/references/" quando o SKILL mandar. Se não conseguir ler o SKILL, pare e diga isso; não especifique de memória.
+Em seguida, leia o prompt da opção escolhida em "engine/prompts/" do <REPO_ENGINE> (arquivo inteiro) e siga o roteiro dele. O SKILL dá as regras; o prompt dá o passo a passo.
 
 # O que muda neste ambiente
 - Nenhum script roda aqui. Onde o SKILL ou o prompt mandar rodar "node scripts/...", faça o que diz a seção 4 das instruções do agente Docqui Caixa: ler e conferir você mesmo, e depois ler os checks do PR. Nunca diga que rodou um script.

@@ -314,10 +314,10 @@
       "id": "engine",
       "type": "database",
       "label": "Repositório do engine",
-      "sublabel": "issues retro",
+      "sublabel": "método na main · issues",
       "pos": [
-        40,
-        420
+        730,
+        40
       ],
       "size": [
         140,
@@ -332,20 +332,6 @@
       "pos": [
         500,
         220
-      ],
-      "size": [
-        140,
-        64
-      ]
-    },
-    {
-      "id": "metodo",
-      "type": "database",
-      "label": "Método",
-      "sublabel": "engine/ · .claude/skills",
-      "pos": [
-        730,
-        40
       ],
       "size": [
         140,
@@ -452,7 +438,6 @@
       "kind": "region",
       "label": "Repositório <sistema>-doc",
       "wraps": [
-        "metodo",
         "spec"
       ]
     },
@@ -486,12 +471,6 @@
       "label": "retro no fim"
     },
     {
-      "id": "issue",
-      "from": "retro",
-      "to": "engine",
-      "label": "issue"
-    },
-    {
       "id": "ferramenta",
       "from": "agente",
       "to": "mcp",
@@ -501,8 +480,8 @@
     {
       "id": "le-metodo",
       "from": "mcp",
-      "to": "metodo",
-      "label": "lê skill e prompt",
+      "to": "engine",
+      "label": "lê o método · issue",
       "fromSide": "top",
       "toSide": "left"
     },
