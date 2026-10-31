@@ -1,0 +1,1 @@
+Arquivo temporário: prova de que o spec-guard roda num PR que não mexe na especificação (8.2.2). Este PR é fechado sem merge.
