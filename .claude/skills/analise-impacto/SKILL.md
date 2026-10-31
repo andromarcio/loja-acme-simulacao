@@ -26,7 +26,7 @@ No contexto CAIXA, **AIMM** significa **Análise de Impacto de Mudança para Man
 | | `engine/prompts/PROMPT_AIMM.md` | Esta skill |
 |---|---|---|
 | Momento | **Antes** da spec mudar (passos 1–6) | **Depois** da entrega (passo 7) |
-| Estado da AIMM | `rascunho` → `em-análise` → `escopo-aprovado` | `concluído` |
+| Estado da AIMM | `em-análise` → `escopo-aprovado` | `concluído` |
 | Insumo | O ticket na ferramenta de origem | A AIMM avalizada + o que foi entregue: changelog, código, modelo físico |
 | Pergunta | Que artefatos o ticket *vai* alterar? | O que o ticket *alterou* na spec publicada? |
 | Entrega | Changeset para o aval do PO | As seções de impacto reescritas com o que mudou e a Reconciliação; a AIMM da sprint |
@@ -111,7 +111,7 @@ As duas naturezas de AIMM se leem de formas diferentes: a da sprint é o que o a
 
 ## A estrutura que o gerador espera
 
-- **Front-matter** — a fonte única dos metadados: `ticket`, `ferramenta`, `link`, `titulo`, `sprint`, `estado` (na AIMM da sprint, `sprint` e `entrega`). O HTML o mostra como ficha, um campo por linha. Não repita esses campos no corpo: dois lugares para o mesmo dado divergem.
+- **Front-matter** — a fonte única dos metadados: `ticket`, `ferramenta`, `link`, `titulo`, `sprint`, `estado`, `estado-por` e `estado-em` (na AIMM da sprint, `sprint` e `entrega`). O HTML o mostra como ficha, um campo por linha. Não repita esses campos no corpo: dois lugares para o mesmo dado divergem.
 - **Entre o `# AIMM …` e o primeiro `##`, nada.** Um lede em prosa resumindo a AIMM não sai no HTML — o gerador o descarta, porque o título já entrega e a primeira seção repete.
 - **Os comentários `<!-- … -->` do template** são instrução: não aparecem no HTML e podem ficar.
 
@@ -139,7 +139,7 @@ Trabalhe nesta ordem. As seções de impacto da AIMM chegam aqui com a visão do
 
 **7. Estado das funcionalidades.** Cada funcionalidade da `## Funcionalidades` precisa estar no **estado final da esteira** da instância — `implementado` no perfil `completo`, `especificado` no `requisitos` (MASTER → `**Perfil**`) — ou `deprecado`. A funcionalidade alterada pelo ticket ficou em `revisao-necessaria` desde o `PROMPT_4B` (a spec à frente do código): a entrega é o que a devolve — volte o `estado` ao derivado dos gates, rode `python3 scripts/gates.py promote --write` e atualize o Status na `## Funcionalidades` (o `audit-trace-links` compara o Status com o `estado` do N3). Funcionalidade que ficou por especificar não fecha com o ticket: ou sai da `## Funcionalidades` (vai para outro ticket) ou a AIMM não está concluída.
 
-**8. Front-matter e Changelog.** `estado: concluído`, a `sprint` da entrega e o `avalizado-por` — na AIMM aberta na entrega, o PO que conferiu a visão final —, e uma linha no topo do Changelog registrando a versão final.
+**8. Front-matter e Changelog.** `estado: concluído`, com `estado-por` (quem fechou a AIMM — a pessoa, não o agente) e `estado-em` (`AAAA-MM-DD HH:MM ±HH:MM`; no terminal, `date '+%Y-%m-%d %H:%M %:z'`), a `sprint` da entrega e o `avalizado-por` — na AIMM aberta na entrega, o PO que conferiu a visão final —, e uma linha no topo do Changelog registrando a versão final.
 
 O `validate-impact` é o contrato do estado `concluído`: sem a `sprint`, sem uma linha real (com ID de funcionalidade) nas alterações, com a Reconciliação vazia ou com funcionalidade fora do estado final da esteira, a AIMM não fecha.
 
@@ -147,7 +147,7 @@ O `validate-impact` é o contrato do estado `concluído`: sem a `sprint`, sem um
 
 ## A AIMM da sprint
 
-Fechadas as AIMMs dos tickets da sprint, escreva `analise-impacto/AIMM-<sprint>.md` a partir do `analise-impacto/_TEMPLATE_AIMM_SPRINT.md`. Ela não repete as AIMMs dos tickets — consolida:
+Fechadas as AIMMs dos tickets da sprint, escreva `analise-impacto/AIMM-<sprint>.md` a partir do `analise-impacto/_TEMPLATE_AIMM_SPRINT.md`, com `estado-por` e `estado-em` a cada troca de estado, como na AIMM do ticket. Ela não repete as AIMMs dos tickets — consolida:
 
 - **`## Tickets da sprint`** — um ticket por linha, com o link da sua AIMM e o que ele entregou, em uma frase. Os tickets são os de front-matter `sprint:` igual a esta.
 - **`## Alterações em funcionalidades por Agrupamento Funcional`** — uma linha por funcionalidade, **uma vez só**, com a(s) chave(s) do ticket na coluna Ticket. Funcionalidade entregue sem ticket na ferramenta entra aqui com `⚠️ sem ticket`: a AIMM da sprint é a única fonte dela.

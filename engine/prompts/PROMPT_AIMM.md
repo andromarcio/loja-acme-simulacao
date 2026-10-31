@@ -33,13 +33,17 @@ PROTÓTIPO`. O código (repositórios) e os artefatos técnicos (SDD, migração
 
 | Estado | O que a AIMM tem | Quem escreve |
 |---|---|---|
-| `rascunho` | Descrição do ticket, Critérios de aceite e Funcionalidades | este prompt, passos 1–4 |
-| `em-análise` | + o que **será** alterado: Artefatos impactados e Alterações previstas | este prompt, passo 5 |
+| `em-análise` | Descrição do ticket, Critérios de aceite, Funcionalidades e o que **será** alterado: Artefatos impactados, Alterações previstas, Entidades alteradas, Impacto em dicionários e Decisões pendentes | este prompt, passos 1–5, na mesma passada |
 | `escopo-aprovado` | + `avalizado-por` — o aval do PO | este prompt, passo 6 |
 | `em-execução` | as passadas de spec e código, uma por linha do changeset | 3A/4A/4B, NFR, QA… (disparadas no passo 6) |
 | `concluído` | o que **foi** alterado — as seções de impacto reescritas e a Reconciliação; cada funcionalidade no estado final da esteira | skill `analise-impacto` (passo 7) |
 
-Cada mudança de estado é uma **versão**: registre-a no `## Changelog`. O git guarda as
+**A AIMM nasce completa.** Não existe AIMM de ticket parcial: ela é aberta já em `em-análise`, com todas as seções de impacto preenchidas, e depois só é atualizada a cada passada. Nenhum N2, N3 ou data-model muda antes disso, e o `validate-impact` reprova `estado: rascunho` e o exemplo do template em qualquer seção de impacto.
+
+Cada mudança de estado é uma **versão**: registre-a no `## Changelog` e, no front-matter, grave
+`estado-por` — o nome de quem levou a AIMM ao estado: o analista na abertura, o PO no aval, quem
+fechou no fechamento; nunca o agente — e `estado-em`, com data, hora e fuso
+(`AAAA-MM-DD HH:MM ±HH:MM`; no terminal, `date '+%Y-%m-%d %H:%M %:z'`). O git guarda as
 anteriores — é lá que se vê o escopo aprovado depois que a AIMM passa a mostrar o que foi
 feito.
 
@@ -50,7 +54,7 @@ final da esteira** da instância (`implementado` no perfil `completo`; `especifi
 
 **Onde a AIMM vive** (MASTER → `**Cadência**`). A `main` só recebe o que foi entregue; até
 a entrega, a AIMM e as passadas que ela dispara vivem na branch da unidade de entrega:
-- cadência `história` → `historia/<CHAVE>`, criada da `main` na abertura desta AIMM;
+- cadência `história` → `historia/<CHAVE>`, criada da `main` como **primeira ação**, antes de elaborar a AIMM;
 - cadência `sprint` → `sprint/<id>`, criada no planejamento, com a AIMM da sprint
   (`analise-impacto/AIMM-<id>.md`, a partir do `_TEMPLATE_AIMM_SPRINT.md`, em `rascunho`) e
   as AIMMs dos tickets planejados.
@@ -133,6 +137,8 @@ Detecte o modo de captura e confirme:
   > "Sem integração com a ferramenta de origem nesta sessão. Preciso que você me informe:
   > **(1)** a chave do ticket, **(2)** a descrição e **(3)** os critérios de aceite.
   > Podemos começar?"
+
+**Primeira ação: a branch.** Assim que souber a chave do ticket, antes de elaborar qualquer parte da AIMM, crie `historia/<CHAVE>` a partir da `main` (cadência `história`) ou confirme que está em `sprint/<id>` (cadência `sprint`). Nada é gravado fora dela. Sem a linha Cadência no MASTER, não há branch a criar.
 
 Se já existe `analise-impacto/AIMM-<CHAVE>.md`, **não abra outra**: a AIMM é uma por ticket.
 Leia a existente, diga em que estado ela está e retome do passo que falta.
@@ -222,10 +228,7 @@ de critérios do ticket: nenhum repetido entre funcionalidades, nenhum faltando.
 
 Com o mapeamento aprovado, grave a AIMM em `analise-impacto/AIMM-<CHAVE>.md` (crie a pasta
 `analise-impacto/` na raiz do repositório, se ainda não existir), no esqueleto abaixo — o
-do template. Com a Cadência declarada no MASTER, grave na branch da unidade de entrega
-(ver *Onde a AIMM vive*, acima) — na `história`, crie agora `historia/<CHAVE>` a partir da
-`main` —, e commite com a chave do ticket no assunto. As seções de impacto nascem com o exemplo do template e são preenchidas no
-passo 5; não as apague.
+do template. Com a Cadência declarada no MASTER, grave na branch da unidade de entrega, criada no passo 1 (ver *Onde a AIMM vive*, acima). As seções de impacto saem do template com o exemplo só até o passo 5, que as preenche em seguida, na mesma passada. **Não commite ainda nem encerre a passada aqui**: a AIMM só é commitada completa, ao fim do passo 5.
 
 ````markdown
 ---
@@ -234,7 +237,9 @@ ticket: [CHAVE]
 ferramenta: [ServiceNow | Jira | GitHub | experimento]
 link: [URL do ticket]
 titulo: [título curto]
-estado: rascunho
+estado: em-análise
+estado-por: [quem conduziu a abertura com você]
+estado-em: [data, hora e fuso atuais — AAAA-MM-DD HH:MM ±HH:MM]
 aberta-na-entrega: false
 sprint: ""
 avalizado-por: ""
@@ -302,7 +307,7 @@ Scenario: [resultado esperado]
 | Data | Autor | Tipo | Descrição |
 |---|---|---|---|
 | 2026-10-20 | Docqui Caixa | Terminologia | Adoção de AIMM; histórico anterior preservado. |
-| [data atual] | [Claude / autor] | AIM aberta | ticket `[CHAVE]` registrado a partir da [ferramenta]; [N] funcionalidade(s) mapeada(s) |
+| [data atual] | [Claude / autor] | AIMM aberta | ticket `[CHAVE]` registrado a partir da [ferramenta]; [N] funcionalidade(s) mapeada(s) e [M] artefato(s) no changeset |
 ````
 
 Na `## Funcionalidades`, o link vai para o N3 (`../modules/…`); funcionalidade ainda sem N3 leva o nome
@@ -317,7 +322,7 @@ o 3A, ao criá-la, usa o ID reservado no N2 e troca o Status pelo do N3. Um ID r
 
 **[Estado: CHANGESET]**
 
-Rode o derivador — ele lê os elos que já vivem nos artefatos e grava na
+Este passo faz parte da abertura: execute-o logo depois do passo 4, sem esperar outra sessão. Rode o derivador — ele lê os elos que já vivem nos artefatos e grava na
 `## Artefatos impactados` as linhas computáveis, a partir das funcionalidades da `## Funcionalidades`
 (ou das que você passar com `--funcionalidade`):
 
@@ -338,7 +343,7 @@ Cada linha nasce de um elo, **rotulado na coluna Proveniência**:
 | REPOSITÓRIO | `## Implementação` |
 | regressão (QA) | **usado-em reverso**: quem mais usa a mesma regra canônica, e quem reutiliza um PE da âncora (`↪`) (não no perfil `requisitos`) |
 
-Linhas que você já escreveu na seção ficam; o derivador só acrescenta as que faltam.
+Linhas que você já escreveu na seção ficam; o derivador só acrescenta as que faltam. Funcionalidade ainda sem N3 não gera linha: acrescente à mão as de criação (N3 `criar`, com o N2 e o protótipo quando forem novos). Reescreva o `O quê` genérico das linhas derivadas com a mudança real.
 
 Depois, a **passada dimensional** com o PO/analista — o derivador **não adivinha NFR**:
 
@@ -354,8 +359,7 @@ Depois, a **passada dimensional** com o PO/analista — o derivador **não adivi
 Marque as linhas acrescentadas com Proveniência `elicitado`. Preencha também a previsão
 em **Alterações em funcionalidades por Agrupamento Funcional** (uma linha por funcionalidade, com o ID e o nome em
 linhas separadas, e a mudança pedida), **Entidades alteradas** (sem PF), **Impacto em
-dicionários** e **Decisões pendentes**. Mude `estado:` para `em-análise` e registre a versão no
-Changelog.
+dicionários** e **Decisões pendentes**. O que não tiver impacto leva "Nenhuma." ou "Nenhum."; não fica exemplo do template em nenhuma seção. Rode o `validate-impact` do passo 6 e, com a AIMM verde, commite-a com a chave do ticket no assunto. A partir daqui ela só é atualizada.
 
 ---
 
@@ -373,11 +377,11 @@ caminhos; e o portão de estado. No perfil `requisitos`, a falta da `QA` (C2 e m
 C3) é aviso; o `NFR` do C3 continua exigido.
 
 Com a AIM verde, **apresente-a ao PO**. No aval:
-- mude `estado:` para `escopo-aprovado`, preencha `avalizado-por:` e registre a versão no
-  Changelog;
+- mude `estado:` para `escopo-aprovado`, preencha `avalizado-por:`, `estado-por:` (o PO) e
+  `estado-em:` e registre a versão no Changelog;
 - só então dispare as passadas de execução (`PROMPT_3A` para funcionalidade nova, `PROMPT_4A/4B`
   por N3 alterado, `PROMPT_NFR`, `PROMPT_QA`) — **uma por linha do
-  changeset** — e mude `estado:` para `em-execução`.
+  changeset** — e mude `estado:` para `em-execução`, com `estado-por:` e `estado-em:`.
 
 Conclua:
 
@@ -408,7 +412,8 @@ node scripts/validate-impact.mjs analise-impacto/AIM-<CHAVE>.md --git-base <base
 ```
 
 Escreva o resultado em `## Reconciliação` — abaixo da citação de instrução, que pode
-ficar: o validador só conta o que está fora dela — e mude `estado:` para `concluído`.
+ficar: o validador só conta o que está fora dela — e mude `estado:` para `concluído`, com
+`estado-por:` e `estado-em:`.
 Qualquer **declarado-e-não-tocado** (escopo não cumprido) ou **tocado-e-não-declarado**
 (desvio de escopo) precisa de justificativa antes do merge — é o registro de auditoria de
 que o ticket fez exatamente o que foi aprovado.

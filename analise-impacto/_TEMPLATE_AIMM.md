@@ -5,7 +5,9 @@ ticket: [STRYxxxxxxx | ISSUE-NNN | EXP-… | PDTIC…-NN]
 ferramenta: [ServiceNow | Jira | GitHub | experimento]
 link: [URL do ticket na ferramenta de origem]
 titulo: [título curto do ticket]
-estado: rascunho          # rascunho → em-análise → escopo-aprovado → em-execução → concluído
+estado: em-análise        # em-análise → escopo-aprovado → em-execução → concluído
+estado-por: ""            # quem levou a AIMM ao estado atual — a pessoa, não o agente
+estado-em: ""             # quando: AAAA-MM-DD HH:MM ±HH:MM (data, hora e fuso)
 aberta-na-entrega: false  # true quando a AIMM nasce depois da entrega (skill analise-impacto)
 sprint: ""                # sprint da entrega — preenchida no fechamento
 avalizado-por: ""         # aval do PO no escopo — obrigatório de escopo-aprovado em diante
@@ -20,8 +22,8 @@ aberta-em: [AAAA-MM-DD]
   A AIMM é VERSIONADA à medida que o ticket avança — o Changelog registra cada versão
   e o git guarda as anteriores:
 
-    rascunho         aberta: Descrição, Critérios e Funcionalidades (PROMPT_AIMM, passos 1–4)
-    em-análise       o que SERÁ alterado: Artefatos impactados, Alterações previstas (passo 5)
+    em-análise       aberta completa: o ticket, as Funcionalidades e o que SERÁ alterado, com
+                     todas as seções de impacto preenchidas (PROMPT_AIMM, passos 1–5)
     escopo-aprovado  o PO avalizou o escopo (`avalizado-por`) — só então a spec muda (passo 6)
     em-execução      as passadas de spec e código, uma por linha do changeset
     concluído        o que FOI alterado: as seções de impacto reescritas com o que mudou
@@ -63,7 +65,7 @@ aberta-em: [AAAA-MM-DD]
   Cada critério é analisado no N3 e vira regra de negócio (se expressa uma invariante),
   um `## Cenários` (Gherkin, se descreve comportamento observável) ou os dois.
 
-  NUMERAÇÃO `CA-n` — a contagem por sprint cita o critério pelo número, para o cliente
+  NUMERAÇÃO `CA-n` — a AIMM da sprint cita o critério pelo número, para o cliente
   conferir lado a lado com a ferramenta. Só numere quando a FONTE numerar, e com o MESMO
   número dela. Se a fonte traz os critérios como bullets, prosa ou sub-seções, NÃO
   invente número: deixe a lista sem `CA-n` e declare isso abaixo — a rastreabilidade
@@ -140,8 +142,8 @@ Scenario: [resultado esperado em linguagem de negócio]
   Coluna Mudança: abra com o verbo da mudança (Inclusão, Alteração, Restrição, Remoção,
   Correção) e traga o contraste: *Antes* … *Agora* … — não descreva o estado atual da
   funcionalidade, diga o que mudou e de quê.
-  Natureza: `incluída` ou `alterada`. A contagem de tamanho permanece no N3, no
-  DATA-MODEL e no consolidado Markdown; esta AIMM do ticket não traz PF.
+  Natureza: `incluída` ou `alterada`. A AIMM não traz PF: a medição é do agente de
+  contagem, fora do Docqui.
 -->
 
 ### [Agrupamento Funcional]
@@ -156,7 +158,7 @@ Scenario: [resultado esperado em linguagem de negócio]
   As alterações no modelo de dados agrupadas por ENTIDADE: tabela/coleção, atributos,
   relacionamentos, restrições e migração associada. Descreva o contraste *Antes*/*Agora*
   quando houver estado anterior. Não classifique ALI/AIE, não informe RLR/DER e não
-  inclua PF: a medição pertence ao DATA-MODEL e ao consolidado Markdown.
+  inclua PF: a medição é do agente de contagem, fora do Docqui.
   Sem alteração de entidade, escreva "Nenhuma." e apague o exemplo.
 -->
 
