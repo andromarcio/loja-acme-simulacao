@@ -168,7 +168,7 @@ details[open] > .section-header .chevron { transform: rotate(180deg); }
     <div class="eyebrow">Análise de impacto</div>
     <h1>AIMM STRY0004042</h1>
   </header>
-  <div class="ficha markdown-body"><p><strong>Ticket</strong>: ServiceNow fictício <code>STRY0004042</code> — Percentual máximo de desconto da categoria<br><strong>Estado</strong>: Em análise  </p>
+  <div class="ficha markdown-body"><p><strong>Ticket</strong>: ServiceNow fictício <code>STRY0004042</code> — Percentual máximo de desconto da categoria<br><strong>Estado</strong>: Escopo aprovado  </p>
 </div>
 
   <details class="doc-section" id="descricao-do-ticket" open>
@@ -310,7 +310,7 @@ Scenario: Percentual próprio de cada categoria
       </svg>
     </summary>
     <div class="section-body markdown-body">
-<p>O changeset abaixo é a previsão do analista, ainda sem o aval da PO, e nenhum artefato foi alterado além desta AIMM. As linhas que a análise concluiu que não mudam saíram: <code>global/RULES-DICTIONARY.md</code> (nenhuma regra canônica nova), <code>global/ERROR-DICTIONARY.md</code> (o perfil <code>requisitos</code> não especifica erros técnicos) e <code>global/NFR.md</code> (o percentual segue as qualidades vigentes, inclusive a autorização por perfil de SEG-01). No perfil <code>requisitos</code> o changeset não leva QA.</p>
+<p>O changeset abaixo foi avalizado por Andro Márcio em 2026-10-31, e nenhum artefato foi alterado além desta AIMM. As linhas que a análise concluiu que não mudam saíram: <code>global/RULES-DICTIONARY.md</code> (nenhuma regra canônica nova), <code>global/ERROR-DICTIONARY.md</code> (o perfil <code>requisitos</code> não especifica erros técnicos) e <code>global/NFR.md</code> (o percentual segue as qualidades vigentes, inclusive a autorização por perfil de SEG-01). No perfil <code>requisitos</code> o changeset não leva QA.</p>
 <div class="table-container"><table class="custom-table">
 <thead>
 <tr>
@@ -540,12 +540,14 @@ Scenario: Percentual próprio de cada categoria
     </summary>
     <div class="section-body markdown-body">
 <ul>
-<li><strong>Aval do escopo</strong>: a PO precisa avalizar o changeset antes de qualquer N3 ou modelo de entidades mudar.</li>
 <li><strong>Link do ticket</strong>: o ticket não está em <code>mentoria/backlog.md</code> nem traz URL; <code>link</code> fica vazio até haver uma referência.</li>
-<li><strong>Casas decimais</strong>: o ticket só diz &quot;de 0 a 100&quot;. A proposta é aceitar até 2 casas decimais, como Valor monetário; confirmar.</li>
-<li><strong>Percentual vazio e zero</strong>: a proposta é tratá-los como coisas diferentes: vazio significa percentual não definido, e 0 significa que os produtos da categoria não podem ter desconto. Confirmar.</li>
-<li><strong>Uso do percentual</strong>: o ticket pede o registro. Confirmar que ele não limita nada agora, inclusive o Cupom de desconto (STRY0013135), que trata o desconto no checkout.</li>
-<li><strong>Herança na subcategoria</strong>: o <code>CA-5</code> diz que cada categoria tem o próprio valor. A proposta é que a subcategoria sem percentual não use o da superior nem o mostre na ficha; confirmar.</li>
+</ul>
+<p>Decididas no aval de 2026-10-31:</p>
+<ul>
+<li><strong>Casas decimais</strong>: o percentual aceita até 2 casas decimais, como Valor monetário.</li>
+<li><strong>Percentual vazio e zero</strong>: são coisas diferentes: vazio significa percentual não definido, e 0 significa que os produtos da categoria não podem ter desconto.</li>
+<li><strong>Uso do percentual</strong>: ele só fica registrado e não limita nada agora, inclusive o Cupom de desconto (STRY0013135).</li>
+<li><strong>Herança na subcategoria</strong>: a subcategoria sem percentual não usa o da superior nem o mostra na ficha.</li>
 </ul>
 
     </div>
@@ -596,6 +598,12 @@ Scenario: Percentual próprio de cada categoria
 </tr>
 </thead>
 <tbody><tr>
+<td>31/10/2026</td>
+<td>Andro Márcio</td>
+<td>Escopo aprovado</td>
+<td>Aval do changeset, com as propostas de casas decimais, percentual vazio e zero, uso do percentual e herança na subcategoria; o link do ticket segue pendente.</td>
+</tr>
+<tr>
 <td>31/10/2026</td>
 <td>Claude</td>
 <td>AIMM aberta</td>
