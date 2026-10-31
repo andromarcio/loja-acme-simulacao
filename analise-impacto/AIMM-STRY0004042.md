@@ -5,10 +5,10 @@ ticket: STRY0004042
 ferramenta: ServiceNow fictício
 link: ""
 titulo: Percentual máximo de desconto da categoria
-estado: em-análise
+estado: escopo-aprovado
 aberta-na-entrega: false
 sprint: ""
-avalizado-por: ""
+avalizado-por: "Andro Márcio"
 aberta-em: 2026-10-31
 ---
 
@@ -68,7 +68,7 @@ O `CA-3` também vale na edição, e o `CA-5` também vale no cadastro de subcat
 
 ## Artefatos impactados
 
-O changeset abaixo é a previsão do analista, ainda sem o aval da PO, e nenhum artefato foi alterado além desta AIMM. As linhas que a análise concluiu que não mudam saíram: `global/RULES-DICTIONARY.md` (nenhuma regra canônica nova), `global/ERROR-DICTIONARY.md` (o perfil `requisitos` não especifica erros técnicos) e `global/NFR.md` (o percentual segue as qualidades vigentes, inclusive a autorização por perfil de SEG-01). No perfil `requisitos` o changeset não leva QA.
+O changeset abaixo foi avalizado por Andro Márcio em 2026-10-31, e nenhum artefato foi alterado além desta AIMM. As linhas que a análise concluiu que não mudam saíram: `global/RULES-DICTIONARY.md` (nenhuma regra canônica nova), `global/ERROR-DICTIONARY.md` (o perfil `requisitos` não especifica erros técnicos) e `global/NFR.md` (o percentual segue as qualidades vigentes, inclusive a autorização por perfil de SEG-01). No perfil `requisitos` o changeset não leva QA.
 
 | Artefato | Tipo | Operação | Seção | Natureza | O quê | Proveniência |
 |---|---|---|---|---|---|---|
@@ -114,12 +114,14 @@ Perfil `requisitos`: a alteração é descrita no modelo de entidades de negóci
 
 ## Decisões pendentes
 
-- **Aval do escopo**: a PO precisa avalizar o changeset antes de qualquer N3 ou modelo de entidades mudar.
 - **Link do ticket**: o ticket não está em `mentoria/backlog.md` nem traz URL; `link` fica vazio até haver uma referência.
-- **Casas decimais**: o ticket só diz "de 0 a 100". A proposta é aceitar até 2 casas decimais, como Valor monetário; confirmar.
-- **Percentual vazio e zero**: a proposta é tratá-los como coisas diferentes: vazio significa percentual não definido, e 0 significa que os produtos da categoria não podem ter desconto. Confirmar.
-- **Uso do percentual**: o ticket pede o registro. Confirmar que ele não limita nada agora, inclusive o Cupom de desconto (STRY0013135), que trata o desconto no checkout.
-- **Herança na subcategoria**: o `CA-5` diz que cada categoria tem o próprio valor. A proposta é que a subcategoria sem percentual não use o da superior nem o mostre na ficha; confirmar.
+
+Decididas no aval de 2026-10-31:
+
+- **Casas decimais**: o percentual aceita até 2 casas decimais, como Valor monetário.
+- **Percentual vazio e zero**: são coisas diferentes: vazio significa percentual não definido, e 0 significa que os produtos da categoria não podem ter desconto.
+- **Uso do percentual**: ele só fica registrado e não limita nada agora, inclusive o Cupom de desconto (STRY0013135).
+- **Herança na subcategoria**: a subcategoria sem percentual não usa o da superior nem o mostra na ficha.
 
 ## Reconciliação
 
@@ -129,4 +131,5 @@ Perfil `requisitos`: a alteração é descrita no modelo de entidades de negóci
 
 | Data | Autor | Tipo | Descrição |
 |---|---|---|---|
+| 2026-10-31 | Andro Márcio | Escopo aprovado | Aval do changeset, com as propostas de casas decimais, percentual vazio e zero, uso do percentual e herança na subcategoria; o link do ticket segue pendente. |
 | 2026-10-31 | Claude | AIMM aberta | Ticket fictício `STRY0004042` registrado a partir do texto informado pelo analista; 3 funcionalidades mapeadas e 9 artefatos no changeset; sem aval da PO. |
