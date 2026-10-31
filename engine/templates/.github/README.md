@@ -40,7 +40,7 @@ Cada **N3** carrega no front-matter a sua **esteira de gates**. Um gate é um **
 3. Em **Settings → Branches → branch protection** da `main`:
    - *Require a pull request before merging*
    - *Require review from Code Owners*
-   - *Require status checks to pass* → selecione **Esteira de gates — check**
+   - *Require status checks to pass* → selecione **Esteira de gates — check** e os jobs **estrutura**, **rastreabilidade** e **entrega** do `spec-guard.yml` (copiado de `engine/templates/ci/`). O `spec-guard` roda em todo PR, então exigi-lo não trava PR que não mexe na especificação; fora de uma branch `historia/` ou `sprint/`, o `entrega` é pulado e conta como aprovado. O check só aparece na busca depois de rodar uma vez no repositório.
 4. O **CP4 (código)** vive no(s) repositório(s) de implementação: replique lá um `CODEOWNERS` apontando o review para o Tech Lead. O elo com o N3 é a chave do ServiceNow + o ID da funcionalidade nos commits/PR (ver `## Implementação` do N3).
 
 Para o Pages, selecione **GitHub Actions** como fonte e permita `main`, `sprint/*` e `historia/*` no ambiente `github-pages` (e a base do PR, se usar outro nome). O site de cada branch de entrega inclui o seletor **Branch** e **Ver alterações**, comparando com a base do PR aberto desde o ancestral comum; sem PR, a referência é a `main`, com aviso explícito. O template monta o visualizador da raiz; use `--site-dir docs` se ele estiver nessa pasta. A publicação depende de `scripts/monta-site-preview.mjs`, `scripts/lib/pages-preview.mjs` e `engine/publication/`, sincronizados pelo engine. O `sync-instance` não troca o workflow já adotado: integre este template preservando os ajustes locais, depois de a mudança estar na `main` do engine.

@@ -1,4 +1,4 @@
-<!-- docqui: 7.1.0 | prompt: MIGRA_NIVEIS | atualizado: 2026-10-23 -->
+<!-- docqui: 9.1.0 | prompt: MIGRA_AIMM_ESTADO | atualizado: 2026-10-31 -->
 ---
 tipo: ticket
 ticket: STRY0013205
@@ -6,6 +6,8 @@ ferramenta: ServiceNow fictício
 link: ../mentoria/backlog.md#stry0013205--subcategorias
 titulo: Subcategorias
 estado: em-análise
+estado-por: "Claude"
+estado-em: 2026-10-31 00:16 +00:00
 aberta-na-entrega: false
 sprint: ""
 avalizado-por: ""
@@ -131,6 +133,7 @@ Nenhuma alteração de atributo: o produto continua com uma única Categoria, qu
 
 | Data | Autor | Tipo | Descrição |
 |---|---|---|---|
+| 2026-10-31 | Docqui Caixa | Ajuste | Front-matter ganha `estado-por` e `estado-em` (9.1.0), preenchidos pelo histórico do git com quem levou a AIMM ao estado atual e quando. |
 | 2026-10-21 | Claude | Em análise | Changeset derivado e podado; alterações previstas nas 5 features e na entidade Categoria, em Label PO, sem aval da PO. |
 | 2026-10-21 | Claude | AIMM aberta | Ticket fictício `STRY0013205` registrado a partir do backlog da demonstração; 5 features mapeadas, todas alteradas. |
 | 2026-10-21 | Docqui Caixa | Terminologia | Níveis em português: Domínio, Agrupamento Funcional e Funcionalidade; histórico preservado. |

@@ -108,6 +108,7 @@ svg = "\n".join(partes)
 # ── textos ──────────────────────────────────────────────────────────────────
 ag = blocos("1-agente-docqui-caixa.md")
 rt = blocos("3-agente-retro.md")
+rv = blocos("4-agente-revisao.md")
 tp = blocos("2-topico-data-de-hoje.md")
 wf = (PACOTE / "github/.github/workflows/regenera-gerados.yml").read_text()
 
@@ -119,6 +120,8 @@ valores = {
     "NOME_RETRO": esc(rt[0]), "DESC_RETRO": esc(rt[1]), "INSTR_RETRO": esc(rt[2]),
     "TAM_RETRO": f"{len(rt[2]):,}".replace(",", "."),
     "DESC_TOPICO": esc(tp[0]), "FORMULA": esc(tp[1]),
+    "NOME_REVISAO": esc(rv[0]), "DESC_REVISAO": esc(rv[1]), "INSTR_REVISAO": esc(rv[2]),
+    "TAM_REVISAO": f"{len(rv[2]):,}".replace(",", "."),
 }
 saida = (AQUI / "guia.template.html").read_text()
 for k, v in valores.items():

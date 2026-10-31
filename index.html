@@ -868,6 +868,19 @@
       line-height: 1.3;
     }
 
+    /* AIMM: o estado, quem levou a AIMM até ele e quando, logo abaixo do título */
+    .aimm-estado {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 12px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+    .aimm-estado strong { color: var(--text-main); font-weight: 600; }
+    .aimm-estado-fuso { color: var(--text-muted); }
+
     .badge-fdd-level {
       background: var(--brand-blue-light);
       color: var(--brand-blue);
@@ -3330,6 +3343,19 @@
       .join('');
   }
 
+  // AIMM: o estado, quem levou a AIMM até ele e quando (`estado-por`/`estado-em`, Docqui 9.1.0).
+  // AIMM anterior, sem os campos, mostra só o estado.
+  function estadoDaAimm(fm) {
+    const ROTULO = { rascunho: 'Rascunho', 'em-análise': 'Em análise', 'escopo-aprovado': 'Escopo aprovado', 'em-execução': 'Em execução', 'concluído': 'Concluída' };
+    const limpa = (v) => String(v || '').replace(/\s+#.*$/, '').trim().replace(/^["']|["']$/g, '');
+    const estado = limpa(fm.estado), por = limpa(fm['estado-por']);
+    const em = limpa(fm['estado-em']).match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2}) ([+-]\d{2}:\d{2})$/);
+    return `<div class="aimm-estado"><span class="badge badge-fdd-level">${mmEsc(ROTULO[estado] || estado)}</span>`
+      + (por ? `<span>por <strong>${mmEsc(por)}</strong></span>` : '')
+      + (em ? `<span>em ${em[3]}/${em[2]}/${em[1]} às ${em[4]} <span class="aimm-estado-fuso">(${em[5]})</span></span>` : '')
+      + '</div>';
+  }
+
   // Template para Documentos Gerais (N0, Readmes gerais)
   function renderGenericDocumentTemplate(path, title, frontmatter, md) {
     const dicionario = /-DICTIONARY\.md$/i.test(path) ? entradasDeDicionario(md) : null;
@@ -3346,6 +3372,9 @@
         (dicionario.depois.trim() ? cardsPorSecao(dicionario.depois, path) : '');
     } else {
       rendered = cardsPorSecao(md, path);
+    }
+    if (/(^|\/)analise-impacto\/AIMM-[^/]+\.md$/.test(path) && frontmatter.estado) {
+      rendered = rendered.replace(/<\/h1>/, (fim) => fim + estadoDaAimm(frontmatter));
     }
 
     const html = `

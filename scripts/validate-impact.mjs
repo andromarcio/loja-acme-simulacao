@@ -11,11 +11,13 @@
 //
 // AIMM do ticket (`tipo: ticket`):
 //   front-matter  `ticket` (a mesma chave do nome do arquivo) e `estado` da esteira:
-//                 rascunho → em-análise → escopo-aprovado → em-execução → concluído
+//                 em-análise → escopo-aprovado → em-execução → concluído
+//                 A AIMM do ticket nasce completa: `rascunho` reprova, com a instrução de
+//                 preencher, e nenhuma seção de impacto guarda o exemplo do template.
 //   seções        Descrição do ticket · Critérios de aceite · Funcionalidades · Artefatos
 //                 impactados · Alterações em funcionalidades por Agrupamento Funcional · Reconciliação ·
 //                 Changelog
-//   de em-análise em diante: a `## Funcionalidades` com ao menos uma funcionalidade, e o changeset sem
+//   sempre: a `## Funcionalidades` com ao menos uma funcionalidade, e o changeset sem
 //                 linha de exemplo do template e com as invariantes de cobertura:
 //     C1  ao menos uma linha N3 (a funcionalidade-âncora)
 //     C2  linha `funcional`     → linha `QA`   (mudança funcional é testada)
@@ -26,6 +28,9 @@
 //     Existência: `alterar` sobre arquivo que não existe é erro; `criar` sobre arquivo que
 //     já existe é aviso só até `escopo-aprovado` — depois, a execução o criou.
 //   escopo-aprovado|em-execução|concluído → `avalizado-por`
+//   sempre (ticket e sprint): `estado-por` (quem levou a AIMM ao estado atual) e `estado-em`
+//                 (`AAAA-MM-DD HH:MM ±HH:MM`). Sem os dois campos, a AIMM anterior à 9.1.0
+//                 só recebe aviso; com eles, vazio ou fora do formato reprova.
 //   concluído     → `sprint`; a visão final em `## Alterações em funcionalidades por Agrupamento Funcional`
 //                   (linha com ID de funcionalidade, sem exemplo do template); a
 //                   `## Reconciliação` preenchida — com conteúdo fora da citação de
@@ -164,6 +169,17 @@ const EXEMPLO = /\[[^\]]*\]|<(?:dom|fs|slug|CHAVE)>|SIGLA-S(?:AF|FS)-NN/i; // pl
 const conteudoForaDaCitacao = (s) => corpoDe(s).join('\n').replace(/<!--[\s\S]*?-->/g, '').split('\n')
   .filter((l) => l.trim() && !/^\s*>/.test(l));
 
+/* -------------------- quem e quando do estado -------------------- */
+const ESTADO_EM = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} [+-]\d{2}:\d{2}$/;
+if (!('estado-por' in fm) && !('estado-em' in fm)) {
+  warns.push('front-matter sem `estado-por`/`estado-em` (quem levou a AIMM ao estado atual, e quando) — rode `node scripts/migra-aimm-estado.mjs`.');
+} else {
+  if (!fm['estado-por'] || EXEMPLO.test(fm['estado-por']))
+    errors.push('front-matter `estado-por` vazio — o nome de quem levou a AIMM ao estado atual.');
+  if (!ESTADO_EM.test(fm['estado-em'] || ''))
+    errors.push(`front-matter \`estado-em\` deve ser \`AAAA-MM-DD HH:MM ±HH:MM\` (data, hora e fuso)${fm['estado-em'] ? `, não \`${fm['estado-em']}\`` : ''}.`);
+}
+
 /* =========================== AIMM da sprint =========================== */
 if (tipo === 'sprint') {
   if (!fm.sprint || EXEMPLO.test(fm.sprint)) errors.push('front-matter sem `sprint:` (o rótulo da sprint).');
@@ -276,9 +292,10 @@ function confereSprint(tickets) {
 }
 
 /* =========================== AIMM do ticket =========================== */
-const ESTADOS = ['rascunho', 'em-analise', 'escopo-aprovado', 'em-execucao', 'concluido'];
+const ESTADOS = ['em-analise', 'escopo-aprovado', 'em-execucao', 'concluido'];
 const est = norm(fm.estado);
-if (!fm.estado) errors.push('front-matter sem `estado:` (rascunho|em-análise|escopo-aprovado|em-execução|concluído).');
+if (!fm.estado) errors.push('front-matter sem `estado:` (em-análise|escopo-aprovado|em-execução|concluído).');
+else if (est === 'rascunho') errors.push('`estado: rascunho` não existe mais na AIMM do ticket — ela nasce completa: execute os passos 1 a 5 do PROMPT_AIMM e grave `em-análise`.');
 else if (!ESTADOS.includes(est)) errors.push(`\`estado: ${fm.estado}\` não é um estado válido da esteira da AIMM.`);
 const depoisDe = (e) => ESTADOS.indexOf(est) >= ESTADOS.indexOf(e);
 
@@ -346,6 +363,21 @@ if (depoisDe('em-analise') && temSecao('Artefatos impactados')) {
     if (!has((r) => r.tipo === 'QA'))
       faltaQA('C3: há mudança `não-funcional` sem linha `QA`', ' (teste não-funcional que a verifique).', 'o teste do NFR fica com quem constrói.');
   }
+}
+
+// A AIMM nasce completa: nenhuma seção de impacto guarda o exemplo do template. O padrão é o
+// texto do próprio template, não o EXEMPLO genérico, porque aqui a prosa real traz links.
+const EXEMPLOS_DE_SECAO = {
+  'Alterações em funcionalidades por Agrupamento Funcional': /SIGLA-S(?:AF|FS)-NN|^### \[|\[Nome da Funcionalidade\]/m,
+  'Entidades alteradas': /^\[`### <Entidade>`/m,
+  'Impacto em dicionários': /^- \[ou "/m,
+  'Decisões pendentes': /^- \[ou "/m,
+};
+for (const [s, re] of Object.entries(EXEMPLOS_DE_SECAO)) {
+  if (!temSecao(s)) continue;
+  const corpo = corpoDe(s).join('\n').replace(/<!--[\s\S]*?-->/g, '');
+  if (re.test(corpo)) errors.push(`\`## ${s}\` ainda tem o exemplo do template — a AIMM nasce completa: preencha a seção, ou escreva "Nenhuma."/"Nenhum.".`);
+  else if (!conteudoForaDaCitacao(s).length) errors.push(`\`## ${s}\` está vazia — a AIMM nasce completa: preencha a seção, ou escreva "Nenhuma."/"Nenhum.".`);
 }
 
 /* --------------------- portões por estado --------------------- */

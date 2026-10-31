@@ -257,7 +257,12 @@ function gera(caminhoMd, saida) {
       if (vale(fm.sprint)) fichaFm.push(`**Sprint**: ${fm.sprint}`);
       if (vale(fm.entrega)) fichaFm.push(`**Entrega**: ${fm.entrega}`);
     }
-    if (ESTADO[(fm.estado || '').toLowerCase()]) fichaFm.push(`**Estado**: ${ESTADO[fm.estado.toLowerCase()]}`);
+    if (ESTADO[(fm.estado || '').toLowerCase()]) {
+      // quem levou a AIMM ao estado atual, e quando (9.1.0): `2026-10-31 16:19 -03:00` → `31/10/2026 16:19 (-03:00)`
+      const em = (fm['estado-em'] || '').match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2}) ([+-]\d{2}:\d{2})$/);
+      const por = vale(fm['estado-por']) ? ` — por ${fm['estado-por']}` : '';
+      fichaFm.push(`**Estado**: ${ESTADO[fm.estado.toLowerCase()]}${por}${em ? `, em ${em[3]}/${em[2]}/${em[1]} ${em[4]} (${em[5]})` : ''}`);
+    }
   }
 
   const tituloM = md.match(/^#\s+(.+)$/m);
