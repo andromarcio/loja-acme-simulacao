@@ -18,7 +18,12 @@
 #
 # O push usa o token do GitHub App, não o GITHUB_TOKEN: push feito com o GITHUB_TOKEN não
 # dispara os outros workflows, e o PR ficaria esperando para sempre os checks do commit
-# novo. O commit do App dispara este workflow de novo; a condição `if` do job o encerra.
+# novo. O commit do App dispara este workflow de novo; a condição `if` do job pula essa
+# execução pelo autor do commit (`docqui-bot`), e não pela mensagem, que muda de um commit
+# para outro. A concorrência não cancela a execução em andamento: com `cancel-in-progress`,
+# a execução que o próprio commit do App dispara cancelava a que acabara de gravá-lo, e o
+# trabalho feito aparecia como cancelado. Push novo durante a regeneração espera a vez; o
+# laço de tentativas abaixo cobre o caso de a branch mudar no meio.
 
 name: Regenera arquivos gerados
 
@@ -33,14 +38,14 @@ permissions:
 
 concurrency:
   group: regenera-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   regenera:
     # só em branch de entrega (nunca na main, nem pelo botão Run workflow) e não no commit do próprio workflow
     if: >-
       (startsWith(github.ref_name, 'historia/') || startsWith(github.ref_name, 'sprint/') || startsWith(github.ref_name, 'checkpoint/')) &&
-      !contains(github.event.head_commit.message, 'regenerado pelo workflow')
+      github.event.head_commit.author.name != 'docqui-bot'
     runs-on: ubuntu-latest
     steps:
       - name: Token do GitHub App

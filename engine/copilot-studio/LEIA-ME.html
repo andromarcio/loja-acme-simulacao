@@ -210,14 +210,14 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
       <div class="passo-corpo">
         <p>É a "conta" que o workflow usa para gravar os arquivos gerados. Precisa ser um App, e não o token padrão do Actions: o commit feito com o token padrão não dispara os checks, e o PR ficaria esperando para sempre.</p>
         <ol>
-          <li>Na página da organização, clique em <span class="ui">Settings</span>. No fim do menu da esquerda, abra <span class="ui">Developer settings</span> → <span class="ui">GitHub Apps</span> → <span class="ui">New GitHub App</span>.</li>
+          <li>Na página da organização, clique em <span class="ui">Settings</span>. No fim do menu da esquerda, abra <span class="ui">Developer settings</span> → <span class="ui">GitHub Apps</span> → <span class="ui">New GitHub App</span>. Numa conta pessoal, o caminho começa pelo seu avatar → <span class="ui">Settings</span>.</li>
           <li><span class="ui">GitHub App name</span>: <code>docqui-bot-&lt;org&gt;</code> (o nome precisa ser único em todo o GitHub).</li>
           <li><span class="ui">Homepage URL</span>: o endereço da organização, por exemplo <code>https://github.com/&lt;org&gt;</code>.</li>
           <li>Em <span class="ui">Webhook</span>, <strong>desmarque</strong> <span class="ui">Active</span>.</li>
           <li>Em <span class="ui">Permissions</span> → <span class="ui">Repository permissions</span>, ponha <span class="ui">Contents</span> em <span class="ui">Read and write</span>. Não mexa nas outras.</li>
           <li>Em <span class="ui">Where can this GitHub App be installed?</span>, escolha <span class="ui">Only on this account</span>.</li>
-          <li>Clique em <span class="ui">Create GitHub App</span>. Na página que abre, anote o número de <span class="ui">App ID</span>.</li>
-          <li>Desça até <span class="ui">Private keys</span> e clique em <span class="ui">Generate a private key</span>. Um arquivo <code>.pem</code> é baixado. Guarde-o com cuidado: é uma senha.</li>
+          <li>Clique em <span class="ui">Create GitHub App</span>. Na página que abre, em <span class="ui">About</span>, anote o <span class="ui">App ID</span>: só números. Não confunda com o <span class="ui">Client ID</span>, logo abaixo, que começa com <code>Iv</code>.</li>
+          <li>No menu da esquerda do App, abra <span class="ui">Credentials</span> → aba <span class="ui">Key pairs</span> e clique em <span class="ui">Generate a private key</span>. Um arquivo <code>.pem</code> é baixado. Guarde-o com cuidado: é uma senha. A aba <span class="ui">Client secrets</span> é de login por OAuth e não entra aqui. Em telas mais antigas do GitHub, as chaves ficam no fim da página principal do App, em <span class="ui">Private keys</span>.</li>
         </ol>
       </div></li>
     <li data-passo="1.2"><label class="passo-titulo"><input type="checkbox"><span><span class="id">1.2</span><strong>Instalar o App nos repositórios de documentação</strong><span class="quem">owner da org</span></span></label>
@@ -324,7 +324,12 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
 #
 # O push usa o token do GitHub App, não o GITHUB_TOKEN: push feito com o GITHUB_TOKEN não
 # dispara os outros workflows, e o PR ficaria esperando para sempre os checks do commit
-# novo. O commit do App dispara este workflow de novo; a condição `if` do job o encerra.
+# novo. O commit do App dispara este workflow de novo; a condição `if` do job pula essa
+# execução pelo autor do commit (`docqui-bot`), e não pela mensagem, que muda de um commit
+# para outro. A concorrência não cancela a execução em andamento: com `cancel-in-progress`,
+# a execução que o próprio commit do App dispara cancelava a que acabara de gravá-lo, e o
+# trabalho feito aparecia como cancelado. Push novo durante a regeneração espera a vez; o
+# laço de tentativas abaixo cobre o caso de a branch mudar no meio.
 
 name: Regenera arquivos gerados
 
@@ -339,14 +344,14 @@ permissions:
 
 concurrency:
   group: regenera-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   regenera:
     # só em branch de entrega (nunca na main, nem pelo botão Run workflow) e não no commit do próprio workflow
     if: &gt;-
       (startsWith(github.ref_name, 'historia/') || startsWith(github.ref_name, 'sprint/') || startsWith(github.ref_name, 'checkpoint/')) &amp;&amp;
-      !contains(github.event.head_commit.message, 'regenerado pelo workflow')
+      github.event.head_commit.author.name != 'docqui-bot'
     runs-on: ubuntu-latest
     steps:
       - name: Token do GitHub App
@@ -678,7 +683,10 @@ Não feche issue, não aprove PR, não faça merge.</pre></div>
   <div class="tabela"><table>
     <tr><th>Sintoma</th><th>Causa provável</th><th>O que fazer</th></tr>
     <tr><td>O PR mostra os checks como <span class="ui">Expected — Waiting for status to be reported</span> e não sai disso</td><td>O workflow <code>regenera-gerados</code> não conseguiu gravar com o App, ou gravou com o token padrão</td><td>Abra <span class="ui">Actions</span> → <span class="ui">Regenera arquivos gerados</span> e leia o erro. Confira os segredos (1.3) e se o App está instalado no repositório (1.2)</td></tr>
-    <tr><td>O workflow falha no passo <span class="ui">Token do GitHub App</span></td><td>Segredo vazio, App ID errado ou chave colada pela metade</td><td>Refaça o passo 1.3, colando o <code>.pem</code> inteiro</td></tr>
+    <tr><td>O workflow falha no passo <span class="ui">Token do GitHub App</span> com <code>401</code> e <code>A JSON web token could not be decoded</code></td><td>O App ID e a chave não são do mesmo GitHub App: o mais comum é o Client ID, ou o ID de um OAuth App, no lugar do App ID</td><td>Gere uma chave nova (passo 1.1, <span class="ui">Credentials</span> → <span class="ui">Key pairs</span>) e refaça os dois segredos do passo 1.3, com o App ID numérico e o <code>.pem</code> inteiro. Depois, <span class="ui">Re-run all jobs</span> na execução que falhou</td></tr>
+    <tr><td>O workflow falha no passo <span class="ui">Token do GitHub App</span> com outra mensagem</td><td>Segredo vazio, chave colada pela metade ou App não instalado no repositório</td><td>Refaça os passos 1.2 e 1.3, colando o <code>.pem</code> inteiro. No Mac, <code>pbcopy &lt; arquivo.pem</code> no Terminal copia o arquivo sem alterar nada</td></tr>
+    <tr><td>O <code>docqui-bot</code> grava um commit <code>[gerado]</code> a cada push, mesmo quando nada da especificação mudou</td><td>Algum arquivo derivado da instância muda a cada geração, como um painel que grava a hora e o commit em que foi gerado</td><td>Não atrapalha: é um commit do bot por push, e o push dele não dispara outra regeneração. Para evitar, faça esse gerador gravar só o que depende da especificação</td></tr>
+    <tr><td>O <span class="ui">Deploy GitHub Pages</span> falha numa branch <code>historia/</code> ou <code>sprint/</code> em cerca de 1 segundo, sem log, e passa na <code>main</code></td><td>O ambiente <code>github-pages</code> ainda não permite publicar dessas branches</td><td>Faça o segundo item do passo 2.6 e rode de novo a execução que falhou</td></tr>
     <tr><td>O workflow falha com "HTML das AIMMs" e <code>marked.min.js não encontrado</code></td><td>O repositório não tem o site (<code>assets/vendor/</code>)</td><td>Peça o site a quem mantém o engine (2.1)</td></tr>
     <tr><td>O workflow falha com "A regeneração alterou arquivos de spec que não são gerados"</td><td>Um gerador mexeu num arquivo de especificação que o commit <code>[gerado]</code> não pode levar</td><td>Nada foi gravado. Leve a lista de arquivos do erro a quem mantém o engine</td></tr>
     <tr><td>Check <span class="ui">estrutura</span> vermelho em "diagrama ER está fresco"</td><td>O workflow não rodou nessa branch</td><td>Em <span class="ui">Actions</span>, rode o <span class="ui">Regenera arquivos gerados</span> na branch (<span class="ui">Run workflow</span>)</td></tr>
