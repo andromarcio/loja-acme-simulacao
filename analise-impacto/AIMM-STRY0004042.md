@@ -1,4 +1,4 @@
-<!-- docqui: 8.3.1 | prompt: PROMPT_AIMM | atualizado: 2026-10-31 -->
+<!-- docqui: 9.1.0 | prompt: MIGRA_AIMM_ESTADO | atualizado: 2026-10-31 -->
 ---
 tipo: ticket
 ticket: STRY0004042
@@ -6,6 +6,8 @@ ferramenta: ServiceNow fictício
 link: ""
 titulo: Percentual máximo de desconto da categoria
 estado: escopo-aprovado
+estado-por: "Andro Márcio Correa Louredo"
+estado-em: 2026-10-31 16:19 -03:00
 aberta-na-entrega: false
 sprint: ""
 avalizado-por: "Andro Márcio"
@@ -131,5 +133,6 @@ Decididas no aval de 2026-10-31:
 
 | Data | Autor | Tipo | Descrição |
 |---|---|---|---|
+| 2026-10-31 | Docqui Caixa | Ajuste | Front-matter ganha `estado-por` e `estado-em` (9.1.0), preenchidos pelo histórico do git com quem levou a AIMM ao estado atual e quando. |
 | 2026-10-31 | Andro Márcio | Escopo aprovado | Aval do changeset, com as propostas de casas decimais, percentual vazio e zero, uso do percentual e herança na subcategoria; o link do ticket segue pendente. |
 | 2026-10-31 | Claude | AIMM aberta | Ticket fictício `STRY0004042` registrado a partir do texto informado pelo analista; 3 funcionalidades mapeadas e 9 artefatos no changeset; sem aval da PO. |
