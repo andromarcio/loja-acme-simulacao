@@ -1,12 +1,12 @@
 /* GERADO por scripts/build-trace-data.mjs — não editar à mão.
-   Fonte: artefatos .md da instância (54 nós, 84 arestas). */
+   Fonte: artefatos .md da instância (55 nós, 84 arestas). */
 window.TRACE_DATA = {
   "meta": {
     "system": "Loja ACME",
     "subtitle": "índice de rastreabilidade gerado por scripts/build-trace-data.mjs",
-    "generatedAt": "2026-10-23",
-    "engineVersion": "7.2.0",
-    "repo": "http://localhost:26831/CAIXA-EFRS/loja-acme-doc"
+    "generatedAt": "2026-10-31",
+    "engineVersion": "8.3.1",
+    "repo": "https://github.com/andromarcio/loja-acme-simulacao"
   },
   "nodes": [
     {
@@ -470,6 +470,14 @@ window.TRACE_DATA = {
       "domain": "VIT",
       "desc": "Permite que a pessoa que visita a loja abra a página de um produto e veja o nome, a descrição, a categoria, o preço e se há estoque, sabendo quanto vai pagar…",
       "path": "modules/vitrine/navegacao/f-visualizar-produto-vitrine.md"
+    },
+    {
+      "id": "STRY0004042",
+      "type": "aim",
+      "label": "Percentual máximo de desconto da categoria",
+      "sub": "AIMM · STRY0004042",
+      "desc": "Como gestor de catálogo, quero definir o percentual máximo de desconto de cada categoria, para que a loja tenha registrado até quanto cada grupo de produtos …",
+      "path": "analise-impacto/AIMM-STRY0004042.md"
     },
     {
       "id": "STRY0013101",
