@@ -318,7 +318,12 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
 #     assunto — o HTML mora em analise-impacto/, que é spec, e o valida-commits-ticket só
 #     aceita spec num commit que cite a chave;
 #   • um commit "[gerado]" com o resto (espelho da esteira, diagrama ER, dicionários,
-#     repos/INDEX.md e os arquivos do site), que o valida-commits-ticket aceita sem chave.
+#     repos/INDEX.md e os arquivos do site). O assunto abre com a unidade de entrega da
+#     branch: a chave da história em historia/&lt;CHAVE&gt;, porque tudo o que muda nela decorre
+#     daquele ticket; o id da sprint em sprint/&lt;id&gt;, porque o diagrama da sprint é a soma
+#     dos tickets dela e não pode levar a chave de um só (o reverte-ticket reverte os commits
+#     que citam a chave do ticket). Em checkpoint/, sem chave. O valida-commits-ticket aceita
+#     o [gerado] com ou sem chave: dele, só confere que o commit toca apenas arquivo gerado.
 # O HTML das AIMMs que a branch não alterou não entra: o commit citaria a chave de outro
 # ticket. Arquivo de spec fora dessa lista que mudar faz o workflow parar sem gravar nada.
 #
@@ -384,6 +389,11 @@ jobs:
           git config user.email "docqui-bot@users.noreply.github.com"
           GERADO='^(modules/INDEX\.md|global/DIAGRAMA-ER\.md|global/[A-Z-]+-DICTIONARY\.md)$'
           SPEC='^(modules|global|qa|prototypes|analise-impacto)/'
+          case "$BRANCH" in
+            historia/*) UNIDADE="${BRANCH#historia/}: " ;;
+            sprint/*) UNIDADE="${BRANCH#sprint/}: " ;;
+            *) UNIDADE="" ;;
+          esac
 
           for tentativa in 1 2 3; do
             git fetch -q origin "$BRANCH" main
@@ -417,7 +427,7 @@ jobs:
               exit 1
             fi
             if ! git diff --cached --quiet; then
-              git commit -q -m "[gerado] artefatos derivados regenerados pelo workflow"
+              git commit -q -m "${UNIDADE}[gerado] artefatos derivados regenerados pelo workflow"
             fi
 
             if [ "$(git rev-list --count "origin/$BRANCH..HEAD")" = 0 ]; then
