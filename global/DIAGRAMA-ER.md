@@ -41,6 +41,7 @@ erDiagram
     Quantidade_em_estoque número
     Categoria seleção FK
     Unidade_de_venda texto
+    Peso número
   }
   Categoria |o--o{ Categoria : "Categoria_superior"
   Categoria ||--o{ Produto : "Categoria"
