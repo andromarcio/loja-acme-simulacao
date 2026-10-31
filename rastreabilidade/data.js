@@ -1,12 +1,12 @@
 /* GERADO por scripts/build-trace-data.mjs — não editar à mão.
-   Fonte: artefatos .md da instância (54 nós, 84 arestas). */
+   Fonte: artefatos .md da instância (55 nós, 84 arestas). */
 window.TRACE_DATA = {
   "meta": {
     "system": "Loja ACME",
     "subtitle": "índice de rastreabilidade gerado por scripts/build-trace-data.mjs",
-    "generatedAt": "2026-10-23",
-    "engineVersion": "7.2.0",
-    "repo": "http://localhost:26831/CAIXA-EFRS/loja-acme-doc"
+    "generatedAt": "2026-10-31",
+    "engineVersion": "8.3.1",
+    "repo": "https://github.com/andromarcio/loja-acme-simulacao"
   },
   "nodes": [
     {
@@ -478,6 +478,14 @@ window.TRACE_DATA = {
       "sub": "AIMM · STRY0013101",
       "desc": "Como cliente, quero informar o CEP no checkout e ver o valor do frete, para saber quanto vou pagar pela entrega antes de fechar o pedido.",
       "path": "analise-impacto/AIMM-STRY0013101.md"
+    },
+    {
+      "id": "STRY0013150",
+      "type": "aim",
+      "label": "Cadastro de produtos",
+      "sub": "AIMM · STRY0013150",
+      "desc": "A equipe de vendas precisa manter o catálogo de produtos no próprio site: cadastrar, consultar, editar e retirar de venda os produtos, com nome, preço e quan…",
+      "path": "analise-impacto/AIMM-STRY0013150.md"
     },
     {
       "id": "STRY0013170",
