@@ -51,7 +51,7 @@ Scenario: Produto retirado de venda some da loja e fica nos pedidos antigos
 | Funcionalidade (N3) | Domínio · Agrupamento Funcional | Operação | Critérios cobertos | Status |
 |---|---|---|---|---|
 | [`CAT-PRD-01`: Pesquisar Produtos](../modules/catalogo/produtos/f-pesquisar-produto.md) *(a confirmar no 3A)* | Catálogo · Produtos | Criação | — | 📋 A especificar |
-| [`CAT-PRD-02`: Cadastrar Produto](../modules/catalogo/produtos/f-cadastrar-produto.md) *(a confirmar no 3A)* | Catálogo · Produtos | Criação | `CA-1, CA-2` | 📋 A especificar |
+| [`CAT-PRD-02`: Cadastrar Produto](../modules/catalogo/produtos/f-cadastrar-produto.md) | Catálogo · Produtos | Criação | `CA-1, CA-2` | ✏️ Rascunho |
 | [`CAT-PRD-03`: Editar Produto](../modules/catalogo/produtos/f-editar-produto.md) *(a confirmar no 3A)* | Catálogo · Produtos | Criação | — | 📋 A especificar |
 | [`CAT-PRD-04`: Inativar Produto](../modules/catalogo/produtos/f-inativar-produto.md) *(a confirmar no 3A)* | Catálogo · Produtos | Criação | `CA-3` | 📋 A especificar |
 | [`CAT-PRD-05`: Visualizar Produto](../modules/catalogo/produtos/f-visualizar-produto.md) *(a confirmar no 3A)* | Catálogo · Produtos | Criação | — | 📋 A especificar |
@@ -98,3 +98,4 @@ As quatro funcionalidades alteradas aplicam o efeito do `CA-3` (produto retirado
 |---|---|---|---|
 | 2026-10-31 | Andro Márcio (Docqui Caixa) | AIMM aberta | Ticket fictício `STRY0013150` registrado a partir do backlog da demonstração; 9 funcionalidades mapeadas: 5 criadas em Produtos e 4 alteradas em Navegação e Carrinho. |
 | 2026-10-20 | Docqui Caixa | Terminologia | Adoção de AIMM; histórico anterior preservado. |
+

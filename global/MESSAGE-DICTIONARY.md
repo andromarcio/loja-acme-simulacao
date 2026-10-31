@@ -67,6 +67,7 @@
 | `CAT_SUPERIOR_INVALIDA` | Superior é a própria categoria, uma subcategoria ou não existe mais (⚠️ proposta STRY0013205) | "Selecione uma categoria superior de primeiro nível, diferente da própria categoria." |
 | `CAT_SEM_SUBCATEGORIAS` | Lista de subcategorias vazia na ficha (⚠️ proposta STRY0013205) | "Nenhuma subcategoria cadastrada." |
 | `CAT_INATIVAR_COM_PRODUTOS` | Confirmação ao inativar uma categoria que tem produtos | "Os produtos desta categoria deixarão de aparecer na vitrine. Deseja continuar?" |
+| `CAT_PRODUTO_DUPLICADO` | Nome de produto já usado, inclusive por produto inativo (⚠️ proposta STRY0013150) | "Já existe um produto com este nome." |
 
 ### Vitrine
 
