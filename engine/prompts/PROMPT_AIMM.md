@@ -40,7 +40,10 @@ PROTÓTIPO`. O código (repositórios) e os artefatos técnicos (SDD, migração
 
 **A AIMM nasce completa.** Não existe AIMM de ticket parcial: ela é aberta já em `em-análise`, com todas as seções de impacto preenchidas, e depois só é atualizada a cada passada. Nenhum N2, N3 ou data-model muda antes disso, e o `validate-impact` reprova `estado: rascunho` e o exemplo do template em qualquer seção de impacto.
 
-Cada mudança de estado é uma **versão**: registre-a no `## Changelog`. O git guarda as
+Cada mudança de estado é uma **versão**: registre-a no `## Changelog` e, no front-matter, grave
+`estado-por` — o nome de quem levou a AIMM ao estado: o analista na abertura, o PO no aval, quem
+fechou no fechamento; nunca o agente — e `estado-em`, com data, hora e fuso
+(`AAAA-MM-DD HH:MM ±HH:MM`; no terminal, `date '+%Y-%m-%d %H:%M %:z'`). O git guarda as
 anteriores — é lá que se vê o escopo aprovado depois que a AIMM passa a mostrar o que foi
 feito.
 
@@ -235,6 +238,8 @@ ferramenta: [ServiceNow | Jira | GitHub | experimento]
 link: [URL do ticket]
 titulo: [título curto]
 estado: em-análise
+estado-por: [quem conduziu a abertura com você]
+estado-em: [data, hora e fuso atuais — AAAA-MM-DD HH:MM ±HH:MM]
 aberta-na-entrega: false
 sprint: ""
 avalizado-por: ""
@@ -372,11 +377,11 @@ caminhos; e o portão de estado. No perfil `requisitos`, a falta da `QA` (C2 e m
 C3) é aviso; o `NFR` do C3 continua exigido.
 
 Com a AIM verde, **apresente-a ao PO**. No aval:
-- mude `estado:` para `escopo-aprovado`, preencha `avalizado-por:` e registre a versão no
-  Changelog;
+- mude `estado:` para `escopo-aprovado`, preencha `avalizado-por:`, `estado-por:` (o PO) e
+  `estado-em:` e registre a versão no Changelog;
 - só então dispare as passadas de execução (`PROMPT_3A` para funcionalidade nova, `PROMPT_4A/4B`
   por N3 alterado, `PROMPT_NFR`, `PROMPT_QA`) — **uma por linha do
-  changeset** — e mude `estado:` para `em-execução`.
+  changeset** — e mude `estado:` para `em-execução`, com `estado-por:` e `estado-em:`.
 
 Conclua:
 
@@ -407,7 +412,8 @@ node scripts/validate-impact.mjs analise-impacto/AIM-<CHAVE>.md --git-base <base
 ```
 
 Escreva o resultado em `## Reconciliação` — abaixo da citação de instrução, que pode
-ficar: o validador só conta o que está fora dela — e mude `estado:` para `concluído`.
+ficar: o validador só conta o que está fora dela — e mude `estado:` para `concluído`, com
+`estado-por:` e `estado-em:`.
 Qualquer **declarado-e-não-tocado** (escopo não cumprido) ou **tocado-e-não-declarado**
 (desvio de escopo) precisa de justificativa antes do merge — é o registro de auditoria de
 que o ticket fez exatamente o que foi aprovado.

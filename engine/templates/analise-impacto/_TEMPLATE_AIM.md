@@ -6,6 +6,8 @@ ferramenta: [ServiceNow | Jira | GitHub | experimento]
 link: [URL do ticket na ferramenta de origem]
 titulo: [título curto do ticket]
 estado: em-análise        # em-análise → escopo-aprovado → em-execução → concluído
+estado-por: ""            # quem levou a AIMM ao estado atual — a pessoa, não o agente
+estado-em: ""             # quando: AAAA-MM-DD HH:MM ±HH:MM (data, hora e fuso)
 aberta-na-entrega: false  # true quando a AIMM nasce depois da entrega (skill analise-impacto)
 sprint: ""                # sprint da entrega — preenchida no fechamento
 avalizado-por: ""         # aval do PO no escopo — obrigatório de escopo-aprovado em diante

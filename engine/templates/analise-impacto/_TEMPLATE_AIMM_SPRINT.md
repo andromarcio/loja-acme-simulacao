@@ -4,6 +4,8 @@ tipo: sprint
 sprint: [rótulo da sprint na organização — SP07, APIS_PUBLICAS_262-266]
 entrega: [AAAA-MM-DD]
 estado: rascunho          # rascunho → concluído (consolidação conferida)
+estado-por: ""            # quem levou a AIMM ao estado atual — a pessoa, não o agente
+estado-em: ""             # quando: AAAA-MM-DD HH:MM ±HH:MM (data, hora e fuso)
 ---
 
 <!--

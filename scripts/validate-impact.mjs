@@ -28,6 +28,9 @@
 //     Existência: `alterar` sobre arquivo que não existe é erro; `criar` sobre arquivo que
 //     já existe é aviso só até `escopo-aprovado` — depois, a execução o criou.
 //   escopo-aprovado|em-execução|concluído → `avalizado-por`
+//   sempre (ticket e sprint): `estado-por` (quem levou a AIMM ao estado atual) e `estado-em`
+//                 (`AAAA-MM-DD HH:MM ±HH:MM`). Sem os dois campos, a AIMM anterior à 9.1.0
+//                 só recebe aviso; com eles, vazio ou fora do formato reprova.
 //   concluído     → `sprint`; a visão final em `## Alterações em funcionalidades por Agrupamento Funcional`
 //                   (linha com ID de funcionalidade, sem exemplo do template); a
 //                   `## Reconciliação` preenchida — com conteúdo fora da citação de
@@ -165,6 +168,17 @@ for (const l of lines.filter((x) => /^## /.test(x) && ANTERIORES_AIMM.includes(x
 const EXEMPLO = /\[[^\]]*\]|<(?:dom|fs|slug|CHAVE)>|SIGLA-S(?:AF|FS)-NN/i; // placeholder do template
 const conteudoForaDaCitacao = (s) => corpoDe(s).join('\n').replace(/<!--[\s\S]*?-->/g, '').split('\n')
   .filter((l) => l.trim() && !/^\s*>/.test(l));
+
+/* -------------------- quem e quando do estado -------------------- */
+const ESTADO_EM = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} [+-]\d{2}:\d{2}$/;
+if (!('estado-por' in fm) && !('estado-em' in fm)) {
+  warns.push('front-matter sem `estado-por`/`estado-em` (quem levou a AIMM ao estado atual, e quando) — rode `node scripts/migra-aimm-estado.mjs`.');
+} else {
+  if (!fm['estado-por'] || EXEMPLO.test(fm['estado-por']))
+    errors.push('front-matter `estado-por` vazio — o nome de quem levou a AIMM ao estado atual.');
+  if (!ESTADO_EM.test(fm['estado-em'] || ''))
+    errors.push(`front-matter \`estado-em\` deve ser \`AAAA-MM-DD HH:MM ±HH:MM\` (data, hora e fuso)${fm['estado-em'] ? `, não \`${fm['estado-em']}\`` : ''}.`);
+}
 
 /* =========================== AIMM da sprint =========================== */
 if (tipo === 'sprint') {

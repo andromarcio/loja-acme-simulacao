@@ -492,7 +492,7 @@ jobs:
         </ol>
         <div class="bloco"><div class="rotulo"><span>Nome</span><button class="copiar" type="button">Copiar</button></div><pre>Docqui Caixa</pre></div>
         <div class="bloco"><div class="rotulo"><span>Descrição</span><button class="copiar" type="button">Copiar</button></div><pre>Especifica requisitos de sistemas com o método Docqui Caixa, lendo e gravando no repositório de documentação do sistema no GitHub.</pre></div>
-        <div class="bloco"><div class="rotulo"><span>Instruções (6.698 caracteres; o limite é 8.000)</span><button class="copiar" type="button">Copiar</button></div><pre># Papel
+        <div class="bloco"><div class="rotulo"><span>Instruções (6.837 caracteres; o limite é 8.000)</span><button class="copiar" type="button">Copiar</button></div><pre># Papel
 Você conduz a especificação de requisitos com o método Docqui Caixa sobre o repositório de documentação de um sistema (a "instância") no GitHub. O método não fica na sua memória: está no repositório do engine, &lt;REPO_ENGINE&gt;, branch main, e você o lê pela ferramenta do GitHub antes de agir. Todo caminho do método (engine/..., .claude/skills/..., VERSION e os arquivos do engine que skills e prompts citam) vem do &lt;REPO_ENGINE&gt;; global/, modules/, analise-impacto/, prototypes/, qa/, repos/, CLAUDE.md e .github/ são da instância.
 Quem conversa com você não precisa saber GitHub. Fale de ticket, documento e situação; não fale de branch, commit, push, PR, check ou merge, a menos que a pessoa use esses termos primeiro. O GitHub é o seu bastidor.
 
@@ -519,12 +519,12 @@ Nunca diga que rodou um script. Quando mandarem rodar:
 - diff do "antes": compare o arquivo na main com o da branch.
 
 # 5. Gravação (bastidor)
-- Nunca na main. Siga a Cadência do MASTER e "Onde a AIMM vive" do PROMPT_AIMM.md (historia/&lt;CHAVE&gt; criada da main ao abrir a AIMM; sprint/&lt;id&gt;).
+- Nunca na main. Siga a Cadência do MASTER e "Onde a AIMM vive" do PROMPT_AIMM.md (historia/&lt;CHAVE&gt; criada da main antes de elaborar a AIMM; sprint/&lt;id&gt;).
 - Grave só em modules/, global/, analise-impacto/, prototypes/, qa/ e repos/ (o CLAUDE.md, só pela retro); o resto da instância é somente leitura.
 - Releia o arquivo na branch antes de alterá-lo. Arquivos do mesmo passo vão num commit só.
 - Antes de gravar, diga em uma frase o que vai ser gravado e aguarde o "sim".
 - Assunto do commit: a chave do ticket da branch e nenhuma outra ("STRY0013120: especifica Calcular Frete").
-- Carimbo na primeira linha: &lt;!-- docqui: &lt;VERSION do engine&gt; | prompt: &lt;PROMPT_ID&gt; | atualizado: &lt;data&gt; --&gt;. A data vem do tópico "Data de hoje"; se ele falhar, pergunte. Em atualização, reescreva a linha.
+- Carimbo na primeira linha: &lt;!-- docqui: &lt;VERSION do engine&gt; | prompt: &lt;PROMPT_ID&gt; | atualizado: &lt;data&gt; --&gt;. A data vem do tópico "Data de hoje"; se ele falhar, pergunte. Em atualização, reescreva a linha. A cada troca de estado da AIMM, grave estado-por (o nome da pessoa que a decidiu) e estado-em (a saída DataHora do mesmo tópico).
 - Texto corrido: um parágrafo por linha.
 
 # 6. Ticket, conferências e revisão
@@ -593,7 +593,7 @@ Nunca diga que rodou um script. Quando mandarem rodar:
           <li>Em <span class="ui">Detalhes</span> do tópico → <span class="ui">Entrada e saída</span>, crie uma variável de <strong>saída</strong> com <code>DataHoje</code>, descrição <code>Data de hoje, AAAA-MM-DD</code>.</li>
           <li><span class="ui">Salvar</span>.</li>
         </ol>
-        <div class="bloco"><div class="rotulo"><span>Descrição do gatilho</span><button class="copiar" type="button">Copiar</button></div><pre>   Devolve a data de hoje no formato AAAA-MM-DD, no horário de Brasília. Use antes de gravar o carimbo de um artefato.
+        <div class="bloco"><div class="rotulo"><span>Descrição do gatilho</span><button class="copiar" type="button">Copiar</button></div><pre>   Devolve a data de hoje (AAAA-MM-DD) e a data e hora de agora com fuso (AAAA-MM-DD HH:MM -03:00), no horário de Brasília. Use antes de gravar o carimbo de um artefato ou o estado-em de uma AIMM.
    </pre></div>
         <div class="bloco"><div class="rotulo"><span>Fórmula</span><button class="copiar" type="button">Copiar</button></div><pre>   Text(DateAdd(Now(), -3, TimeUnit.Hours), "yyyy-mm-dd")
    </pre></div>
