@@ -131,7 +131,7 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
 
 <section id="visao">
   <h2>Visão geral</h2>
-  <p class="sub">Como as peças se ligam. O analista só conversa com o agente e acompanha o pull request no navegador.</p>
+  <p class="sub">Como as peças se ligam. O analista e o revisor só conversam com o agente: o GitHub fica nos bastidores. O que eles precisam saber está na página <strong>Especificar com o agente</strong> do site do Docqui, no menu <strong>Comece aqui</strong>; este guia é para quem monta.</p>
   <div class="diagrama" role="img" aria-label="Diagrama: o analista conversa com o agente Docqui Caixa no Copilot Studio, que usa a ferramenta MCP do GitHub para ler o método na main do repositório do engine e gravar a especificação na branch do repositório do sistema; o push dispara o workflow regenera-gerados, que grava os arquivos gerados com o token do GitHub App; os checks do PR conferem tudo e o revisor aprova e faz o merge; o agente Retro registra aprendizados como issue no repositório do engine.">
 {{SVG}}
   </div>
@@ -386,20 +386,34 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
         <div class="bloco"><div class="rotulo"><span>Descrição</span><button class="copiar" type="button">Copiar</button></div><pre>{{DESC_RETRO}}</pre></div>
         <div class="bloco"><div class="rotulo"><span>Instruções ({{TAM_RETRO}} caracteres)</span><button class="copiar" type="button">Copiar</button></div><pre>{{INSTR_RETRO}}</pre></div>
       </div></li>
-    <li data-passo="3.6"><label class="passo-titulo"><input type="checkbox"><span><span class="id">3.6</span><strong>Testar no painel de teste</strong><span class="quem">maker</span></span></label>
+    <li data-passo="3.6"><label class="passo-titulo"><input type="checkbox"><span><span class="id">3.6</span><strong>Criar o agente filho "Revisão"</strong><span class="quem">maker</span></span></label>
+      <div class="passo-corpo">
+        <p>Para quem revisa o ticket de outra pessoa — a PO, o DBA. O Revisão mostra o que mudou em linguagem de negócio e registra a aprovação, o pedido de ajuste ou o comentário com a conta de quem conversa. Ele precisa que a ferramenta do GitHub saiba ler as mudanças de um pull request e registrar uma revisão; confira com quem administra o MCP.</p>
+        <ol>
+          <li>No agente Docqui Caixa, abra <span class="ui">Agentes</span> → <span class="ui">+ Adicionar um agente</span> → crie um agente filho (<span class="ui">Criar um agente</span>).</li>
+          <li>Preencha o nome, a descrição e as instruções com os textos abaixo.</li>
+          <li>Dê ao Revisão a ferramenta <code>GitHub</code>, se ele não a herdar do agente principal. Salve.</li>
+        </ol>
+        <div class="bloco"><div class="rotulo"><span>Nome</span><button class="copiar" type="button">Copiar</button></div><pre>{{NOME_REVISAO}}</pre></div>
+        <div class="bloco"><div class="rotulo"><span>Descrição</span><button class="copiar" type="button">Copiar</button></div><pre>{{DESC_REVISAO}}</pre></div>
+        <div class="bloco"><div class="rotulo"><span>Instruções ({{TAM_REVISAO}} caracteres)</span><button class="copiar" type="button">Copiar</button></div><pre>{{INSTR_REVISAO}}</pre></div>
+      </div></li>
+    <li data-passo="3.7"><label class="passo-titulo"><input type="checkbox"><span><span class="id">3.7</span><strong>Testar no painel de teste</strong><span class="quem">maker</span></span></label>
       <div class="passo-corpo">
         <p>Use o painel <span class="ui">Testar</span> à direita, com um repositório de exercício (por exemplo, a <code>loja-acme-doc</code>). Escreva cada frase e confira a resposta.</p>
         <div class="tabela"><table>
           <tr><th>Escreva</th><th>Tem de acontecer</th></tr>
-          <tr><td><code>Quero documentar a loja-acme-doc.</code></td><td>Pede o login no GitHub na primeira vez; lê o MASTER e responde com sigla, nome, versão, perfil e cadência, perguntando "É este?"</td></tr>
+          <tr><td><code>Quero documentar a loja-acme-doc.</code></td><td>Pede o login no GitHub na primeira vez; lê o MASTER e responde com a sigla, o nome e a versão do Docqui, sem falar do perfil, perguntando "É este?"</td></tr>
           <tr><td><code>Sim.</code></td><td>Apresenta os domínios e agrupamentos existentes e o menu</td></tr>
           <tr><td><code>Que dia é hoje? Use o tópico Data de hoje.</code></td><td>A data de hoje no formato <code>AAAA-MM-DD</code></td></tr>
           <tr><td><code>Grave isso direto na main.</code></td><td>Recusa</td></tr>
           <tr><td><code>Cria um prompt novo para o framework.</code></td><td>Recusa e pergunta qual funcionalidade especificar</td></tr>
+          <tr><td><code>Como está o ticket STRY0000001?</code></td><td>A situação em português (em especificação, em revisão…), o que falta e o link da prévia, sem falar de branch, commit, PR ou check</td></tr>
+          <tr><td><code>Quero revisar o ticket STRY0000001.</code></td><td>O Revisão resume o que mudou em linguagem de negócio e diz se as conferências estão verdes</td></tr>
         </table></div>
         <p>O teste completo, com um ticket do começo ao fim, está no <code>roteiro-piloto.md</code>.</p>
       </div></li>
-    <li data-passo="3.7"><label class="passo-titulo"><input type="checkbox"><span><span class="id">3.7</span><strong>Publicar para o grupo do piloto</strong><span class="quem">maker</span></span></label>
+    <li data-passo="3.8"><label class="passo-titulo"><input type="checkbox"><span><span class="id">3.8</span><strong>Publicar para o grupo do piloto</strong><span class="quem">maker</span></span></label>
       <div class="passo-corpo">
         <ol>
           <li>Clique em <span class="ui">Publicar</span> e confirme.</li>
@@ -441,6 +455,8 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
     <tr><td>Check <span class="ui">entrega</span> vermelho em "um ticket por commit"</td><td>Um commit sem a chave do ticket no assunto</td><td>Mostre o erro ao agente. Se o commit já foi para o GitHub, corrigir exige reescrever o histórico da branch: peça ajuda a quem tem prática com Git</td></tr>
     <tr><td>O agente diz que não encontra o repositório</td><td>O analista não tem acesso ao repositório, ou o OAuth App não foi aprovado na organização</td><td>Dê acesso ao analista; confira o aviso do passo 1.4</td></tr>
     <tr><td>O agente diz que não consegue ler a skill ou o prompt</td><td>O analista não tem leitura no repositório do engine, ou <code>&lt;REPO_ENGINE&gt;</code> ficou sem trocar nas instruções</td><td>Refaça o passo 1.5 (acesso de leitura) ou o 3.1 (o nome do repositório nas instruções)</td></tr>
+    <tr><td>O agente não consegue mostrar as mudanças de um ticket ou registrar uma aprovação</td><td>A ferramenta do GitHub não expõe as funções de pull request (ler mudanças, registrar revisão)</td><td>Peça a quem administra o MCP para liberar o grupo de ferramentas de pull request para o agente</td></tr>
+    <tr><td>O agente fala de branch, commit ou PR com o analista</td><td>As instruções coladas são de uma versão anterior à 8.3.0</td><td>Cole de novo as instruções do passo 3.1</td></tr>
     <tr><td>O agente responde sobre o método sem ler os arquivos</td><td>O conhecimento geral do modelo ficou ligado</td><td>Refaça o passo 3.2</td></tr>
     <tr><td>Carimbo com a data errada</td><td>O tópico "Data de hoje" não foi usado ou a fórmula está diferente</td><td>Refaça o passo 3.4 e o teste da data</td></tr>
   </table></div>
@@ -453,7 +469,8 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
     <p>O HTML da AIMM sai do <code>.md</code> por um script, e o agente não roda scripts. Havia dois caminhos: gerar o HTML só na publicação do site, sem guardá-lo no repositório, ou gerá-lo no workflow e guardá-lo na branch.</p>
     <p>A escolha foi guardá-lo, num commit por AIMM com a chave dela. Isso mantém o contrato atual do engine, que entrega o <code>.md</code> e o <code>.html</code> lado a lado, sem mudar nenhum script. O HTML aparece no PR e na prévia do site, e o link que a equipe de métricas usa não muda. Ele não pode ir no commit <code>[gerado]</code>: mora em <code>analise-impacto/</code>, que é especificação, e o check de commits reprovaria. Gerar só na publicação é mais limpo, porque não deixa arquivo derivado no repositório, mas exige mudar o engine; fica como evolução.</p></details>
   <details><summary>Um agente para todos os repositórios</summary><p>O agente pergunta, no começo de cada conversa, qual sistema documentar. Um agente por repositório seria um agente para publicar e atualizar por sistema, a cada versão do engine. O acesso fica com o GitHub: cada analista só alcança os repositórios a que já tem acesso.</p></details>
-  <details><summary>A especificação num agente só, com o Retro à parte</summary><p>Um roteiro de especificação tem muitas mensagens, e trocar de agente no meio pode perder o estado da conversa. Por isso as duas skills ficam no mesmo agente, que lê a certa para cada pedido. O Retro é um agente filho porque acontece no fim, quando trocar de agente não interrompe nada, e porque as instruções do principal já estão perto do limite de caracteres. O desenho com dois agentes filhos de especificação está guardado em <code>agentes/alternativa-child-agents/</code>.</p></details>
+  <details><summary>O GitHub fica nos bastidores</summary><p>O analista e o revisor não precisam saber GitHub. O agente fala de ticket, documento e situação (em especificação, em revisão, ajuste pedido, aprovado, concluído), cuida sozinho das conferências automáticas e só chama a pessoa para decisões de negócio. O GitHub continua lá, com histórico, revisão e conferências, e quem quiser auditar ou revisar por ele continua podendo. Não é um "modo": é o comportamento normal do agente.</p></details>
+  <details><summary>A especificação num agente só, com o Retro e o Revisão à parte</summary><p>Um roteiro de especificação tem muitas mensagens, e trocar de agente no meio pode perder o estado da conversa. Por isso as duas skills ficam no mesmo agente, que lê a certa para cada pedido. O Retro e o Revisão são agentes filhos porque acontecem fora do roteiro — no fim da conversa e na revisão de um ticket de outra pessoa —, quando trocar de agente não interrompe nada. O desenho com dois agentes filhos de especificação está guardado em <code>agentes/alternativa-child-agents/</code>.</p></details>
   <details><summary>O método vem da <code>main</code> do engine, não de cada repositório</summary><p>Os prompts, as skills e os templates ficam num lugar só: o agente os lê do repositório do engine, na <code>main</code>. Atualizar o método é uma release no engine, sem replicar nada nos repositórios dos sistemas. O preço é que toda instância anda junto com a <code>main</code>: uma release que exige migração só entra quando as instâncias estiverem migradas. Os scripts da CI continuam em cada repositório, levados pelo <code>sync-instance</code>, porque os workflows rodam a partir da instância; centralizá-los com workflows reutilizáveis fica para depois.</p></details>
   <details><summary>Os prompts não vão como "conhecimento"</summary><p>O conhecimento do Copilot Studio busca trechos. Os prompts do método são roteiros com estados, e o agente que recebe só um pedaço pula etapas. Por isso o agente abre o arquivo inteiro pela ferramenta do GitHub.</p></details>
   <details><summary>A retro não edita o engine</summary><p>No repositório do sistema, <code>engine/</code>, <code>scripts/</code> e <code>.claude/</code> são cópias do engine, que a próxima sincronização sobrescreve. O que vale para todos vira issue no engine, e quem o mantém aplica numa versão nova, com a <code>/retro</code> do Claude Code. O que vale só para um sistema vai para o <code>CLAUDE.md</code> dele, por PR, e o agente o lê no começo de toda conversa.</p></details>
@@ -486,6 +503,7 @@ footer{color:var(--tinta-2);font-size:.85rem;border-top:1px solid var(--linha);p
     <tr><td><code>agentes/1-agente-docqui-caixa.md</code></td><td>Nome, descrição e instruções do agente (3.1)</td></tr>
     <tr><td><code>agentes/2-topico-data-de-hoje.md</code></td><td>O tópico da data (3.4)</td></tr>
     <tr><td><code>agentes/3-agente-retro.md</code></td><td>O agente filho Retro (3.5) e como a retro funciona no Copilot Studio</td></tr>
+    <tr><td><code>agentes/4-agente-revisao.md</code></td><td>O agente filho Revisão (3.6)</td></tr>
     <tr><td><code>agentes/alternativa-child-agents/</code></td><td>O desenho alternativo, com um agente filho por skill</td></tr>
     <tr><td><code>diagrama/docqui-copilot.html</code></td><td>O diagrama da arquitetura, interativo, gerado pelo archify (e a entrada dele, para gerar de novo)</td></tr>
     <tr><td><code>fonte/</code></td><td>O gerador deste guia (<code>python3 fonte/monta.py</code>)</td></tr>

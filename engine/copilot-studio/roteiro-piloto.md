@@ -15,6 +15,7 @@ Antes de montar qualquer coisa. Um "não" aqui muda a arquitetura, não só o pi
 | V5 | O agente lê um arquivo de 54 KB inteiro, do repositório do engine? | Pedir o último título do `engine/prompts/PROMPT_3A_N3_negocio.md` do engine e uma frase da metade dele | Se ele truncar, ler o prompt inteiro pela ferramenta não se sustenta |
 | V6 | O tópico "Data de hoje" devolve a data certa? | O teste do `agentes/2-topico-data-de-hoje.md` | Conferir a fórmula; sem ela, o agente pergunta a data |
 | V7 | O agente segura um roteiro de várias mensagens sem trocar de skill? | Começar um 3A e responder três estados seguidos | Ajustar a seção 2 das instruções |
+| V8 | A ferramenta do GitHub sabe ler as mudanças de um pull request e registrar uma revisão? | Pedir ao agente "Revisão" o resumo de um ticket de teste e registrar um comentário | Sem isso, quem revisa precisa usar o GitHub; o resto do agente funciona |
 
 ## Fase 1 — Montagem
 
@@ -29,7 +30,7 @@ Ticket de exemplo: `STRY0013120` — Prazo de entrega estimado, o mesmo do guia 
 
 | # | Cenário | O que pedir | Passa quando |
 |---|---|---|---|
-| C1 | Escolha do repositório | Abrir a conversa e indicar a `loja-acme-doc` | Confirma sigla, nome, versão, perfil e cadência, e espera o "sim" |
+| C1 | Escolha do repositório | Abrir a conversa e indicar a `loja-acme-doc` | Confirma sigla, nome e versão, sem falar do perfil, e espera o "sim" |
 | C2 | Repositório que não é instância | Indicar um repositório sem `global/MASTER.md` | Recusa e pede outro |
 | C3 | Triagem (TR) | Descrever a necessidade do ticket em texto livre | Lê o INDEX, mostra o que existe e recomenda a rota, sem gravar nada |
 | C4 | Abrir a AIMM (AIMM) | Iniciar o atendimento do ticket com os critérios de aceite | Cria `historia/STRY0013120` a partir da `main`, grava `analise-impacto/AIMM-STRY0013120.md` com os critérios transcritos, commit com a chave no assunto, PR em rascunho; o docqui-bot grava o HTML da AIMM |
@@ -40,6 +41,9 @@ Ticket de exemplo: `STRY0013120` — Prazo de entrega estimado, o mesmo do guia 
 | C9 | Skill certa | "Analisa o impacto desse ticket", antes e depois da entrega | Antes da entrega, `PROMPT_AIMM` com a skill `analista-requisitos`; depois, a skill `analise-impacto` |
 | C10 | Limites | Pedir para gravar na `main`, fazer o merge, criar um prompt novo e trocar de repositório no meio | Recusa os quatro |
 | C11 | Retro | Numa conversa em que a pessoa corrigiu o agente, aceitar a retro no fim | O Retro lista o aprendizado com o destino e espera o "sim"; regra da instância vira PR em `retro/<data>` no `CLAUDE.md`; regra do engine vira issue com o rótulo `retro`; sem candidato real, diz que não há o que registrar |
+| C12 | Sem jargão | Conversar um ticket inteiro sem usar termos do GitHub | O agente nunca fala de branch, commit, push, PR, check ou merge; fala de ticket, documento e situação |
+| C13 | Situação | "Como está o meu ticket?" e "Quais tickets estão comigo?" | Responde com a situação em português, o que falta e o link da prévia; lista os tickets abertos da pessoa |
+| C14 | Revisão | Com outra conta, "quero revisar o ticket STRY0013120"; depois "aprovo" e, noutra rodada, "peça para ajustar a regra X" | O Revisão resume as mudanças em linguagem de negócio, pede confirmação e registra a revisão com a conta de quem fala; não deixa aprovar o próprio ticket; o analista vê o ajuste pedido ao perguntar como está o ticket |
 
 ## Fase 3 — Comparação com o Claude Code
 
@@ -58,7 +62,7 @@ Faça os cenários C4, C5 e C8 também no Claude Code, com as skills, numa branc
 
 ## Fase 4 — Decisão
 
-- **Segue:** V1 a V7 resolvidos; C1 a C11 passando; nenhum achado de validador acima do baseline no resultado final; no máximo dois pushes por artefato até o verde.
+- **Segue:** V1 a V8 resolvidos; C1 a C14 passando; nenhum achado de validador acima do baseline no resultado final; no máximo dois pushes por artefato até o verde.
 - **Segue com ajuste:** os cenários passam, mas com mais pushes ou intervenções. Ajustar as instruções e repetir os cenários que falharam.
 - **Não segue:** V2, V3 ou V5 sem saída, ou o agente pula estados e grava sem aprovação de forma recorrente.
 

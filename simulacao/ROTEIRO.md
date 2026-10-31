@@ -63,7 +63,7 @@ Conta ativa: `andromarcio`. Uma conversa nova.
 
 > **1.1** Quero documentar a Loja ACME.
 
-Esperado: "Sistema: LACME — Loja ACME, Docqui 8.2.2. É este?" (a versão é a do arquivo `VERSION`), sem falar em perfil.
+Esperado: "Sistema: LACME — Loja ACME, Docqui 8.3.0. É este?" (a versão é a do arquivo `VERSION`), sem falar em perfil.
 
 > **1.2** Sim.
 

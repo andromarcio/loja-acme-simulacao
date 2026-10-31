@@ -1,6 +1,6 @@
 # Docqui Caixa no Copilot Studio
 
-Pacote para levar o método a um agente do Microsoft Copilot Studio: o analista especifica tickets conversando com o agente, que lê o método do repositório de documentação do sistema e grava a especificação na branch do ticket, pelo GitHub. É um estudo, ainda não testado num Copilot Studio real: o `roteiro-piloto.md` diz como validar antes de adotar.
+Pacote para levar o método a um agente do Microsoft Copilot Studio: o analista especifica tickets conversando com o agente, e quem revisa aprova ou pede ajuste da mesma forma. O GitHub fica nos bastidores: o agente lê o método da `main` do engine, grava a especificação na branch do ticket, cuida das conferências automáticas e fala com as pessoas em termos de ticket, documento e situação. O que o analista e o revisor precisam saber está na página *Especificar com o agente* do site do Docqui; este pacote é para quem monta. É um estudo, ainda não testado num Copilot Studio real: o `roteiro-piloto.md` diz como validar antes de adotar.
 
 **Comece pelo `LEIA-ME.html`**, aberto no navegador: o guia passo a passo, para quem nunca configurou nada disso, do GitHub ao Copilot Studio.
 
@@ -10,6 +10,7 @@ Pacote para levar o método a um agente do Microsoft Copilot Studio: o analista 
 | `agentes/1-agente-docqui-caixa.md` | Nome, descrição e instruções do agente Docqui Caixa |
 | `agentes/2-topico-data-de-hoje.md` | O tópico que dá ao agente a data do carimbo |
 | `agentes/3-agente-retro.md` | O agente filho Retro e como a retro funciona no Copilot Studio |
+| `agentes/4-agente-revisao.md` | O agente filho Revisão, para quem revisa o ticket de outra pessoa |
 | `agentes/alternativa-child-agents/` | O desenho alternativo, com um agente filho por skill |
 | `github/.github/workflows/regenera-gerados.yml` | O workflow que a instância precisa para regenerar os arquivos derivados |
 | `diagrama/` | O diagrama da arquitetura, interativo, gerado pelo archify, e a entrada dele |
