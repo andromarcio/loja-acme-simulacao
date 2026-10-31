@@ -56,7 +56,7 @@ Nunca diga que rodou um script. Quando mandarem rodar:
 
 # 6. Ticket, conferências e revisão
 - Na primeira gravação do ticket, abra o PR em rascunho para a main com o modelo ".github/pull_request_template.md".
-- Depois de cada gravação, espere o commit do docqui-bot e leia os checks. Corrija sozinho o que for de forma e grave de novo; leve à pessoa só o que pedir decisão de negócio, em linguagem de negócio. Nunca diga que está pronto com conferência pendente ou reprovada.
+- Você não é avisado quando os checks terminam. Depois de cada gravação, leia-os uma vez; rodando ou sem o commit do docqui-bot, diga "As conferências estão rodando. Me peça para conferir em 1 ou 2 minutos." e pare. Ao pedido, leia de novo. Corrija sozinho o que for de forma e grave de novo; leve à pessoa só o que pedir decisão de negócio, em linguagem de negócio. Nunca diga que está pronto com conferência pendente ou reprovada.
 - "Como está o ticket?": diga a situação (em especificação, em revisão, ajuste pedido, aprovado, concluído), o que falta e o link da prévia do documento, se houver.
 - "Quais tickets estão comigo?": liste os PRs abertos de autoria da pessoa, com a situação de cada um.
 - "Pode mandar para revisão": com tudo conferido, tire o PR do rascunho, peça revisão a quem o CODEOWNERS indica e diga a quem foi.

@@ -63,7 +63,7 @@ Conta ativa: `andromarcio`. Uma conversa nova.
 
 > **1.1** Quero documentar a Loja ACME.
 
-Esperado: "Sistema: LACME — Loja ACME, Docqui 8.3.0. É este?" (a versão é a do arquivo `VERSION`), sem falar em perfil.
+Esperado: "Sistema: LACME — Loja ACME, Docqui 8.3.1. É este?" (a versão é a do arquivo `VERSION`), sem falar em perfil.
 
 > **1.2** Sim.
 
@@ -86,7 +86,7 @@ Esperado: o agente segue o `PROMPT_AIMM`, uma pergunta por vez. Responda como an
 
 > **1.4** Pode gravar.
 
-Esperado: antes de gravar, ele diz em uma frase o que vai gravar. Depois, cria a AIMM em `em-análise`, grava, abre o PR em rascunho e espera as conferências. Ele não deve falar em branch, commit nem PR.
+Esperado: antes de gravar, ele diz em uma frase o que vai gravar. Depois, cria a AIMM em `em-análise`, grava, abre o PR em rascunho e diz que as conferências estão rodando. Ele não deve falar em branch, commit nem PR. Depois de um ou dois minutos, peça "pode conferir?".
 
 > **1.5** Como está o meu ticket?
 
@@ -122,13 +122,17 @@ Durante a especificação, pergunte de vez em quando:
 
 > **3.4** O que falta para mandar para a revisão?
 
-E, depois de alguma gravação, confira que ele esperou o `docqui-bot` e leu as conferências. Se alguma reprovar por forma, ele corrige sozinho e diz o que corrigiu.
+Depois de cada gravação, ele deve dizer que as conferências estão rodando e parar. Espere um ou dois minutos e peça:
+
+> **3.5** Pode conferir?
+
+Esperado: o resultado das conferências. Se alguma reprovar por forma, ele corrige e diz o que corrigiu.
 
 ## Parte 4 — Analista: mandar para a revisão
 
 > **4.1** Pode mandar para a revisão.
 
-Esperado, num passo só: fecha a AIMM (`concluído`, com a Reconciliação), grava os checkpoints CP1 e CP2 nos N3 com o nome de quem revisa, põe a linha `Approved-by:` no fim da descrição, espera as conferências verdes, tira do rascunho e pede a revisão ao `@androlouredo`. Ele diz para quem foi.
+Esperado, num passo só: fecha a AIMM (`concluído`, com a Reconciliação), grava os checkpoints CP1 e CP2 nos N3 com o nome de quem revisa, põe a linha `Approved-by:` no fim da descrição e diz que as conferências estão rodando. Depois de um ou dois minutos, peça "pode conferir e mandar?": com tudo verde, ele tira do rascunho, pede a revisão ao `@androlouredo` e diz para quem foi.
 
 > **4.2** Quais tickets estão comigo?
 
@@ -158,7 +162,7 @@ Esperado: "ajuste pedido", com o resumo do que a PO pediu.
 
 > **6.2** Vamos fazer o ajuste.
 
-Esperado: ele conduz a correção, grava, espera as conferências e pede a revisão de novo.
+Esperado: ele conduz a correção e grava. Depois de um ou dois minutos, peça "pode conferir e mandar de novo?": com tudo verde, ele pede a revisão outra vez.
 
 ## Parte 7 — Revisão: aprovar
 
@@ -194,7 +198,7 @@ Anote, para cada parte, o que saiu diferente do esperado. O mais importante:
 |---|---|---|
 | O1 | Ele falou de branch, commit, PR ou check sem você usar esses termos? | Todas |
 | O2 | Fez mais de uma pergunta por mensagem, ou gravou sem o "sim"? | 1, 3, 6 |
-| O3 | Esperou o `docqui-bot` e leu as conferências antes de dizer que terminou? | 1.4, 3, 6 |
+| O3 | Depois da gravação, disse que as conferências estavam rodando e esperou você pedir "pode conferir?", sem dizer que terminou? | 1.4, 3, 6 |
 | O4 | Corrigiu sozinho o que era de forma e trouxe a você só o que era de negócio? | 3, 6 |
 | O5 | Rodou algum script do repositório? (não devia: no Copilot Studio, nenhum roda) | Todas |
 | O6 | Percebeu o conflito com o STRY0013205 no `VIT-NAV-02 — Pesquisar Produtos na Vitrine`? | 1.3 |
