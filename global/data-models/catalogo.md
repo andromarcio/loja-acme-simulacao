@@ -26,6 +26,7 @@
 | Quantidade em estoque | número | sim | Inteiro maior ou igual a zero; com zero, o produto aparece como esgotado |
 | Categoria | seleção → Categoria | sim | Todo produto pertence a uma única categoria |
 | Unidade de venda | texto | sim | Como o produto é vendido: unidade, caixa ou quilo |
+| Peso | número | não | Peso do produto, em quilos, para o cálculo do frete |
 
 
 ## Relacionamentos
