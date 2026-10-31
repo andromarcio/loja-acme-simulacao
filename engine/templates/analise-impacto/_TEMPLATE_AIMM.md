@@ -5,7 +5,9 @@ ticket: [STRYxxxxxxx | ISSUE-NNN | EXP-… | PDTIC…-NN]
 ferramenta: [ServiceNow | Jira | GitHub | experimento]
 link: [URL do ticket na ferramenta de origem]
 titulo: [título curto do ticket]
-estado: rascunho          # rascunho → em-análise → escopo-aprovado → em-execução → concluído
+estado: em-análise        # em-análise → escopo-aprovado → em-execução → concluído
+estado-por: ""            # quem levou a AIMM ao estado atual — a pessoa, não o agente
+estado-em: ""             # quando: AAAA-MM-DD HH:MM ±HH:MM (data, hora e fuso)
 aberta-na-entrega: false  # true quando a AIMM nasce depois da entrega (skill analise-impacto)
 sprint: ""                # sprint da entrega — preenchida no fechamento
 avalizado-por: ""         # aval do PO no escopo — obrigatório de escopo-aprovado em diante
@@ -20,8 +22,8 @@ aberta-em: [AAAA-MM-DD]
   A AIMM é VERSIONADA à medida que o ticket avança — o Changelog registra cada versão
   e o git guarda as anteriores:
 
-    rascunho         aberta: Descrição, Critérios e Funcionalidades (PROMPT_AIMM, passos 1–4)
-    em-análise       o que SERÁ alterado: Artefatos impactados, Alterações previstas (passo 5)
+    em-análise       aberta completa: o ticket, as Funcionalidades e o que SERÁ alterado, com
+                     todas as seções de impacto preenchidas (PROMPT_AIMM, passos 1–5)
     escopo-aprovado  o PO avalizou o escopo (`avalizado-por`) — só então a spec muda (passo 6)
     em-execução      as passadas de spec e código, uma por linha do changeset
     concluído        o que FOI alterado: as seções de impacto reescritas com o que mudou
