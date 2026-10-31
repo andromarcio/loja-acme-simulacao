@@ -26,7 +26,7 @@ No contexto CAIXA, **AIMM** significa **Análise de Impacto de Mudança para Man
 | | `engine/prompts/PROMPT_AIMM.md` | Esta skill |
 |---|---|---|
 | Momento | **Antes** da spec mudar (passos 1–6) | **Depois** da entrega (passo 7) |
-| Estado da AIMM | `rascunho` → `em-análise` → `escopo-aprovado` | `concluído` |
+| Estado da AIMM | `em-análise` → `escopo-aprovado` | `concluído` |
 | Insumo | O ticket na ferramenta de origem | A AIMM avalizada + o que foi entregue: changelog, código, modelo físico |
 | Pergunta | Que artefatos o ticket *vai* alterar? | O que o ticket *alterou* na spec publicada? |
 | Entrega | Changeset para o aval do PO | As seções de impacto reescritas com o que mudou e a Reconciliação; a AIMM da sprint |
