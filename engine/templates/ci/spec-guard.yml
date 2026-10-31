@@ -29,9 +29,13 @@
 
 name: spec-guard
 
+# Sem filtro de caminhos: os jobs rodam em todo PR, inclusive nos que não mexem na
+# especificação (o da retro no CLAUDE.md, uma mudança de workflow). É o que permite
+# exigi-los na proteção da main — com filtro, um PR fora dos caminhos ficaria esperando
+# para sempre um check obrigatório que nunca roda. Fora de uma branch de entrega, o job
+# `entrega` é pulado, e o GitHub conta job pulado como aprovado.
 on:
   pull_request:
-    paths: ["modules/**", "global/**", "analise-impacto/**", "scripts/**"]
   push:
     branches: [main]
 

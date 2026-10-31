@@ -4,7 +4,8 @@
 # Settings → Branches → branch protection da `main`:
 #   • Require a pull request before merging
 #   • Require review from Code Owners
-#   • Require status checks to pass → "Esteira de gates — check"
+#   • Require status checks to pass → "Esteira de gates — check", "estrutura",
+#     "rastreabilidade" e "entrega" (os três últimos do spec-guard.yml)
 #
 # Cada checkpoint é autorizado pela pessoa/time dona do artefato correspondente.
 # A ORDEM (não pular etapas) é garantida pelo workflow gate-check.yml; o CODEOWNERS
