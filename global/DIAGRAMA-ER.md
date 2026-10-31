@@ -40,7 +40,7 @@ erDiagram
     Preço valor
     Quantidade_em_estoque número
     Categoria seleção FK
-    Unidade texto
+    Unidade_de_venda texto
   }
   Categoria |o--o{ Categoria : "Categoria_superior"
   Categoria ||--o{ Produto : "Categoria"
