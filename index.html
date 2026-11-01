@@ -879,7 +879,6 @@
       color: var(--text-secondary);
     }
     .aimm-estado strong { color: var(--text-main); font-weight: 600; }
-    .aimm-estado-fuso { color: var(--text-muted); }
 
     .badge-fdd-level {
       background: var(--brand-blue-light);
@@ -3352,7 +3351,7 @@
     const em = limpa(fm['estado-em']).match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2}) ([+-]\d{2}:\d{2})$/);
     return `<div class="aimm-estado"><span class="badge badge-fdd-level">${mmEsc(ROTULO[estado] || estado)}</span>`
       + (por ? `<span>por <strong>${mmEsc(por)}</strong></span>` : '')
-      + (em ? `<span>em ${em[3]}/${em[2]}/${em[1]} às ${em[4]} <span class="aimm-estado-fuso">(${em[5]})</span></span>` : '')
+      + (em ? `<span>em ${em[3]}/${em[2]}/${em[1]} às ${em[4]}</span>` : '')
       + '</div>';
   }
 
