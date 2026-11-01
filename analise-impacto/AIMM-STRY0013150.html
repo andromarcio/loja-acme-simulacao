@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIMM STRY0013150</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+/* Identidade CAIXA */
+      --brand-blue: #005CA9;
+      --brand-blue-dark: #003B70;
+      --brand-blue-light: #EBF4FC;
+      --brand-blue-hover: #004b8a;
+      --brand-orange: #F37021;
+      --brand-orange-light: #FFF4EC;
+      
+      /* Superfícies & Bordas */
+      --bg-app: #F8F9FA;
+      --bg-sidebar: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-hover: #F1F4F8;
+      --bg-active: #E3EEF9;
+      --border-color: #E2E8F0;
+      --border-subtle: #EDF2F7;
+      
+      /* Compatibilidade mapa.css */
+      --primary-color: #005CA9;
+      --surface-ground: #F8F9FA;
+      --surface-card: #FFFFFF;
+      --surface-border: #E2E8F0;
+      --surface-hover: #F1F4F8;
+      --text-color: #1E293B;
+      --shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --focus-ring: 0 0 0 3px rgba(0, 92, 169, 0.15);
+      --dsc-font-family-1: "CAIXA Std", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+      --dsc-font-title: var(--dsc-font-family-1);
+      --dsc-font-mono: ui-monospace, "SFMono-Regular", "Courier New", monospace;
+      --dsc-border-radius-pill: 9999px;
+      --dsc-border-radius-medium: 8px;
+      --transition-duration: 0.15s;
+      
+      /* Tipografia & Cores */
+      --text-main: #1E293B;
+      --text-secondary: #64748B;
+      --text-muted: #94A3B8;
+      --text-blue: #005CA9;
+      
+      /* Status & Badges */
+      --badge-success-bg: #ECFDF5;
+      --badge-success-text: #047857;
+      --badge-success-border: #A7F3D0;
+      
+      --badge-warning-bg: #FFFBEB;
+      --badge-warning-text: #B45309;
+      --badge-warning-border: #FDE68A;
+      
+      --badge-info-bg: #EFF6FF;
+      --badge-info-text: #1D4ED8;
+      --badge-info-border: #BFDBFE;
+      
+      --badge-purple-bg: #F5F3FF;
+      --badge-purple-text: #6D28D9;
+      --badge-purple-border: #DDD6FE;
+
+      /* Sombras & Raios */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-full: 9999px;
+
+      /* Dimensões */
+      --header-height: 60px;
+      --sidebar-width: 320px;
+}
+:root {
+  --_bg: var(--bg-app, #F6FAFD);
+  --_card: var(--bg-card, #FFFFFF);
+  --_borda: var(--border-color, #D6E3F0);
+  --_borda-sutil: var(--border-subtle, #E8F0F8);
+  --_hover: var(--bg-hover, #EDF3F9);
+  --_texto: var(--text-main, var(--text-color, #0A2440));
+  --_texto2: var(--text-secondary, #526981);
+  --_marca: var(--brand-blue, var(--primary-color, #005CA9));
+  --_marca-clara: var(--brand-blue-light, #E5F2FC);
+  --_titulo: var(--dsc-font-title, 'Archivo', 'Segoe UI', system-ui, sans-serif);
+  --_corpo: var(--dsc-font-family-1, 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif);
+  --_mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body { margin:0; background: var(--_bg); color: var(--_texto); font-family: var(--_corpo); font-size:14px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+.wrap { width: 100%; margin: 0; padding: 32px 40px 80px; }
+/* O conteúdo destes documentos é majoritariamente tabela larga — a tela inteira é
+   trabalho útil, não desperdício. A prosa corrida fica com medida de leitura própria
+   para não virar linha de 200 caracteres em monitor grande. */
+@media (max-width: 720px) { .wrap { padding: 24px 16px 60px; } }
+.doc-head { margin-bottom: 26px; }
+.eyebrow { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color: var(--_marca); margin-bottom:10px; }
+h1 { font-family: var(--_titulo); font-size: clamp(24px,3.4vw,32px); font-weight:700; line-height:1.2; margin:0 0 14px; color: var(--_texto); text-wrap: balance; }
+.doc-section { background: var(--_card); border:1px solid var(--_borda); border-radius:10px; padding: 0; margin-bottom:20px; box-shadow: 0 1px 3px rgba(10,36,64,.06); }
+.section-header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 20px 28px; cursor:pointer; list-style:none; }
+.section-header::-webkit-details-marker { display:none; }
+.section-title { font-family: var(--_titulo); font-size:18px; font-weight:700; color: var(--_texto); display:flex; align-items:center; gap:10px; }
+.section-title svg { color: var(--_marca); flex:none; }
+.chevron { color: var(--_texto2); transition: transform .18s; flex:none; }
+details[open] > .section-header .chevron { transform: rotate(180deg); }
+.section-body { padding: 18px 28px 24px; border-top:1px solid var(--_borda-sutil); }
+.markdown-body > :first-child { margin-top:0; }
+.markdown-body > :last-child { margin-bottom:0; }
+.markdown-body h3 { font-family: var(--_titulo); font-size:15.5px; font-weight:700; margin:26px 0 10px; color: var(--_texto); }
+.markdown-body h4 { font-size:14px; font-weight:700; margin:20px 0 8px; }
+.markdown-body p { margin: 0 0 12px; }
+.markdown-body ul, .markdown-body ol { margin:0 0 12px; padding-left:22px; }
+.markdown-body li { margin-bottom:6px; }
+.markdown-body code { font-family: var(--_mono); font-size:.86em; background: var(--_hover); border:1px solid var(--_borda-sutil); border-radius:4px; padding:1px 5px; overflow-wrap:anywhere; }
+/* caminho de arquivo e chave longa não têm espaço para quebrar: sem isto, um code
+   comprido empurra o corpo inteiro e a página ganha rolagem horizontal no celular */
+.markdown-body { overflow-wrap: break-word; }
+.custom-table .col-id  { white-space: nowrap; width: 1%; }
+.custom-table .col-num { white-space: nowrap; min-width: 5.5rem; }
+.custom-table .col-prosa { min-width: 38rem; }
+.custom-table .col-nome  { min-width: 15rem; max-width: 22rem; }
+.ficha { margin: 2px 0 22px; font-size: 13px; color: var(--_texto2); }
+.ficha blockquote { margin:0; border:0; padding:0; }
+.ficha p { margin: 0; line-height: 1.9; }
+.markdown-body pre { background: var(--_hover); border:1px solid var(--_borda); border-radius:8px; padding:14px 16px; overflow-x:auto; }
+.markdown-body pre code { background:none; border:0; padding:0; }
+.markdown-body blockquote { margin:0 0 14px; padding:12px 18px; border-left:3px solid var(--_marca); background: var(--_bg); border-radius:0 6px 6px 0; color: var(--_texto2); }
+.markdown-body blockquote > :first-child { margin-top:0; } .markdown-body blockquote > :last-child { margin-bottom:0; }
+.markdown-body a { color: var(--_marca); }
+.item-titulo { display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin:30px 0 12px; font-family: var(--_titulo); font-size:17px; font-weight:700; color: var(--_texto); }
+.item-nome { flex:0 1 auto; min-width:0; }
+.chave { font-family: var(--_mono); font-size:12px; font-weight:600; letter-spacing:.01em; color: var(--_texto2); background: var(--_hover); border:1px solid var(--_borda); border-radius:999px; padding:4px 12px; white-space:nowrap; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; border-radius:999px; padding:3px 11px; white-space:nowrap; }
+.badge--alterada { background:#DBEAFE; color:#1D4ED8; }
+.badge--nova     { background:#EDE9FE; color:#6D28D9; }
+.badge--mista    { background:#FEF3C7; color:#B45309; }
+.kpi-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:14px; margin:16px 0 20px; }
+.stat { background: var(--_card); border:1px solid var(--_borda); border-left:4px solid var(--acento, var(--_marca)); border-radius:8px; padding:16px 20px; box-shadow:0 1px 3px rgba(10,36,64,.06); }
+.stat-n { font-family: var(--_titulo); font-size:30px; font-weight:700; line-height:1.05; color: var(--_texto); font-variant-numeric: tabular-nums; }
+.stat-k { margin-top:8px; font-size:13px; color: var(--_texto2); line-height:1.45; }
+.stat-k span { display:block; margin-top:3px; color: var(--_texto2); opacity:.85; }
+.table-container { width:100%; overflow-x:auto; margin: 12px 0; border:1px solid var(--_borda); border-radius:8px; }
+.custom-table { width:100%; border-collapse:collapse; text-align:left; font-size:13px; }
+.custom-table th { background: var(--_hover); color: var(--_texto); font-weight:600; font-family: var(--_titulo); padding:12px 16px; border-bottom:1px solid var(--_borda); white-space:nowrap; }
+.custom-table td { padding:12px 16px; border-bottom:1px solid var(--_borda-sutil); color: var(--_texto); vertical-align:top; line-height:1.5; }
+// A primeira coluna costuma ser um ID curto, que não deve partir. Mas quando ela é
+// um NOME ou a própria narrativa, o nowrap faz o texto transbordar por cima da
+// coluna vizinha — 665px de conteúdo numa célula de 304px. Essas ficam de fora.
+.custom-table th:first-child, .custom-table td:first-child:not(.col-nome):not(.col-prosa) { white-space:nowrap; }
+.custom-table tbody tr:last-child td { border-bottom:none; }
+.custom-table tbody tr:hover { background: var(--_hover); }
+.changelog-table td { font-size:12.5px; }
+.changelog-table th:first-child, .changelog-table td:first-child { width:120px; min-width:110px; }
+.req-tag { font-weight:600; color:#E11D48; font-size:11px; background:#FFE4E6; padding:2px 6px; border-radius:4px; display:inline-block; }
+.opt-tag { font-weight:500; color: var(--_texto2); font-size:11px; background: var(--_hover); padding:2px 6px; border-radius:4px; display:inline-block; }
+.rodape { margin-top:34px; padding-top:18px; border-top:1px solid var(--_borda); font-size:12.5px; color: var(--_texto2); }
+@media print { .doc-section { break-inside: avoid; border:1px solid #ccc; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="doc-head">
+    <div class="eyebrow">Análise de impacto</div>
+    <h1>AIMM STRY0013150</h1>
+  </header>
+  <div class="ficha markdown-body"><p><strong>Ticket</strong>: ServiceNow fictício <code>STRY0013150</code> — Cadastro de produtos<br><strong>Link</strong>: ../mentoria/backlog.md#stry0013150--cadastro-de-produtos<br><strong>Estado</strong>: Em análise — por Andro Márcio Correa Louredo, em 31/10/2026 16:09 (-03:00)  </p>
+</div>
+
+  <details class="doc-section" id="descricao-do-ticket" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Descrição do ticket
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<blockquote>
+<p>Transcrição do ticket fictício do backlog da demonstração; não é um registro do ServiceNow real.</p>
+</blockquote>
+<p>A equipe de vendas precisa manter o catálogo de produtos no próprio site: cadastrar, consultar, editar e retirar de venda os produtos, com nome, preço e quantidade em estoque.</p>
+
+    </div>
+  </details>
+  <details class="doc-section" id="criterios-de-aceite" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Critérios de aceite
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<blockquote>
+<p><strong>Numeração</strong>: a fonte fictícia numera os critérios; os números CA-n abaixo são os mesmos do backlog.</p>
+</blockquote>
+<pre><code class="language-gherkin"># ── CA-1 ───────────────────────────────────────────────────
+Scenario: Produto cadastrado com os dados obrigatórios
+  Given a equipe de vendas está cadastrando um produto
+  When informa nome, preço e quantidade em estoque
+  Then o produto é cadastrado
+  And sem qualquer um dos três o produto não é cadastrado
+
+# ── CA-2 ───────────────────────────────────────────────────
+Scenario: Nome do produto não se repete
+  Given já existe um produto com um certo nome
+  When a equipe tenta cadastrar outro produto com o mesmo nome
+  Then o segundo produto não é cadastrado
+
+# ── CA-3 ───────────────────────────────────────────────────
+Scenario: Produto retirado de venda some da loja e fica nos pedidos antigos
+  Given um produto que consta em pedidos antigos
+  When a equipe o retira de venda
+  Then ele não aparece mais na loja
+  And continua nos pedidos antigos em que consta
+</code></pre>
+
+    </div>
+  </details>
+  <details class="doc-section" id="funcionalidades" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Funcionalidades
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<div class="table-container"><table class="custom-table">
+<thead>
+<tr>
+<th>Funcionalidade (N3)</th>
+<th>Domínio · Agrupamento Funcional</th>
+<th class="col-id">Operação</th>
+<th>Critérios cobertos</th>
+<th class="col-id">Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="../modules/catalogo/produtos/f-pesquisar-produto.md"><code>CAT-PRD-01</code>: Pesquisar Produtos</a> <em>(a confirmar no 3A)</em></td>
+<td>Catálogo · Produtos</td>
+<td class="col-id">Criação</td>
+<td>—</td>
+<td class="col-id">📋 A especificar</td>
+</tr>
+<tr>
+<td><a href="../modules/catalogo/produtos/f-cadastrar-produto.md"><code>CAT-PRD-02</code>: Cadastrar Produto</a></td>
+<td>Catálogo · Produtos</td>
+<td class="col-id">Criação</td>
+<td><code>CA-1, CA-2</code></td>
+<td class="col-id">✏️ Rascunho</td>
+</tr>
+<tr>
+<td><a href="../modules/catalogo/produtos/f-editar-produto.md"><code>CAT-PRD-03</code>: Editar Produto</a> <em>(a confirmar no 3A)</em></td>
+<td>Catálogo · Produtos</td>
+<td class="col-id">Criação</td>
+<td>—</td>
+<td class="col-id">📋 A especificar</td>
+</tr>
+<tr>
+<td><a href="../modules/catalogo/produtos/f-inativar-produto.md"><code>CAT-PRD-04</code>: Inativar Produto</a> <em>(a confirmar no 3A)</em></td>
+<td>Catálogo · Produtos</td>
+<td class="col-id">Criação</td>
+<td><code>CA-3</code></td>
+<td class="col-id">📋 A especificar</td>
+</tr>
+<tr>
+<td><a href="../modules/catalogo/produtos/f-visualizar-produto.md"><code>CAT-PRD-05</code>: Visualizar Produto</a> <em>(a confirmar no 3A)</em></td>
+<td>Catálogo · Produtos</td>
+<td class="col-id">Criação</td>
+<td>—</td>
+<td class="col-id">📋 A especificar</td>
+</tr>
+<tr>
+<td><a href="../modules/vitrine/navegacao/f-listar-destaque.md"><code>VIT-NAV-01</code>: Listar Destaques</a></td>
+<td>Vitrine · Navegação</td>
+<td class="col-id">Alteração</td>
+<td>—</td>
+<td class="col-id">📋 Especificado</td>
+</tr>
+<tr>
+<td><a href="../modules/vitrine/navegacao/f-pesquisar-produto-vitrine.md"><code>VIT-NAV-02</code>: Pesquisar Produtos na Vitrine</a></td>
+<td>Vitrine · Navegação</td>
+<td class="col-id">Alteração</td>
+<td>—</td>
+<td class="col-id">✏️ Rascunho</td>
+</tr>
+<tr>
+<td><a href="../modules/vitrine/navegacao/f-visualizar-produto-vitrine.md"><code>VIT-NAV-03</code>: Visualizar Produto na Vitrine</a></td>
+<td>Vitrine · Navegação</td>
+<td class="col-id">Alteração</td>
+<td>—</td>
+<td class="col-id">📋 Especificado</td>
+</tr>
+<tr>
+<td><a href="../modules/vitrine/destaques/f-cadastrar-destaque.md"><code>VIT-DST-02</code>: Cadastrar Destaque</a></td>
+<td>Vitrine · Destaques</td>
+<td class="col-id">Alteração</td>
+<td>—</td>
+<td class="col-id">📋 Especificado</td>
+</tr>
+<tr>
+<td><a href="../modules/vendas/carrinho/f-adicionar-item-carrinho.md"><code>VND-CAR-01</code>: Adicionar Item ao Carrinho</a></td>
+<td>Vendas · Carrinho</td>
+<td class="col-id">Alteração</td>
+<td>—</td>
+<td class="col-id">📋 Especificado</td>
+</tr>
+</tbody></table></div>
+<p>As cinco funcionalidades alteradas aplicam o efeito do <code>CA-3</code> (produto retirado de venda não aparece mais na loja); o critério fica atribuído a CAT-PRD-04 — Inativar Produto, que o realiza. &quot;Retirar de venda&quot; é tratado como inativar o produto, o verbo que a loja já usa em ADM-USR-04 — Inativar Usuário.</p>
+
+    </div>
+  </details>
+  <details class="doc-section" id="artefatos-impactados" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Artefatos impactados
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<p>O changeset abaixo é a previsão do analista, ainda sem o aval da PO. A AIMM foi preenchida depois de já existirem na branch o N2 de Produtos, o N3 de CAT-PRD-02 — Cadastrar Produto, a Situação do Produto no modelo e a mensagem <code>CAT_PRODUTO_DUPLICADO</code>: esses artefatos são propostas sujeitas ao mesmo aval, e nenhum deles constitui aprovação. As linhas derivadas que a análise concluiu que não mudam saíram: <code>global/data-models/vitrine.md</code> e <code>global/data-models/vendas.md</code> (Destaque e ItemPedido não ganham atributo), <code>global/FIELD-DICTIONARY.md</code> (nenhum campo canônico novo), <code>global/RULES-DICTIONARY.md</code> (nenhuma regra canônica nova) e <code>global/NFR.md</code> (a inativação segue as qualidades vigentes, inclusive a autorização por perfil de SEG-01). No perfil <code>requisitos</code> o changeset não leva QA.</p>
+<div class="table-container"><table class="custom-table">
+<thead>
+<tr>
+<th>Artefato</th>
+<th>Tipo</th>
+<th class="col-id">Operação</th>
+<th>Seção</th>
+<th class="col-id">Natureza</th>
+<th>O quê</th>
+<th>Proveniência</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>modules/catalogo/produtos/README.md</code></td>
+<td>N2</td>
+<td class="col-id">criar</td>
+<td>Todas</td>
+<td class="col-id">funcional</td>
+<td>Agrupamento Funcional Produtos, com as cinco funcionalidades, a tela e a matriz de permissões</td>
+<td>elicitado</td>
+</tr>
+<tr>
+<td><code>modules/catalogo/produtos/f-pesquisar-produto.md</code></td>
+<td>N3</td>
+<td class="col-id">criar</td>
+<td>Todas</td>
+<td class="col-id">funcional</td>
+<td>Pesquisa por nome, categoria e situação, ponto de entrada do cadastro</td>
+<td>elicitado</td>
+</tr>
+<tr>
+<td><code>modules/catalogo/produtos/f-cadastrar-produto.md</code></td>
+<td>N3</td>
+<td class="col-id">criar</td>
+<td>Todas</td>
+<td class="col-id">funcional</td>
+<td>Cadastro em modal, com nome único, preço, quantidade em estoque e categoria; nasce Ativo</td>
+<td>derivado: âncora</td>
+</tr>
+<tr>
+<td><code>modules/catalogo/produtos/f-editar-produto.md</code></td>
+<td>N3</td>
+<td class="col-id">criar</td>
+<td>Todas</td>
+<td class="col-id">funcional</td>
+<td>Edição dos dados em modal, com o nome imutável e a devolução à venda pela Situação</td>
+<td>elicitado</td>
+</tr>
+<tr>
+<td><code>modules/catalogo/produtos/f-inativar-produto.md</code></td>
+<td>N3</td>
+<td class="col-id">criar</td>
+<td>Todas</td>
+<td class="col-id">funcional</td>
+<td>Retirada de venda, mantendo o produto nos pedidos antigos</td>
+<td>elicitado</td>
+</tr>
+<tr>
+<td><code>modules/catalogo/produtos/f-visualizar-produto.md</code></td>
+<td>N3</td>
+<td class="col-id">criar</td>
+<td>Todas</td>
+<td class="col-id">funcional</td>
+<td>Consulta dos dados do produto em modal</td>
+<td>elicitado</td>
+</tr>
+<tr>
+<td><code>modules/catalogo/README.md</code></td>
+<td>N1</td>
+<td class="col-id">alterar</td>
+<td>Agrupamentos Funcionais/Integrações com outros domínios</td>
+<td class="col-id">funcional</td>
+<td>Produtos deixa de ser planejado, e a Situação do Produto passa a ser lida pela Vitrine e por Vendas</td>
+<td>elicitado</td>
+</tr>
+<tr>
+<td><code>modules/vitrine/README.md</code></td>
+<td>N1</td>
+<td class="col-id">alterar</td>
+<td>Regras transversais de negócio</td>
+<td class="col-id">funcional</td>
+<td>A regra 1 passa a exigir também o produto ativo</td>
+<td>elicitado</td>
+</tr>
+<tr>
+<td><code>modules/vitrine/navegacao/f-listar-destaque.md</code></td>
+<td>N3</td>
+<td class="col-id">alterar</td>
+<td>Regras/Cenários/Critérios de sucesso</td>
+<td class="col-id">funcional</td>
+<td>Destaque de produto inativo não aparece na página inicial</td>
+<td>derivado: âncora</td>
+</tr>
+<tr>
+<td><code>modules/vitrine/navegacao/f-pesquisar-produto-vitrine.md</code></td>
+<td>N3</td>
+<td class="col-id">alterar</td>
+<td>Regras/Cenários/Critérios de sucesso</td>
+<td class="col-id">funcional</td>
+<td>Produto inativo não é encontrado na busca</td>
+<td>derivado: âncora</td>
+</tr>
+<tr>
+<td><code>modules/vitrine/navegacao/f-visualizar-produto-vitrine.md</code></td>
+<td>N3</td>
+<td class="col-id">alterar</td>
+<td>Regras/Cenários/Comportamento de tela/Critérios de sucesso</td>
+<td class="col-id">funcional</td>
+<td>Produto inativo não tem página na loja</td>
+<td>derivado: âncora</td>
+</tr>
+<tr>
+<td><code>modules/vitrine/destaques/f-cadastrar-destaque.md</code></td>
+<td>N3</td>
+<td class="col-id">alterar</td>
+<td>Campos/Regras/Cenários/Critérios de sucesso</td>
+<td class="col-id">funcional</td>
+<td>A seleção do destaque oferece só produtos ativos</td>
+<td>elicitado</td>
+</tr>
+<tr>
+<td><code>modules/vendas/carrinho/f-adicionar-item-carrinho.md</code></td>
+<td>N3</td>
+<td class="col-id">alterar</td>
+<td>Regras/Cenários</td>
+<td class="col-id">funcional</td>
+<td>Produto inativo não entra no carrinho</td>
+<td>derivado: âncora</td>
+</tr>
+<tr>
+<td><code>global/data-models/catalogo.md</code></td>
+<td>DATA-MODEL</td>
+<td class="col-id">alterar</td>
+<td>Produto</td>
+<td class="col-id">dados</td>
+<td>Atributo Situação do Produto</td>
+<td>derivado: ## Campos → coluna</td>
+</tr>
+<tr>
+<td><code>global/DIAGRAMA-ER.md</code></td>
+<td>DATA-MODEL</td>
+<td class="col-id">alterar</td>
+<td>Catálogo</td>
+<td class="col-id">derivado</td>
+<td>Situação do Produto no diagrama, a partir do fragmento negocial</td>
+<td>derivado: modelo</td>
+</tr>
+<tr>
+<td><code>global/CONTAGEM-PF.md</code></td>
+<td>MÉTRICA</td>
+<td class="col-id">alterar</td>
+<td>—</td>
+<td class="col-id">derivado</td>
+<td>Recontagem pelo CT depois dos N3 e do DATA-MODEL; a contagem da instância segue pendente</td>
+<td>derivado: delta de dados</td>
+</tr>
+<tr>
+<td><code>global/MESSAGE-DICTIONARY.md</code></td>
+<td>MESSAGE-DICT</td>
+<td class="col-id">alterar</td>
+<td>Catálogo/Vitrine</td>
+<td class="col-id">funcional</td>
+<td><code>CAT_PRODUTO_DUPLICADO</code> e a ampliação de <code>VIT_PRODUTO_INDISPONIVEL</code> para produto inativo</td>
+<td>derivado: referência no N3</td>
+</tr>
+<tr>
+<td><code>prototypes/catalogo/produtos/flow.html</code></td>
+<td>PROTÓTIPO</td>
+<td class="col-id">criar</td>
+<td>—</td>
+<td class="col-id">funcional</td>
+<td>Fluxo de Produtos: pesquisa, modais de cadastro, edição e visualização e inativação na linha</td>
+<td>derivado: ## Superfície (Modal)</td>
+</tr>
+<tr>
+<td><code>prototypes/vitrine/navegacao/flow.html</code></td>
+<td>PROTÓTIPO</td>
+<td class="col-id">alterar</td>
+<td>—</td>
+<td class="col-id">funcional</td>
+<td>Produto inativo fora dos destaques, da busca e da página do produto</td>
+<td>derivado: ## Superfície (Tela própria)</td>
+</tr>
+<tr>
+<td><code>prototypes/vitrine/destaques/flow.html</code></td>
+<td>PROTÓTIPO</td>
+<td class="col-id">alterar</td>
+<td>—</td>
+<td class="col-id">funcional</td>
+<td>Seleção de produto do destaque só com produtos ativos</td>
+<td>derivado: ## Superfície (Tela própria)</td>
+</tr>
+<tr>
+<td><code>prototypes/vendas/carrinho/flow.html</code></td>
+<td>PROTÓTIPO</td>
+<td class="col-id">alterar</td>
+<td>—</td>
+<td class="col-id">funcional</td>
+<td>Tentativa de adicionar produto que saiu de venda com a página aberta</td>
+<td>derivado: ## Superfície (Tela própria)</td>
+</tr>
+</tbody></table></div>
+<p><strong>Derivados de publicação</strong>: regenerar <code>analise-impacto/AIMM-STRY0013150.html</code>, <code>assets/tree.js</code>, <code>assets/mapa-data.js</code>, <code>rastreabilidade/data.js</code> e o espelho em <code>modules/INDEX.md</code> pelos scripts canônicos, sem edição manual.</p>
+<p><strong>Sem alteração</strong>: a Gestão de Pedidos (VND-PED) continua mostrando o produto inativo, porque o ItemPedido mantém a referência ao Produto e o preço unitário, o que realiza a segunda metade do <code>CA-3</code>. Editar Destaque (VIT-DST-03) não muda, porque o produto do destaque é imutável. Excluir Categoria (CAT-CTG-04) não muda, porque o produto inativo continua vinculado à categoria e bloqueia a exclusão pela RC-09 — Registro vinculado não pode ser excluído.</p>
+
+    </div>
+  </details>
+  <details class="doc-section" id="alteracoes-em-funcionalidades-por-agrupamento-funcional" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Alterações em funcionalidades por Agrupamento Funcional
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<h3>Produtos</h3>
+<div class="table-container"><table class="custom-table">
+<thead>
+<tr>
+<th>Funcionalidade</th>
+<th class="col-id">CA-n</th>
+<th class="col-id">Natureza</th>
+<th class="col-prosa">Mudança</th>
+<th class="col-id">Regras</th>
+<th class="col-id">Cenários</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CAT-PRD-01</code><br><strong>Pesquisar Produtos</strong></td>
+<td class="col-id">—</td>
+<td class="col-id">nova</td>
+<td class="col-prosa"><strong>Inclusão</strong> da pesquisa por nome, categoria e situação. <em>Antes</em>: o produto só existia como massa fictícia, sem tela de manutenção. <em>Agora</em>: o gestor de catálogo encontra os produtos, ativos ou inativos.</td>
+<td class="col-id">a definir no 3A</td>
+<td class="col-id">a definir no 3A</td>
+</tr>
+<tr>
+<td><code>CAT-PRD-02</code><br><strong>Cadastrar Produto</strong></td>
+<td class="col-id">CA-1, CA-2</td>
+<td class="col-id">nova</td>
+<td class="col-prosa"><strong>Inclusão</strong> do cadastro. <em>Antes</em>: não havia cadastro. <em>Agora</em>: o gestor informa nome único, preço, quantidade em estoque e categoria, e o produto nasce ativo.</td>
+<td class="col-id">+5</td>
+<td class="col-id">+12</td>
+</tr>
+<tr>
+<td><code>CAT-PRD-03</code><br><strong>Editar Produto</strong></td>
+<td class="col-id">—</td>
+<td class="col-id">nova</td>
+<td class="col-prosa"><strong>Inclusão</strong> da edição. <em>Antes</em>: os dados não podiam ser mantidos. <em>Agora</em>: o gestor altera os dados, exceto o nome, e devolve à venda um produto inativo.</td>
+<td class="col-id">a definir no 3A</td>
+<td class="col-id">a definir no 3A</td>
+</tr>
+<tr>
+<td><code>CAT-PRD-04</code><br><strong>Inativar Produto</strong></td>
+<td class="col-id">CA-3</td>
+<td class="col-id">nova</td>
+<td class="col-prosa"><strong>Inclusão</strong> da retirada de venda. <em>Antes</em>: não havia como tirar um produto da loja. <em>Agora</em>: o produto inativo some da loja e continua nos pedidos antigos.</td>
+<td class="col-id">a definir no 3A</td>
+<td class="col-id">a definir no 3A</td>
+</tr>
+<tr>
+<td><code>CAT-PRD-05</code><br><strong>Visualizar Produto</strong></td>
+<td class="col-id">—</td>
+<td class="col-id">nova</td>
+<td class="col-prosa"><strong>Inclusão</strong> da consulta. <em>Antes</em>: não havia consulta dos dados na manutenção. <em>Agora</em>: o gestor e o administrador veem o produto sem alterá-lo.</td>
+<td class="col-id">a definir no 3A</td>
+<td class="col-id">a definir no 3A</td>
+</tr>
+</tbody></table></div>
+<h3>Navegação</h3>
+<div class="table-container"><table class="custom-table">
+<thead>
+<tr>
+<th>Funcionalidade</th>
+<th class="col-id">CA-n</th>
+<th class="col-id">Natureza</th>
+<th class="col-prosa">Mudança</th>
+<th class="col-id">Regras</th>
+<th class="col-id">Cenários</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>VIT-NAV-01</code><br><strong>Listar Destaques</strong></td>
+<td class="col-id">—</td>
+<td class="col-id">alterada</td>
+<td class="col-prosa"><strong>Restrição</strong> dos destaques exibidos. <em>Antes</em>: só a categoria inativa ocultava o destaque. <em>Agora</em>: o destaque de produto inativo também não aparece.</td>
+<td class="col-id">+1</td>
+<td class="col-id">+1</td>
+</tr>
+<tr>
+<td><code>VIT-NAV-02</code><br><strong>Pesquisar Produtos na Vitrine</strong></td>
+<td class="col-id">—</td>
+<td class="col-id">alterada</td>
+<td class="col-prosa"><strong>Restrição</strong> do resultado. <em>Antes</em>: só a categoria inativa ocultava o produto. <em>Agora</em>: o produto inativo também não é encontrado.</td>
+<td class="col-id">+1</td>
+<td class="col-id">+1</td>
+</tr>
+<tr>
+<td><code>VIT-NAV-03</code><br><strong>Visualizar Produto na Vitrine</strong></td>
+<td class="col-id">—</td>
+<td class="col-id">alterada</td>
+<td class="col-prosa"><strong>Restrição</strong> da página. <em>Antes</em>: só o produto de categoria inativa ficava sem página. <em>Agora</em>: o produto inativo também mostra &quot;Este produto não está disponível na loja.&quot;</td>
+<td class="col-id">+1</td>
+<td class="col-id">+1</td>
+</tr>
+</tbody></table></div>
+<h3>Destaques</h3>
+<div class="table-container"><table class="custom-table">
+<thead>
+<tr>
+<th>Funcionalidade</th>
+<th class="col-id">CA-n</th>
+<th class="col-id">Natureza</th>
+<th class="col-prosa">Mudança</th>
+<th class="col-id">Regras</th>
+<th class="col-id">Cenários</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>VIT-DST-02</code><br><strong>Cadastrar Destaque</strong></td>
+<td class="col-id">—</td>
+<td class="col-id">alterada</td>
+<td class="col-prosa"><strong>Restrição</strong> da seleção de produto. <em>Antes</em>: a seleção oferecia os produtos de categorias ativas. <em>Agora</em>: oferece só os produtos ativos dessas categorias.</td>
+<td class="col-id">+1</td>
+<td class="col-id">+1</td>
+</tr>
+</tbody></table></div>
+<h3>Carrinho</h3>
+<div class="table-container"><table class="custom-table">
+<thead>
+<tr>
+<th>Funcionalidade</th>
+<th class="col-id">CA-n</th>
+<th class="col-id">Natureza</th>
+<th class="col-prosa">Mudança</th>
+<th class="col-id">Regras</th>
+<th class="col-id">Cenários</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>VND-CAR-01</code><br><strong>Adicionar Item ao Carrinho</strong></td>
+<td class="col-id">—</td>
+<td class="col-id">alterada</td>
+<td class="col-prosa"><strong>Restrição</strong> da inclusão. <em>Antes</em>: só o estoque zero impedia a entrada no carrinho. <em>Agora</em>: o produto inativo também não entra, inclusive quando saiu de venda com a página aberta.</td>
+<td class="col-id">+1</td>
+<td class="col-id">+1</td>
+</tr>
+</tbody></table></div>
+
+    </div>
+  </details>
+  <details class="doc-section" id="entidades-alteradas" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Entidades alteradas
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<p>Perfil <code>requisitos</code>: a alteração é descrita no modelo de entidades de negócio, em Label PO. Não há migração nem tabela ou coluna de banco, e a coluna Migração sai <code>—</code>; a camada física fica para o desenvolvimento.</p>
+<h3>Produto</h3>
+<div class="table-container"><table class="custom-table">
+<thead>
+<tr>
+<th>Migração</th>
+<th>Tabela / atributo</th>
+<th class="col-id">Natureza</th>
+<th class="col-prosa">Mudança</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>—</td>
+<td>Situação</td>
+<td class="col-id">atributo incluído</td>
+<td class="col-prosa"><strong>Inclusão</strong> da lista Ativo e Inativo, obrigatória. <em>Antes</em>: o produto não tinha situação própria, e só a categoria inativa o tirava da vitrine. <em>Agora</em>: o produto nasce Ativo e, inativo, fica fora de venda, não aparece na loja e continua nos pedidos antigos.</td>
+</tr>
+</tbody></table></div>
+
+    </div>
+  </details>
+  <details class="doc-section" id="impacto-em-dicionarios" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Impacto em dicionários
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<ul>
+<li><code>global/MESSAGE-DICTIONARY.md</code>: <code>CAT_PRODUTO_DUPLICADO</code>, &quot;Já existe um produto com este nome.&quot;, incluída como ⚠️ proposta desta história.</li>
+<li><code>global/MESSAGE-DICTIONARY.md</code>: <code>VIT_PRODUTO_INDISPONIVEL</code>, com o texto mantido, passa a valer também para produto inativo e ganha os usos de VIT-NAV-03 — Visualizar Produto na Vitrine e VND-CAR-01 — Adicionar Item ao Carrinho.</li>
+<li><code>global/FIELD-DICTIONARY.md</code>, <code>global/RULES-DICTIONARY.md</code> e <code>global/ERROR-DICTIONARY.md</code>: nenhum impacto previsto.</li>
+</ul>
+
+    </div>
+  </details>
+  <details class="doc-section" id="decisoes-pendentes" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Decisões pendentes
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<ul>
+<li><strong>Aval do escopo</strong>: a PO precisa avalizar o changeset, inclusive o que já foi escrito na branch antes desta análise.</li>
+<li><strong>Retirar de venda</strong>: confirmar que é inativar o produto, e não excluí-lo.</li>
+<li><strong>Volta à venda</strong>: o ticket não pede, mas o N2 propõe devolver o produto à venda em CAT-PRD-03 — Editar Produto. Confirmar.</li>
+<li><strong>Funcionalidades sem critério</strong>: CAT-PRD-01 — Pesquisar Produtos, CAT-PRD-03 — Editar Produto e CAT-PRD-05 — Visualizar Produto vêm da descrição do ticket (&quot;consultar, editar&quot;), sem <code>CA-n</code>. Confirmar que entram.</li>
+<li><strong>Produto já no carrinho</strong>: decidir o que acontece com o item de um produto inativado depois de entrar no pedido aberto. Se ele for sinalizado ou retirado, entram VND-CAR-02 — Listar Itens do Carrinho e VND-CAR-03 — Alterar Quantidade do Item.</li>
+<li><strong>Destaque do produto inativo</strong>: decidir se a gestão continua mostrando a situação Vigente, sem o destaque aparecer na loja, ou se sinaliza o produto. Se sinalizar, entram VIT-DST-01 — Pesquisar Destaques e VIT-DST-05 — Visualizar Destaque.</li>
+<li><strong>Mensagem do carrinho</strong>: confirmar o uso de &quot;Este produto não está disponível na loja.&quot; ao adicionar um produto que saiu de venda.</li>
+<li><strong>Suposições de CAT-PRD-02 — Cadastrar Produto</strong>: confirmar o preço maior que zero, o nome único contra produtos inativos e sem diferenciar maiúsculas e acentos, a escolha de categoria inativa e a Categoria obrigatória, que o <code>CA-1</code> não cita.</li>
+</ul>
+
+    </div>
+  </details>
+  <details class="doc-section" id="reconciliacao" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Reconciliação
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<blockquote>
+<p>Preenchida no fechamento (estado <code>concluído</code>): declarado × tocado. Escreva o resultado abaixo desta citação.</p>
+</blockquote>
+
+    </div>
+  </details>
+  <details class="doc-section" id="changelog" open>
+    <summary class="section-header">
+      <span class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Changelog
+      </span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <div class="section-body markdown-body">
+<div class="table-container"><table class="custom-table changelog-table">
+<thead>
+<tr>
+<th>Data</th>
+<th>Autor</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>31/10/2026</td>
+<td>Docqui Caixa</td>
+<td>Ajuste</td>
+<td>Front-matter ganha <code>estado-por</code> e <code>estado-em</code> (9.1.0), preenchidos pelo histórico do git com quem levou a AIMM ao estado atual e quando.</td>
+</tr>
+<tr>
+<td>31/10/2026</td>
+<td>Claude</td>
+<td>Em análise</td>
+<td>Changeset derivado e completado depois do N2 e do primeiro N3, por isso sem aval prévio; acrescenta VIT-DST-02 — Cadastrar Destaque, chegando a 10 funcionalidades; sem aval da PO.</td>
+</tr>
+<tr>
+<td>31/10/2026</td>
+<td>Andro Márcio (Docqui Caixa)</td>
+<td>AIMM aberta</td>
+<td>Ticket fictício <code>STRY0013150</code> registrado a partir do backlog da demonstração; 9 funcionalidades mapeadas: 5 criadas em Produtos e 4 alteradas em Navegação e Carrinho.</td>
+</tr>
+<tr>
+<td>20/10/2026</td>
+<td>Docqui Caixa</td>
+<td>Terminologia</td>
+<td>Adoção de AIMM; histórico anterior preservado.</td>
+</tr>
+</tbody></table></div>
+
+    </div>
+  </details>
+
+  <footer class="rodape">
+    Gerado de <code>analise-impacto/AIMM-STRY0013150.md</code> por <code>scripts/gera-html-impacto.mjs</code>.
+    O <strong>.md é a fonte</strong> — edite lá e regenere; alterações feitas neste HTML se perdem.
+  </footer>
+</div>
+</body>
+</html>

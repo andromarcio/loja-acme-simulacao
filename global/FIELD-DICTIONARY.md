@@ -147,7 +147,7 @@ Scenario: Senha abaixo da política mínima
 
 ### Valor monetário
 <!-- usado-em:gerado -->
-> **Usado em:** `ADM-FRT-02` · `ADM-FRT-03` · `ADM-FRT-05` · `VIT-NAV-01` · `VIT-NAV-02` · `VIT-NAV-03` · `VND-CAR-02` · `VND-CAR-03` · `VND-CAR-04` · `VND-CHK-01` · `VND-PED-01` · `VND-PED-02`
+> **Usado em:** `ADM-FRT-02` · `ADM-FRT-03` · `ADM-FRT-05` · `CAT-PRD-02` · `VIT-NAV-01` · `VIT-NAV-02` · `VIT-NAV-03` · `VND-CAR-02` · `VND-CAR-03` · `VND-CAR-04` · `VND-CHK-01` · `VND-PED-01` · `VND-PED-02`
 <!-- /usado-em -->
 
 - **Label Dev**: `valor`

@@ -16,6 +16,7 @@
 | Ticket (AIMM) | Funcionalidade | Domínio | Status | Contagem | PF | CFP | Repositórios |
 |---|---|---|---|---|---|---|---|
 | [`STRY0013101`](../analise-impacto/AIMM-STRY0013101.md) | [VND-CHK-01: Calcular Frete](vendas/checkout/f-calcular-frete.md) | Vendas | ✏️ Rascunho | 📋 | — | — | — |
+| [`STRY0013150`](../analise-impacto/AIMM-STRY0013150.md) | [CAT-PRD-02: Cadastrar Produto](catalogo/produtos/f-cadastrar-produto.md) | Catálogo | ✏️ Rascunho | 📋 | — | — | — |
 | [`STRY0013170`](../analise-impacto/AIMM-STRY0013170.md) | [CAT-CTG-01: Pesquisar Categorias](catalogo/categorias/f-pesquisar-categoria.md) | Catálogo | 📋 Especificado | 📋 | — | — | — |
 | [`STRY0013170`](../analise-impacto/AIMM-STRY0013170.md) | [CAT-CTG-02: Cadastrar Categoria](catalogo/categorias/f-cadastrar-categoria.md) | Catálogo | ✏️ Rascunho | 📋 | — | — | — |
 | [`STRY0013170`](../analise-impacto/AIMM-STRY0013170.md) | [CAT-CTG-03: Editar Categoria](catalogo/categorias/f-editar-categoria.md) | Catálogo | ✏️ Rascunho | 📋 | — | — | — |
@@ -59,11 +60,12 @@ Veja o [mapa de rastreabilidade](../rastreabilidade/index.html).
 <!-- GATES:INICIO -->
 ## Esteira de checkpoints (gates)
 
-> ⚙️ **Seção gerada por `scripts/gates.py` — não editar à mão.** Espelha o estado de cada funcionalidade na esteira (CP1 requisitos (PO/Negócio) → CP2 modelo-dados (DBA/Arquiteto)). Reflete o estado em **2026-10-21**.
+> ⚙️ **Seção gerada por `scripts/gates.py` — não editar à mão.** Espelha o estado de cada funcionalidade na esteira (CP1 requisitos (PO/Negócio) → CP2 modelo-dados (DBA/Arquiteto)). Reflete o estado em **2026-10-31**.
 
 | Funcionalidade | Origem | Estado | Situação |
 |---|---|---|---|
 | `VND-CHK-01` ([spec](./vendas/checkout/f-calcular-frete.md)) | STRY0013101 | ✏️ rascunho | aguardando **requisitos** (PO/Negócio) |
+| `CAT-PRD-02` ([spec](./catalogo/produtos/f-cadastrar-produto.md)) | STRY0013150 | ✏️ rascunho | aguardando **requisitos** (PO/Negócio) |
 | `CAT-CTG-01` ([spec](./catalogo/categorias/f-pesquisar-categoria.md)) | STRY0013170 | 📋 especificado | 📋 pronto para desenvolvimento |
 | `CAT-CTG-02` ([spec](./catalogo/categorias/f-cadastrar-categoria.md)) | STRY0013170 | ✏️ rascunho | aguardando **requisitos** (PO/Negócio) |
 | `CAT-CTG-03` ([spec](./catalogo/categorias/f-editar-categoria.md)) | STRY0013170 | ✏️ rascunho | aguardando **requisitos** (PO/Negócio) |
@@ -95,7 +97,7 @@ Veja o [mapa de rastreabilidade](../rastreabilidade/index.html).
 | `ADM-FRT-04` ([spec](./administracao/faixas-frete/f-excluir-faixa-frete.md)) | STRY0013200 | 📋 especificado | 📋 pronto para desenvolvimento |
 | `ADM-FRT-05` ([spec](./administracao/faixas-frete/f-visualizar-faixa-frete.md)) | STRY0013200 | 📋 especificado | 📋 pronto para desenvolvimento |
 
-**25** de **31** funcionalidade(s) prontas para desenvolvimento.
+**25** de **32** funcionalidade(s) prontas para desenvolvimento.
 <!-- GATES:FIM -->
 
 ## Pendências de especificação

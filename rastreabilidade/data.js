@@ -1,5 +1,5 @@
 /* GERADO por scripts/build-trace-data.mjs — não editar à mão.
-   Fonte: artefatos .md da instância (54 nós, 84 arestas). */
+   Fonte: artefatos .md da instância (56 nós, 86 arestas). */
 window.TRACE_DATA = {
   "meta": {
     "system": "Loja ACME",
@@ -66,8 +66,8 @@ window.TRACE_DATA = {
       "label": "Produtos",
       "sub": "Agrupamento Funcional · CAT-PRD",
       "domain": "CAT",
-      "desc": "Cadastro dos produtos à venda; é o exercício STRY0013150 da mentoria",
-      "path": "modules/catalogo/README.md"
+      "desc": "Reúne as operações de manutenção dos produtos à venda: pesquisar, cadastrar, editar, inativar e visualizar um produto. Permite ao gestor de catálogo manter n…",
+      "path": "modules/catalogo/produtos/README.md"
     },
     {
       "id": "VND",
@@ -296,6 +296,17 @@ window.TRACE_DATA = {
       "path": "modules/catalogo/categorias/f-visualizar-categoria.md"
     },
     {
+      "id": "CAT-PRD-02",
+      "type": "feature",
+      "label": "Cadastrar Produto",
+      "status": "spec",
+      "pf": null,
+      "sub": "Funcionalidade · CAT-PRD-02",
+      "domain": "CAT",
+      "desc": "Permite que o gestor de catálogo cadastre um produto com nome único, preço, quantidade em estoque e categoria, além de uma descrição opcional, que passa a ex…",
+      "path": "modules/catalogo/produtos/f-cadastrar-produto.md"
+    },
+    {
       "id": "VND-CAR-01",
       "type": "feature",
       "label": "Adicionar Item ao Carrinho",
@@ -478,6 +489,14 @@ window.TRACE_DATA = {
       "sub": "AIMM · STRY0013101",
       "desc": "Como cliente, quero informar o CEP no checkout e ver o valor do frete, para saber quanto vou pagar pela entrega antes de fechar o pedido.",
       "path": "analise-impacto/AIMM-STRY0013101.md"
+    },
+    {
+      "id": "STRY0013150",
+      "type": "aim",
+      "label": "Cadastro de produtos",
+      "sub": "AIMM · STRY0013150",
+      "desc": "A equipe de vendas precisa manter o catálogo de produtos no próprio site: cadastrar, consultar, editar e retirar de venda os produtos, com nome, preço e quan…",
+      "path": "analise-impacto/AIMM-STRY0013150.md"
     },
     {
       "id": "STRY0013170",
@@ -822,6 +841,17 @@ window.TRACE_DATA = {
       "to": "CAT-CTG-05",
       "kind": "origina",
       "note": "`CA-5` — categoria superior e subcategorias na consulta (AIMM em análise, sem av"
+    },
+    {
+      "from": "CAT-PRD",
+      "to": "CAT-PRD-02",
+      "kind": "contem"
+    },
+    {
+      "from": "STRY0013150",
+      "to": "CAT-PRD-02",
+      "kind": "origina",
+      "note": "`CA-1, CA-2` — cadastro com nome, preço e quantidade em estoque obrigatórios e n"
     },
     {
       "from": "VND-CAR",
