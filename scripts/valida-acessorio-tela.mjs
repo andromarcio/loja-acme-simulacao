@@ -6,8 +6,8 @@
 // DA TELA: contam-se junto com o PE principal da funcionalidade cuja `## Superfície` é *Tela
 // própria*. Uma funcionalidade de *Ação em tela* (botão, formulário ou painel aberto sobre a
 // tela de outra funcionalidade) não carrega acessório — a combo que o formulário dela usa é da
-// tela, e vai para a funcionalidade dona da tela (SIZING.md → *Regra da lista consultada*,
-// "registrada na funcionalidade dona da tela"). Caso que motivou a checagem (2026-09-23):
+// tela, e vai para a funcionalidade dona da tela (regra da lista consultada: "registrada na
+// funcionalidade dona da tela"). Caso que motivou a checagem (2026-09-23):
 // `SDC-SOL-10`, ação sobre a vitrine de `SDC-VIT-01`, carregava as combos de UO e CR da
 // vitrine — e a duplicidade dessas combos em `SDC-VIT-03` apontava para a funcionalidade errada.
 //
@@ -30,8 +30,8 @@
 //     formulário de edição preenchido (decisão do PO, 2026-09-23); fora do Editar é ERRO,
 //     com o Editar da pasta como candidato; sem Editar na pasta, vale a regra da tela.
 //
-// Cada PE conta UMA vez na aplicação (decisão do PO, 2026-09-27; SIZING.md → *PE
-// reutilizado*): a mesma lista em duas telas é um PE só. A funcionalidade que usa um PE contado
+// Cada PE conta UMA vez na aplicação (decisão do PO, 2026-09-27; *PE reutilizado*):
+// a mesma lista em duas telas é um PE só. A funcionalidade que usa um PE contado
 // noutra grava a linha com `↪ [ID](caminho do N3)` na coluna Tipo, e esta checagem confere:
 //   - o mesmo PE contado em duas funcionalidades é ERRO — o nome decide, sem o componente entre
 //     parênteses (combo e autocomplete da mesma lista são o mesmo PE); mesmo rótulo com
@@ -157,7 +157,7 @@ if (CONSULTA) {
   if (!onde.length) console.log(`"${CONSULTA}" não é contado em nenhuma funcionalidade — conte-o na funcionalidade dona da tela.`);
   for (const o of onde) console.log(`"${o.nome}" é contado em ${o.id} (${o.tipo}, ${o.pf} PF) · ${todos.get(o.id).arquivo}`);
   if (quem.length) console.log(`reutilizado por: ${quem.map((r) => `${r.id} (↪ ${r.alvo})`).join(' · ')}`);
-  if (onde.length) console.log('Não conte de novo: na funcionalidade nova, a linha leva o nome do PE e, na coluna Tipo, `↪ [<ID>](<caminho do N3 acima, relativo à funcionalidade nova>)` (SIZING.md → PE reutilizado).');
+  if (onde.length) console.log('Não conte de novo: na funcionalidade nova, a linha leva o nome do PE e, na coluna Tipo, `↪ [<ID>](<caminho do N3 acima, relativo à funcionalidade nova>)`.');
   process.exit(0);
 }
 
@@ -277,7 +277,7 @@ const naTela = erros.length - unicidade.length - referencias.length;
 if (naTela) {
   console.error(`\n✗ ${naTela} acessório(s) fora da funcionalidade dona da tela:`);
   for (const e of erros.slice(0, naTela)) console.error(`  - ${e}`);
-  console.error('\nMova o PE para a funcionalidade dona da tela — a consulta implícita, para o Editar — (N3 + memória de cálculo); ver SIZING.md → Regra da lista consultada e Regra da consulta implícita.');
+  console.error('\nMova o PE para a funcionalidade dona da tela — a consulta implícita, para o Editar — (N3 + memória de cálculo).');
 }
 if (unicidade.length) {
   console.error(`\n✗ ${unicidade.length} PE contado(s) mais de uma vez na aplicação:`);
@@ -287,5 +287,4 @@ if (referencias.length) {
   console.error(`\n✗ ${referencias.length} referência(s) ↪ que não acham o PE contado ou não levam a ele:`);
   for (const e of referencias) console.error(`  - ${e}`);
 }
-if (unicidade.length || referencias.length) console.error('\nVer SIZING.md → PE reutilizado.');
 process.exit(1);

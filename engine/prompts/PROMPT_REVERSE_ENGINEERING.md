@@ -262,8 +262,8 @@ Com base nas rotas, controllers e serviços, identifique as funcionalidades.
 (§ Definição) — não a rota: uma funcionalidade costuma usar mais de uma rota (a que grava e as
 que carregam o formulário), e rota só vira funcionalidade se a ação que ela serve passa nos
 testes. A rota que só alimenta uma lista de seleção (combo, autocomplete) não é funcionalidade:
-é a lista consultada da funcionalidade **dona da tela** (`global/SIZING.md` → *Regra da lista
-consultada*) e aparece no N3 dela como campo `seleção → [Entidade]`. Nome da funcionalidade:
+é a lista consultada da funcionalidade **dona da tela** (a *regra da lista consultada*) e
+aparece no N3 dela como campo `seleção → [Entidade]`. Nome da funcionalidade:
 verbo de negócio no infinitivo + entidade (*cadastrar cliente*), nunca o verbo HTTP.
 
 ```

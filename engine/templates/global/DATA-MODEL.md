@@ -138,11 +138,11 @@ Os campos de seleção dos N3 referenciam entidades deste modelo pelo nome de ne
 > Registro central de ALIs e AIEs do sistema.
 > Mantido via atualização dos fragmentos `global/data-models/[dominio].md`.
 <!-- perfil:requisitos -->
-> O Docqui não faz a contagem: as funções de dados são dimensionadas pelo agente de contagem, fora do Docqui, conforme `global/SIZING.md`, que registra os resultados nas tabelas abaixo.
+> O Docqui não faz a contagem: as funções de dados são dimensionadas pelo agente de contagem, fora do Docqui, que registra os resultados nas tabelas abaixo.
 <!-- /perfil:requisitos -->
 <!-- perfil:completo -->
-> A contagem de DER **exclui** os campos globais técnicos (createdAt, updatedAt, deletedAt) e conta o `id` como **1 DER por ALI**, não por tabela — ver `global/SIZING.md`.
-> **RLR** (Registro Lógico Referenciado = IFPUG RET) e **DER** (Dado Elementar Referenciado = IFPUG DET) determinam a complexidade — ver `global/SIZING.md`.
+> A contagem de DER **exclui** os campos globais técnicos (createdAt, updatedAt, deletedAt) e conta o `id` como **1 DER por ALI**, não por tabela.
+> **RLR** (Registro Lógico Referenciado = IFPUG RET) e **DER** (Dado Elementar Referenciado = IFPUG DET) determinam a complexidade.
 <!-- /perfil:completo -->
 
 ### ALIs — Arquivos Lógicos Internos
@@ -152,10 +152,10 @@ Os campos de seleção dos N3 referenciam entidades deste modelo pelo nome de ne
 | [Nome] | [Domínio] | [Entidade] | 1 | [N] | a definir ⚠️ | a definir | [AAAA-MM-DD] |
 
 <!-- perfil:requisitos -->
-**Total ALIs: a definir** *(dimensionado pelo agente de contagem, fora do Docqui / SIZING.md)*
+**Total ALIs: a definir** *(dimensionado pelo agente de contagem, fora do Docqui)*
 <!-- /perfil:requisitos -->
 <!-- perfil:completo -->
-**Total ALIs: a definir** *(dimensionado pelo agente de contagem, fora do Docqui / SIZING.md)*
+**Total ALIs: a definir** *(dimensionado pelo agente de contagem, fora do Docqui)*
 <!-- /perfil:completo -->
 
 ### AIEs — Arquivos de Interface Externa

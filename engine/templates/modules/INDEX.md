@@ -27,7 +27,7 @@
     regenera a seção Esteira de checkpoints); nunca se escreve adiantado. Vale o mesmo
     na ## Funcionalidades da AIMM do ticket: o audit compara as duas.
   PF: preenchido pelo agente de contagem, fora do Docqui, a partir da ## Métricas de
-    tamanho do N3 — os prompts do Docqui não contam. Ver critérios em global/SIZING.md.
+    tamanho do N3 — os prompts do Docqui não contam.
   Contagem: status de contagem APF da funcionalidade — espelha `contagem.pendente` do
     front-matter do N3 (INDEPENDENTE dos gates/Status). ✅ = contada (revisão de PF
     feita para a última alteração do changelog, mesmo Δ PF = 0) · 📋 = pendente
@@ -44,7 +44,7 @@
     trace-verified). O ⚠️ gravado por ele é tolerado pelo audit até a reverificação.
 -->
 
-**Total vigente: — PF · — CFP** *(dimensionamento pendente — o agente de contagem, fora do Docqui, registra o total depois da revisão; critérios em `global/SIZING.md`)*
+**Total vigente: — PF · — CFP** *(dimensionamento pendente — o agente de contagem, fora do Docqui, registra o total depois da revisão)*
 
 ---
 

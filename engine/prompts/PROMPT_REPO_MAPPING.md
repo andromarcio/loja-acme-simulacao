@@ -126,7 +126,7 @@ duas vezes. O serviço entra pelo inventário e pela coluna Repositório da
 observabilidade, bibliotecas internas — são apoio: entram no inventário (Tipo
 `técnico`) e nos globais (`PATTERNS`, `NFR`, `API-PATTERNS`), não viram funcionalidade.
 Chamada entre serviços da mesma sigla é interna à fronteira: não é AIE nem transação a
-mais na contagem (`SIZING.md`); AIE é dado de **outra sigla**.
+mais na contagem; AIE é dado de **outra sigla**.
 
 **Pergunta 3 — Repositório de frontend**
 > "Existe um repositório de frontend? Se sim, ele serve todas as funcionalidades

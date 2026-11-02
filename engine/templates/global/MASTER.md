@@ -374,7 +374,6 @@ Entidades e campos são nomeados em **português**. A nomenclatura de campos seg
 <!-- perfil:completo -->
 | `global/DATA-MODEL.md` | Índice de entidades + campos globais + enums |
 <!-- /perfil:completo -->
-| `global/SIZING.md` | Convenções de contagem APF e COSMIC, aplicadas pelo agente de contagem, fora do Docqui |
 | `global/RULES-DICTIONARY.md` | Regras de negócio canônicas |
 | `global/FIELD-DICTIONARY.md` | Campos canônicos (CPF, CEP, e-mail…) |
 | `global/MESSAGE-DICTIONARY.md` | Mensagens de UI genéricas + baseline de validação |
@@ -387,7 +386,6 @@ Entidades e campos são nomeados em **português**. A nomenclatura de campos seg
 <!-- perfil:completo -->
 | `global/PATTERNS.md` | Catálogo de padrões de projeto (design patterns) — como o sistema é construído no nível tático; consumido pelo `PROMPT_SDD` |
 <!-- /perfil:completo -->
-| `global/VOCABULARY-OVERRIDES.md` | *(opcional)* Ajustes de vocabulário desta instância (verbos/termos — ver DEFINICAO-FUNCIONALIDADE) |
 <!-- perfil:requisitos -->
 | `global/gates-config.yml` | *(opcional)* Papéis dos checkpoints CP1–CP2 desta instância (ver `scripts/gates.py`) |
 <!-- /perfil:requisitos -->

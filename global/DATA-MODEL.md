@@ -53,7 +53,7 @@ Os campos de seleção dos N3 referenciam entidades deste modelo pelo nome de ne
 
 > Registro central de ALIs e AIEs do sistema.
 > Mantido via atualização dos fragmentos `global/data-models/[dominio].md`.
-> O Docqui não faz a contagem: as funções de dados são dimensionadas pelo agente de contagem, fora do Docqui, conforme `global/SIZING.md`, que registra os resultados nas tabelas abaixo.
+> O Docqui não faz a contagem: as funções de dados são dimensionadas pelo agente de contagem, fora do Docqui, que registra os resultados nas tabelas abaixo.
 
 ### ALIs — Arquivos Lógicos Internos
 
@@ -61,7 +61,7 @@ Os campos de seleção dos N3 referenciam entidades deste modelo pelo nome de ne
 |---|---|---|---|---|---|---|---|
 | [Nome] | [Domínio] | [Entidade] | 1 | [N] | a definir ⚠️ | a definir | [AAAA-MM-DD] |
 
-**Total ALIs: a definir** *(dimensionado pelo agente de contagem, fora do Docqui / SIZING.md)*
+**Total ALIs: a definir** *(dimensionado pelo agente de contagem, fora do Docqui)*
 
 ### AIEs — Arquivos de Interface Externa
 

@@ -433,10 +433,10 @@ Feature: [Nome da funcionalidade em linguagem natural]
   Preenchida pelo agente de contagem, fora do Docqui, depois da aprovação do N3 e antes do
   início do desenvolvimento. Os prompts do Docqui não contam: deixam a seção como está.
   Revisão: Tech Lead do domínio.
-  Critérios de contagem: ver global/SIZING.md
+  Critérios de contagem: os do agente de contagem, fora do Docqui.
 
   IMPORTANTE — Arquitetura BFF (Java + Angular):
-  A unidade de contagem é a FUNCIONALIDADE (N3) inteira, não o endpoint (ver global/SIZING.md).
+  A unidade de contagem é a FUNCIONALIDADE (N3) inteira, não o endpoint.
   O front e o BFF são camadas internas da mesma funcionalidade: ter o backend em BFF interno
   NÃO é, por si só, motivo para não contar. A funcionalidade conta se satisfaz os critérios de
   processo elementar (PE) e se classifica como EE/SE/CE.
@@ -449,9 +449,9 @@ Feature: [Nome da funcionalidade em linguagem natural]
 | [Nome da Funcionalidade] | principal | [EE / SE / CE] | [N] | [N] | Baixa / Média / Alta | [3/4/5/6/7] | [AAAA-MM-DD] |
 | [Consultar Rótulo do campo (combo)] | acessório | [CE / SE] | [N] | [N] | Baixa / Média / Alta | [3/4] | [AAAA-MM-DD] |
 
-> **Papel** = o que o PE é **em relação à funcionalidade**: `principal` realiza a funcionalidade (mesma intenção e objeto do nome dela, inclusive as variantes por canal, por tipo e por completude); `acessório` a funcionalidade só hospeda ou consome (lista consultada, consulta implícita, exportação, ação vizinha que é principal de outra funcionalidade). Toda funcionalidade contada tem ao menos um `principal`; a linha `↪` e a ainda não medida levam `—`. Não muda o PF — diz o que a análise de impacto mede por padrão (os principais). Regras em `global/SIZING.md` → *Papel do PE em relação à funcionalidade*.
+> **Papel** = o que o PE é **em relação à funcionalidade**: `principal` realiza a funcionalidade (mesma intenção e objeto do nome dela, inclusive as variantes por canal, por tipo e por completude); `acessório` a funcionalidade só hospeda ou consome (lista consultada, consulta implícita, exportação, ação vizinha que é principal de outra funcionalidade). Toda funcionalidade contada tem ao menos um `principal`; a linha `↪` e a ainda não medida levam `—`. Não muda o PF — diz o que a análise de impacto mede por padrão (os principais).
 
-> **ALR** = nº de ALIs/AIEs lidos ou mantidos pela transação, apurado nas quatro fontes do `global/SIZING.md` · **DER** = campos distintos que cruzam a fronteira (entrada ∪ saída, uma vez cada) **+1** capacidade de mensagens **+1** ação que dispara. O par ALR × DER define a complexidade pela tabela da EE ou pela da SE/CE do `global/SIZING.md`. · **Data** = quando a linha foi contada/atualizada (ISO `AAAA-MM-DD`); linha inalterada numa recontagem mantém a data anterior. · **PF 0** = funcionalidade que não é processo elementar, ou PE descartado: a linha fica, com `—` em Tipo, ALR, DER e Complexidade, e a memória diz por quê — é esse porquê que a planilha de entrega mostra na linha, para o PO ver que a funcionalidade foi impactada e não contada. · **PE reutilizado** = PE já contado noutra funcionalidade (cada PE conta uma vez na aplicação): a linha leva o nome dele, `↪ [ID](caminho do N3)` no Tipo e `—` em ALR, DER, Complexidade e PF, sem memória — ver `global/SIZING.md` → *PE reutilizado*. Antes de contar, confira: `node scripts/valida-acessorio-tela.mjs --pe "<nome do PE>"`.
+> **ALR** = nº de ALIs/AIEs lidos ou mantidos pela transação, apurado nas quatro fontes listadas abaixo do bloco · **DER** = campos distintos que cruzam a fronteira (entrada ∪ saída, uma vez cada) **+1** capacidade de mensagens **+1** ação que dispara. O par ALR × DER define a complexidade pela tabela da EE ou pela da SE/CE da APF (IFPUG CPM 4.3.1). · **Data** = quando a linha foi contada/atualizada (ISO `AAAA-MM-DD`); linha inalterada numa recontagem mantém a data anterior. · **PF 0** = funcionalidade que não é processo elementar, ou PE descartado: a linha fica, com `—` em Tipo, ALR, DER e Complexidade, e a memória diz por quê — é esse porquê que a planilha de entrega mostra na linha, para o PO ver que a funcionalidade foi impactada e não contada. · **PE reutilizado** = PE já contado noutra funcionalidade (cada PE conta uma vez na aplicação): a linha leva o nome dele, `↪ [ID](caminho do N3)` no Tipo e `—` em ALR, DER, Complexidade e PF, sem memória. Antes de contar, confira: `node scripts/valida-acessorio-tela.mjs --pe "<nome do PE>"`.
 
 ### Memória de cálculo
 
@@ -467,7 +467,7 @@ Feature: [Nome da funcionalidade em linguagem natural]
   0 PF, o bloco é `{"pe": …, "motivo": "por que não conta"}`. O porquê de cada leitura
   fica em prosa, abaixo do bloco. Conferência: node scripts/valida-enumeracao-contagem.mjs
   (gate F8 do spec-guard, ao gravar).
-  O ALR sai das quatro fontes do SIZING — a coluna `Entidade` de `## Campos` (entidades
+  O ALR sai de quatro fontes — a coluna `Entidade` de `## Campos` (entidades
   distintas), as entidades-fonte de `## Derivações`, a seção `## Dados lidos e gravados` e
   a varredura de `## Regras de negócio` e `## Campos automáticos`; a memória só torna essa
   leitura explícita.

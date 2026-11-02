@@ -162,8 +162,8 @@ Para cada ponto com impacto, formule uma pergunta de esclarecimento —
   cenário (`node scripts/valida-regras-cenarios.mjs <N3>`).
 - **Comportamento de tela**: a UI precisará de mudanças?
 - **Lista ou funcionalidade compartilhada**: se a mudança toca um PE que esta funcionalidade
-  reutiliza — linha com `↪ [ID](…)` na `## Métricas de tamanho` (`SIZING.md` → *PE
-  reutilizado*) —, ela vale para toda tela que o usa. Pergunte se é isso: sendo, a
+  reutiliza — linha com `↪ [ID](…)` na `## Métricas de tamanho`, o *PE reutilizado* —,
+  ela vale para toda tela que o usa. Pergunte se é isso: sendo, a
   alteração vai para o PE onde ele conta — o ticket entra também na `## Origem` e no
   Changelog da funcionalidade `ID`, com a contagem pendente — e as outras funcionalidades que o
   reutilizam entram na AIMM como regressão (`node scripts/generate-impact-draft.mjs`
