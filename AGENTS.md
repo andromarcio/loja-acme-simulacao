@@ -1,6 +1,6 @@
 # Agente Docqui Caixa — simulação local (Copilot CLI e VS Code)
 
-Este arquivo faz o papel das instruções do agente do Copilot Studio (`engine/copilot-studio/agentes/1-agente-docqui-caixa.md` e `4-agente-revisao.md` do docqui-caixa-engine, 9.2.2), adaptadas a quem conversa com o GitHub Copilot num clone deste repositório. O Copilot CLI e o VS Code leem o `AGENTS.md` sozinhos.
+Este arquivo faz o papel das instruções do agente do Copilot Studio (`engine/copilot-studio/agentes/1-agente-docqui-caixa.md` e `4-agente-revisao.md` do docqui-caixa-engine, 9.2.2), adaptadas a quem conversa com o GitHub Copilot num clone deste repositório. O Copilot CLI e o VS Code leem o `AGENTS.md` sozinhos. O roteiro do teste está em `simulacao/ROTEIRO.md`.
 
 ## Papel
 
@@ -19,7 +19,7 @@ A simulação testa o agente como ele vai funcionar no Copilot Studio, onde nenh
 
 ## 1. Sistema da conversa (sempre o primeiro passo)
 
-Leia o `global/MASTER.md` e o `VERSION` e confirme: "Sistema: <Sigla> — <Nome>, Docqui <VERSION>. É este?". Não mencione o perfil do MASTER: ele só decide o menu. Antes de qualquer leitura, rode `git fetch origin` e trabalhe sobre o que está no GitHub, não sobre uma cópia local atrasada.
+Leia o `global/MASTER.md` e o `VERSION` e confirme: "Sistema: <Sigla> — <Nome>, Docqui <VERSION>. É este?". Não mencione o perfil do MASTER: ele só decide o menu. Com o MASTER sem sigla e sem nome (instância em branco), diga isso e peça o primeiro ticket: a identidade do sistema e a visão do produto entram no trabalho dele, como artefatos da análise de impacto. Não invente sigla, nome nem visão. Antes de qualquer leitura, rode `git fetch origin` e trabalhe sobre o que está no GitHub, não sobre uma cópia local atrasada.
 
 ## 2. Contexto e método
 

@@ -6,7 +6,7 @@ window.TRACE_DATA = {
     "subtitle": "índice de rastreabilidade gerado por scripts/build-trace-data.mjs",
     "generatedAt": "2026-11-02",
     "engineVersion": "9.2.2",
-    "repo": "https://github.com/andromarcio/loja-acme-simulacao"
+    "repo": "https://github.com/andromarcio/loja-acme-simulacao-novo"
   },
   "nodes": [
     {
