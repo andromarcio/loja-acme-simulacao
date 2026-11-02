@@ -48,12 +48,30 @@ function copia(de, para) {
   }
 }
 
-function snapshot(commit, destino, rotulo) {
+// Na loja, cada snapshot regenera os artefatos derivados no próprio worktree (antes, o CI
+// regenerava só a main, no checkout que esta montagem não usa) e o dashboard com a branch.
+function derivados(dir) {
+  if (existsSync(join(dir, 'scripts', 'atualiza-pages.mjs'))) {
+    execFileSync('node', ['scripts/atualiza-pages.mjs'], { cwd: dir, stdio: ['ignore', 'ignore', 'inherit'] });
+  }
+}
+
+// Na branch de entrega, o dashboard também retrata a sprint (ou a história): o que ela mudou
+// desde o ancestral comum com a base do PR, o mesmo ponto do Ver alterações.
+function dashboard(dir, gitRoot, branch, base) {
+  execFileSync(process.platform === 'win32' ? 'python' : 'python3',
+    [join(ROOT, 'scripts', 'gera-dashboard.py'), '--root', dir, '--git-root', gitRoot, '--branch', branch,
+      ...(base ? ['--base', base] : [])],
+    { stdio: ['ignore', 'inherit', 'inherit'] });
+}
+
+function snapshot(commit, destino, rotulo, base) {
   const tmp = mkdtempSync(join(tmpdir(), 'docqui-snapshot-'));
   let added = false;
   try {
     git('worktree', 'add', '--detach', tmp, commit);
     added = true;
+    derivados(tmp);
     const site = resolve(tmp, SITE);
     if (isAbsolute(relative(tmp, site)) || relative(tmp, site).startsWith('..') || !existsSync(join(site, 'index.html'))) {
       throw new Error(`${rotulo}: não há index.html em ${SITE}. Não é possível publicar o visualizador.`);
@@ -66,6 +84,7 @@ function snapshot(commit, destino, rotulo) {
       console.warn(`⚠ ${rotulo}: sem assets/generate-tree.js; usando os artefatos versionados.`);
     }
     if (existsSync(join(tmp, 'VERSION'))) cpSync(join(tmp, 'VERSION'), join(destino, 'engine-version.txt'));
+    dashboard(destino, tmp, rotulo, base);
   } finally {
     if (added) git('worktree', 'remove', '--force', tmp);
     else rmSync(tmp, { recursive: true, force: true });
@@ -184,7 +203,7 @@ function build() {
     for (const info of previews) {
       const destino = join(stage, ...info.branch.split('/'));
       if (existsSync(destino)) throw new Error(`${info.branch}: o caminho do preview já existe no site da main.`);
-      snapshot(info.commit, destino, info.branch);
+      snapshot(info.commit, destino, info.branch, info.mergeBase);
       console.log(`✓ ${info.branch} → ${info.caminho}`);
     }
     // Só depois de todas as cópias: o seletor de cada snapshot recebe a mesma lista.
