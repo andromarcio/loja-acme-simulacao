@@ -12,9 +12,9 @@
 > Não renomeie esses títulos de seção nem mude o formato das tabelas
 > (primeira coluna = termo).
 >
-> 🔧 **Ajuste por instância**: o vocabulário pode ser estendido/relaxado **sem editar
-> este arquivo** via `global/VOCABULARY-OVERRIDES.md` da instância — ver a seção
-> *Como estender o vocabulário → Overrides por instância*.
+> 🔧 **Fonte única**: não há vocabulário por instância. Verbo ou termo novo entra nas
+> tabelas deste arquivo e passa a valer para todas as instâncias no próximo sync — ver a
+> seção *Como estender o vocabulário*.
 
 ---
 
@@ -110,7 +110,7 @@ e rodam mesmo quando a Descrição reprova no FD-8.
 | Uma **diferença de permissão** ("só o gestor pode aprovar") | permissão é atributo de quem executa, não uma ação nova | matriz `## Permissões por perfil` do N2 |
 | Um **passo de interação de tela** ("abrir modal", "alternar aba", "preencher campo") | não altera estado nem recupera dados de negócio | `## Comportamento de tela` do N3 da funcionalidade a que o passo serve |
 | Um **modal que é subformulário** de outro formulário ("incluir item" num modal que só grava junto com o pedido) | não tem "pronto" próprio: os dados só são gravados com o registro-pai (teste 5) | `## Comportamento de tela` e `## Campos` da funcionalidade do pai. O modal com conteúdo próprio — detalhe de um registro, consulta, formulário que não é subformulário de outro — **é** N3, com a Superfície **Modal** *(decisão do PO, 2026-09-27)* |
-| Uma **exportação em outro formato** da mesma saída ("Exportar relatório em PDF/Excel") | formato diferente não quebra a lógica de processamento — é a mesma funcionalidade noutro invólucro (`SIZING.md` §9: conta **1×** na APF) | ação em tela no `## Comportamento de tela` do relatório. **Exceção**: exportação com lógica/dados próprios (colunas, agregações ou cálculos que a tela não faz) é funcionalidade/PE distinto |
+| Uma **exportação em outro formato** da mesma saída ("Exportar relatório em PDF/Excel") | formato diferente não quebra a lógica de processamento — é a mesma funcionalidade noutro invólucro (conta **1×** na APF) | ação em tela no `## Comportamento de tela` do relatório. **Exceção**: exportação com lógica/dados próprios (colunas, agregações ou cálculos que a tela não faz) é funcionalidade/PE distinto |
 
 ## Granularidade e contagem são decisões independentes
 
@@ -503,26 +503,10 @@ sem nomear é omissão, não DRY.
   bloqueados com o encaminhamento correto.
 - Mudanças aqui são mudanças de **contrato do framework**: registre no `CHANGELOG.md`.
 
-### Overrides por instância (sem editar o engine)
-
-Um termo não é técnico ou negocial *por natureza* — depende do produto (Regra 10 da
-skill): `cache` vaza camada técnica num CRM, mas é a **entidade central** de um
-pipeline de ML (*target cache*); `dashboard` é componente de tela num ERP, mas pode
-ser o produto de uma ferramenta de BI. Para esses casos a instância mantém um
-`global/VOCABULARY-OVERRIDES.md` (modelo em `engine/templates/global/`), lido
-automaticamente pelo `valida-semantica-funcionalidade.mjs` junto com as tabelas deste
-arquivo. Seções máquina-legíveis (primeira coluna = termo, mesmo formato daqui):
-
-| Seção do VOCABULARY-OVERRIDES.md | Efeito no gate |
-|---|---|
-| `## Verbos adicionais da instância` | o verbo entra no vocabulário canônico (FD-1 sem aviso; conta para a atomicidade FD-3) |
-| `## Termos liberados na posição do verbo` | o termo sai da tabela de bloqueados (FD-4) **nesta instância** |
-| `## Termos liberados na Descrição` | o termo sai dos proibidos da Descrição (FD-8) **nesta instância** |
-| `## Termos adicionais proibidos na Descrição` | o termo passa a reprovar a Descrição nesta instância |
-
-O override é **da instância**: não altera o contrato do framework nem as demais
-instâncias. Todo termo liberado deve trazer a justificativa na segunda coluna —
-é ela que o revisor humano confere (o gate não julga o motivo).
+Não há ajuste por instância (o `global/VOCABULARY-OVERRIDES.md` saiu na 11.0.0). Um termo
+não é técnico ou negocial *por natureza* — `dashboard` é componente de tela num ERP, mas
+pode ser o produto de uma ferramenta de BI —, e o caso se resolve aqui, nas tabelas deste
+arquivo, com a justificativa no `CHANGELOG.md`: vale para todas as instâncias.
 
 ## Verificação automática — o que o gate cobre (e o que não cobre)
 

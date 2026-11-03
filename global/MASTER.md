@@ -215,11 +215,9 @@ Entidades e atributos são nomeados em **português**. O `global/DATA-MODEL.md` 
 | `CLAUDE.md` (raiz) | Índice de contexto carregado a cada sessão no Claude Code |
 | `global/MASTER.md` | Identificação, perfil e convenções globais (este arquivo) |
 | `global/DATA-MODEL.md` | Índice de entidades e relacionamentos de negócio; funções de dados dimensionadas pelo agente de contagem, fora do Docqui |
-| `global/SIZING.md` | Convenções de contagem APF e COSMIC, aplicadas pelo agente de contagem, fora do Docqui |
 | `global/RULES-DICTIONARY.md` | Regras de negócio canônicas |
 | `global/FIELD-DICTIONARY.md` | Campos canônicos (CPF, CEP, e-mail…) |
 | `global/MESSAGE-DICTIONARY.md` | Mensagens de UI genéricas + baseline de validação |
 | `global/ERROR-DICTIONARY.md` | Fonte única de códigos de erro |
 | `global/DESIGN-SYSTEM.md` | Padrões de UI |
-| `global/VOCABULARY-OVERRIDES.md` | *(opcional)* Ajustes de vocabulário desta instância (verbos/termos — ver DEFINICAO-FUNCIONALIDADE) |
 | `global/gates-config.yml` | *(opcional)* Papéis dos checkpoints CP1–CP2 desta instância (ver `scripts/gates.py`) |

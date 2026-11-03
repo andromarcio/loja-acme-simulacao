@@ -201,7 +201,7 @@ for (const n3path of ancoras) {
     }
   }
 
-  // 8b) PE reutilizado (SIZING.md → PE reutilizado): o PE conta uma vez na aplicação.
+  // 8b) PE reutilizado: o PE conta uma vez na aplicação.
   //     (a) A âncora reutiliza um PE (`↪ [ID](…)`): se a mudança o tocar, ele é alterado e
   //         recontado onde conta — o ticket vai para a Origem e o Changelog daquela
   //         funcionalidade —, e a tela dela é re-testada.

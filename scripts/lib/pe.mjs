@@ -4,7 +4,7 @@
 // reutiliza entra como regressão). Um leitor só, para os dois não divergirem sobre o que
 // é uma referência ou sobre quando dois nomes são o mesmo PE.
 //
-// PE reutilizado (SIZING.md → *PE reutilizado*): um PE conta UMA vez na aplicação. A
+// PE reutilizado: um PE conta UMA vez na aplicação. A
 // funcionalidade que usa um PE já contado noutra grava a linha com o nome do PE contado e, na
 // coluna Tipo, `↪` + o ID da funcionalidade onde ele conta, com link para o N3 dela; ALR, DER,
 // Complexidade e PF ficam `—`. O componente entre parênteses — combo, autocomplete… — é
@@ -13,7 +13,7 @@
 // segundo declara na memória: `> Distinto de <ID> · <PE>: <o que difere>`.
 
 const ID = '[A-Z]{3}-[A-Z]{3}-\\d{2}';
-// `↪ [CRM-CTT-01](../contatos/f-pesquisar-contato.md)` é a forma que o SIZING manda gravar.
+// `↪ [CRM-CTT-01](../contatos/f-pesquisar-contato.md)` é a forma gravada no N3.
 // `↪ CRM-CTT-01` e `↪ \`CRM-CTT-01\`` também são lidas como referência — a linha não conta —,
 // mas saem com `reusoLink` nulo, e o valida-acessorio-tela as acusa (decisão do PO,
 // 2026-09-27): sem o link, quem lê a funcionalidade não chega ao PE contado.

@@ -258,7 +258,7 @@ Por que cada ALR:
 **Total: [N] PF**
 ````
 
-> **Métricas de tamanho** é preenchida pelo agente de contagem, fora do Docqui — nenhum prompt do Docqui a gera. Memória obrigatória em toda linha contada, com a enumeração no bloco ```json (listas de nomes, do tamanho do ALR e do DER — gate F8); funcionalidade que não é processo elementar fica como linha com PF 0 e `—`, e o bloco `{"pe", "motivo"}`. Ver `global/SIZING.md`.
+> **Métricas de tamanho** é preenchida pelo agente de contagem, fora do Docqui — nenhum prompt do Docqui a gera. Memória obrigatória em toda linha contada, com a enumeração no bloco ```json (listas de nomes, do tamanho do ALR e do DER — gate F8); funcionalidade que não é processo elementar fica como linha com PF 0 e `—`, e o bloco `{"pe", "motivo"}`.
 
 > **Mapeamento de cenários → spec.md** (na exportação): "Caminho feliz" + "Erros de
 > validação" viram *Acceptance Scenarios*; "Conflitos com dados existentes" + "Estados

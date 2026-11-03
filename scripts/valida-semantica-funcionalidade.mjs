@@ -9,14 +9,9 @@
 // das tabelas máquina-legíveis do DEFINICAO-FUNCIONALIDADE.md — fonte única; estender o
 // vocabulário é editar a tabela, não o código.
 //
-// OVERRIDES POR INSTÂNCIA (1.6.0): a instância pode ajustar o vocabulário sem tocar no
-// engine, via `global/VOCABULARY-OVERRIDES.md` (modelo em engine/templates/global/).
-// Um termo é "técnico" ou "de domínio" conforme o produto: `cache` vaza camada técnica
-// num CRM, mas é a entidade central de um pipeline de ML. Seções máquina-legíveis:
-//   ## Verbos adicionais da instância           → entram no vocabulário (FD-1/FD-3)
-//   ## Termos liberados na posição do verbo     → saem dos bloqueados (FD-4)
-//   ## Termos liberados na Descrição            → saem dos proibidos da Descrição (FD-8)
-//   ## Termos adicionais proibidos na Descrição → entram nos proibidos (FD-8)
+// Verbo novo entra na tabela do DEFINICAO-FUNCIONALIDADE.md e passa a valer para todas as
+// instâncias no próximo sync; não há vocabulário por instância (o VOCABULARY-OVERRIDES.md
+// saiu na 11.0.0).
 //
 // Uso:
 //   node scripts/valida-semantica-funcionalidade.mjs <modules/.../f-….md> [outro.md …]
@@ -151,9 +146,9 @@ function loadVocabulary(sampleFile) {
   return { verbs, blocked, descBlocked, togglePairs, defFile };
 }
 
-// ------------------------------------------------- overrides da instância (1.6.0)
+// ------------------------------------------------------------ raiz da instância
 // Raiz da instância = primeira pasta acima do arquivo validado que contém modules/
-// ou global/. É onde vive o global/VOCABULARY-OVERRIDES.md (se a instância tiver um).
+// ou global/. É onde vivem os data-models e os dicionários dela.
 function instanceRootOf(file) {
   let dir = dirname(resolve(file));
   for (let i = 0; i < 15; i++) {
@@ -165,7 +160,6 @@ function instanceRootOf(file) {
   return null;
 }
 
-const overridesCache = new Map(); // raiz da instância → overrides | null
 // ── FD-12: catálogo de entidades da instância (global/data-models/*.md) ──────
 // O ALR da APF sai de quatro fontes; as três primeiras são ancoradas em campo
 // (coluna `Entidade`, `## Derivações`, `Tipo: seleção → X`). A quarta é a varredura
@@ -216,31 +210,6 @@ function entRegex(nome) {
   return new RegExp('\\b' + palavras.map((w) => w + 's?').join('(?:\\s+(?:de|da|do|das|dos|e))*\\s+') + '\\b', 'i');
 }
 
-function loadOverrides(file) {
-  const root = instanceRootOf(file);
-  if (!root) return null;
-  if (overridesCache.has(root)) return overridesCache.get(root);
-  let result = null;
-  const ovFile = join(root, 'global', 'VOCABULARY-OVERRIDES.md');
-  if (existsSync(ovFile)) {
-    try {
-      const lines = readFileSync(ovFile, 'utf8').split(/\r?\n/);
-      const rows = (name) => tableFirstCells(lines, name) || [];
-      result = {
-        file: ovFile,
-        verbs: rows('Verbos adicionais da instância').map((c) => norm(c[0])).filter(Boolean),
-        unblockVerbPos: rows('Termos liberados na posição do verbo').map((c) => norm(c[0])).filter(Boolean),
-        allowDesc: rows('Termos liberados na Descrição').map((c) => norm(c[0])).filter(Boolean),
-        blockDesc: rows('Termos adicionais proibidos na Descrição')
-          .map((c) => [norm(c[0]), { tipo: c[1] || 'instancia', hint: c[2] || 'termo proibido pela instância' }])
-          .filter((r) => r[0]),
-      };
-    } catch { /* overrides ilegíveis → ignora (usa só o vocabulário do engine) */ }
-  }
-  overridesCache.set(root, result);
-  return result;
-}
-
 // ------------------------------------------- catálogo de mensagens da instância
 // Textos entre aspas dos dicionários (MESSAGE- é a fonte das mensagens de UI;
 // FIELD- e ERROR- têm precedência para textos de validação/erro que já vivem lá).
@@ -288,20 +257,6 @@ function loadMsgCatalog(file) {
   }
   msgCatalogCache.set(root, result);
   return result;
-}
-
-// Vocabulário efetivo do arquivo = tabelas do engine + overrides da instância dele.
-function effectiveVocab(base, ov) {
-  if (!ov) return base;
-  const verbs = new Set(base.verbs);
-  for (const v of ov.verbs) verbs.add(v);
-  const blocked = new Map(base.blocked);
-  for (const t of ov.unblockVerbPos) blocked.delete(t);
-  for (const v of ov.verbs) blocked.delete(v); // verbo adicionado prevalece sobre bloqueio
-  const descBlocked = new Map(base.descBlocked);
-  for (const t of ov.allowDesc) descBlocked.delete(t);
-  for (const [t, meta] of ov.blockDesc) descBlocked.set(t, meta);
-  return { ...base, verbs, blocked, descBlocked };
 }
 
 // ------------------------------------------------------------------- helpers
@@ -484,7 +439,7 @@ function validate(file, vocab) {
     } else if (!verbs.has(fileVerb)) {
       if (looksInfinitive(fileVerb)) {
         warnings.push(
-          `[FD-1] Verbo "${fileVerb}" não consta do vocabulário canônico (engine/DEFINICAO-FUNCIONALIDADE.md). Se é mesmo uma ação de negócio, adicione-o à tabela de verbos do engine (vale para todas as instâncias) ou à seção "## Verbos adicionais da instância" do global/VOCABULARY-OVERRIDES.md (vale só para esta).`,
+          `[FD-1] Verbo "${fileVerb}" não consta do vocabulário canônico (engine/DEFINICAO-FUNCIONALIDADE.md). Se é mesmo uma ação de negócio, adicione-o à tabela de verbos do engine/DEFINICAO-FUNCIONALIDADE.md: vale para todas as instâncias.`,
         );
       } else {
         errors.push(
@@ -1017,7 +972,7 @@ for (const f of files) {
   }
   let res;
   try {
-    res = validate(f, effectiveVocab(vocab, loadOverrides(f)));
+    res = validate(f, vocab);
   } catch (e) {
     console.error(`✗ ${f}: erro ao ler — ${e.message}`);
     failed++;

@@ -169,7 +169,7 @@ Telas e Permissões por perfil (de middleware/guards 💻, ou da doc 📄).
 Cada linha da tabela de Funcionalidades é uma **ação de negócio** que passa nos cinco testes
 de `engine/DEFINICAO-FUNCIONALIDADE.md` (§ Definição) — não uma rota: a funcionalidade junta as rotas
 que a servem, e a rota que só carrega uma lista de seleção é a lista consultada da
-funcionalidade dona da tela (`global/SIZING.md` → *Regra da lista consultada*), não funcionalidade
+funcionalidade dona da tela (a *regra da lista consultada*), não funcionalidade
 própria (como no PROMPT_REVERSE_ENGINEERING, Passo 4A).
 
 ### 2.4 — N3 (um por funcionalidade)

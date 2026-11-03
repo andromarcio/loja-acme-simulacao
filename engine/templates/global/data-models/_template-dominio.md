@@ -49,7 +49,7 @@
 ## Arquivos Lógicos deste domínio
 
 > DER calculado excluindo os campos globais técnicos (organizationId, createdAt, updatedAt, deletedAt); o `id` conta **1 DER por ALI**, não por tabela.
-> **RLR** (Registro Lógico Referenciado = IFPUG RET) e **DER** (Dado Elementar Referenciado = IFPUG DET) determinam a complexidade — ver `global/SIZING.md`.
+> **RLR** (Registro Lógico Referenciado = IFPUG RET) e **DER** (Dado Elementar Referenciado = IFPUG DET) determinam a complexidade.
 
 | ALI / AIE | Tipo | Entidades constituintes | RLR | DER | Complexidade | PF | Data |
 |---|---|---|---|---|---|---|---|
@@ -66,6 +66,6 @@
 - DER [Entidade 1]: [lista de campos contados] = [N]
 - DER [Entidade 2]: [lista de campos contados] = [N]
 - DER total: **[N]**
-- Complexidade: RLR [N] × DER [N] → tabela SIZING.md → **[Complexidade] → [PF] PF**
+- Complexidade: RLR [N] × DER [N] → tabela de ALI/AIE da APF → **[Complexidade] → [PF] PF**
 
 </details>
