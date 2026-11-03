@@ -12,7 +12,7 @@
 # garante QUEM aprova.
 
 # CP1 — Requisitos: N3/N2/N1 negociais → PO / Negócio
-/modules/                       @org/po-negocio
+/modules/                       @c137153_caixa
 
 # CP2 — Modelo físico de dados → DBA / Arquiteto de dados
 # (o PR que conclui o CP2 deve incluir as mudanças do DATA-MODEL para que o DBA
